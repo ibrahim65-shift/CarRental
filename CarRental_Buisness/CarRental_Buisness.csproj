@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3660AB9A-FF09-42C8-B416-A426F589BAE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarRental_Buisness</RootNamespace>
+    <AssemblyName>CarRental_Buisness</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\clsApplicationSettings.cs" />
+    <Compile Include="Helpers\clsCurrentUser.cs" />
+    <Compile Include="Helpers\clsUtil.cs" />
+    <Compile Include="Mappers\clsAttachmentMapper.cs" />
+    <Compile Include="Mappers\clsBookingStatusMapper.cs" />
+    <Compile Include="Mappers\clsCustomerMapper.cs" />
+    <Compile Include="Mappers\clsFuelTypeMapper.cs" />
+    <Compile Include="Mappers\clsInsuranceProvidersMapper.cs" />
+    <Compile Include="Mappers\clsInsuranceTypeMapper.cs" />
+    <Compile Include="Mappers\clsInvoicesMapper.cs" />
+    <Compile Include="Mappers\clsInvoicesViewMapper.cs" />
+    <Compile Include="Mappers\clsLocationMapper.cs" />
+    <Compile Include="Mappers\clsMaintenanceMapper.cs" />
+    <Compile Include="Mappers\clsMakesMapper.cs" />
+    <Compile Include="Mappers\clsModelMapper.cs" />
+    <Compile Include="Mappers\clsPaymentMethodsMapper.cs" />
+    <Compile Include="Mappers\clsPaymentStatusMapper.cs" />
+    <Compile Include="Mappers\clsPaymentTransactionsMapper.cs" />
+    <Compile Include="Mappers\clsPersonMapper.cs" />
+    <Compile Include="Mappers\clsRatePlansMapper.cs" />
+    <Compile Include="Mappers\clsRentalBookingMapper.cs" />
+    <Compile Include="Mappers\clsReturnStatusMapper.cs" />
+    <Compile Include="Mappers\clsVehicleCategoryMapper.cs" />
+    <Compile Include="Mappers\clsVehicleDamageMapper.cs" />
+    <Compile Include="Mappers\clsVehicleInsuranceMapper.cs" />
+    <Compile Include="Mappers\clsVehicleMapper.cs" />
+    <Compile Include="Mappers\clsVehicleReturnMapper.cs" />
+    <Compile Include="Mappers\clsVehicleStatusMapper.cs" />
+    <Compile Include="Models\Attachments\clsAttachmentAddNewModel.cs" />
+    <Compile Include="Models\Attachments\clsAttachmentDto.cs" />
+    <Compile Include="Models\Attachments\clsAttachmentUpdateModel.cs" />
+    <Compile Include="Models\BookingStatus\clsBookingStatusCreateUpdateModel.cs" />
+    <Compile Include="Models\BookingStatus\clsBookingStatusDto.cs" />
+    <Compile Include="Models\Customers\clsCustomerAddNewModel.cs" />
+    <Compile Include="Models\Customers\clsCustomerDto.cs" />
+    <Compile Include="Models\Customers\clsCustomerUpdateModel.cs" />
+    <Compile Include="Models\FuelTypes\clsFuelTypeDto.cs" />
+    <Compile Include="Models\FuelTypes\clsFuelTypeCreateUpdateModel.cs" />
+    <Compile Include="Models\InsuranceProviders\clsInsuranceProvidersDto.cs" />
+    <Compile Include="Models\InsuranceType\clsInsuranceTypeCreateUpdateModel.cs" />
+    <Compile Include="Models\InsuranceType\clsInsuranceTypeDto.cs" />
+    <Compile Include="Models\Invoices\clsInvoicesAddNewModel.cs" />
+    <Compile Include="Models\Invoices\clsInvoicesDto.cs" />
+    <Compile Include="Models\Invoices\clsInvoicesUpdateModel.cs" />
+    <Compile Include="Models\Invoices\clsInvoicesViewDto.cs" />
+    <Compile Include="Models\Invoices\clsUpdateLinkedInvoiceModel.cs" />
+    <Compile Include="Models\Locations\clsLocationAddNewModel.cs" />
+    <Compile Include="Models\Locations\clsLocationComboBoxDto.cs" />
+    <Compile Include="Models\Locations\clsLocationDto.cs" />
+    <Compile Include="Models\Locations\clsLocationUpdateModel.cs" />
+    <Compile Include="Models\Maintenance\clsMaintenanceAddNewModel.cs" />
+    <Compile Include="Models\Maintenance\clsMaintenanceDto.cs" />
+    <Compile Include="Models\Maintenance\clsMaintenanceUpdateModel.cs" />
+    <Compile Include="Models\PaymentMethods\clsPaymentMethodsCreateUpdateModel.cs" />
+    <Compile Include="Models\PaymentMethods\clsPaymentMethodsDto.cs" />
+    <Compile Include="Models\PaymentStatus\clsPaymentStatusCreateUpdateModel.cs" />
+    <Compile Include="Models\PaymentStatus\clsPaymentStatusDto.cs" />
+    <Compile Include="Models\PaymentTransactions\clsPaymentRefundModel.cs" />
+    <Compile Include="Models\PaymentTransactions\clsPaymentTransactionsAddNewModel.cs" />
+    <Compile Include="Models\PaymentTransactions\clsPaymentTransactionsDto.cs" />
+    <Compile Include="Models\People\clsPersonAddNewModel.cs" />
+    <Compile Include="Models\People\clsPersonDto.cs" />
+    <Compile Include="Models\People\clsPersonUpdateModel.cs" />
+    <Compile Include="Models\RatePlans\clsRatePlansCreateUpdateModel.cs" />
+    <Compile Include="Models\RatePlans\clsRatePlansDto.cs" />
+    <Compile Include="Models\RentalBooking\clsRentalBookingAddNewModel.cs" />
+    <Compile Include="Models\RentalBooking\clsRentalBookingDto.cs" />
+    <Compile Include="Models\RentalBooking\clsRentalBookingUpdateModel.cs" />
+    <Compile Include="Models\ReturnStatus\clsReturnStatusCreateUpdateModel.cs" />
+    <Compile Include="Models\ReturnStatus\clsReturnStatusDto.cs" />
+    <Compile Include="Models\VehicleCategory\clsVehicleCategoryCreateUpdateModel.cs" />
+    <Compile Include="Models\VehicleCategory\clsVehicleCategoryDto.cs" />
+    <Compile Include="Models\VehicleDamage\clsVehicleDamageAddNewModel.cs" />
+    <Compile Include="Models\VehicleDamage\clsVehicleDamageDto.cs" />
+    <Compile Include="Models\VehicleDamage\clsVehicleDamageUpdateModel.cs" />
+    <Compile Include="Models\VehicleInsurance\clsVehicleInsuranceAddNewModel.cs" />
+    <Compile Include="Models\VehicleInsurance\clsVehicleInsuranceDto.cs" />
+    <Compile Include="Models\VehicleInsurance\clsVehicleInsuranceUpdateModel.cs" />
+    <Compile Include="Models\VehicleReturn\clsUpdateInspectionModel.cs" />
+    <Compile Include="Models\VehicleReturn\clsVehicleReturnDto.cs" />
+    <Compile Include="Models\VehicleStatus\clsVehicleStatusCreateUpdateModel.cs" />
+    <Compile Include="Models\VehicleStatus\clsVehicleStatusDto.cs" />
+    <Compile Include="Models\Vehicles\clsMakesDto.cs" />
+    <Compile Include="Models\Vehicles\clsModelsDto.cs" />
+    <Compile Include="Models\Vehicles\clsVehicleAddNewModel.cs" />
+    <Compile Include="Models\Vehicles\clsVehicleDto.cs" />
+    <Compile Include="Models\Vehicles\clsVehicleUpdateModel.cs" />
+    <Compile Include="Results\clsPagedResult.cs" />
+    <Compile Include="Services\Attachments\clsAttachmentService.cs" />
+    <Compile Include="Services\Attachments\clsAttachmentValidator.cs" />
+    <Compile Include="Services\BookingStatus\clsBookingStatusService.cs" />
+    <Compile Include="Services\BookingStatus\clsBookingStatusValidator.cs" />
+    <Compile Include="Services\Customers\clsCustomerService.cs" />
+    <Compile Include="Services\Customers\clsCustomerValidator.cs" />
+    <Compile Include="Services\FuelTypes\clsFuelTypeService.cs" />
+    <Compile Include="Services\FuelTypes\clsFuelTypeValidator.cs" />
+    <Compile Include="Services\InsuranceType\clsInsuranceTypeService.cs" />
+    <Compile Include="Services\InsuranceType\clsInsuranceTypeValidator.cs" />
+    <Compile Include="Services\Invoices\clsInvoicesService.cs" />
+    <Compile Include="Services\Invoices\clsInvoicesValidator.cs" />
+    <Compile Include="Services\Locations\clsLocationService.cs" />
+    <Compile Include="Services\Locations\clsLocationValidator.cs" />
+    <Compile Include="Services\Maintenance\clsMaintenanceService.cs" />
+    <Compile Include="Services\Maintenance\clsMaintenanceValidator.cs" />
+    <Compile Include="Services\PaymentMethods\clsPaymentMethodsService.cs" />
+    <Compile Include="Services\PaymentMethods\clsPaymentMethodsValidator.cs" />
+    <Compile Include="Services\PaymentStatus\clsPaymentStatusService.cs" />
+    <Compile Include="Services\PaymentStatus\clsPaymentStatusValidator.cs" />
+    <Compile Include="Services\PaymentTransactions\clsPaymentTransactionsService.cs" />
+    <Compile Include="Services\PaymentTransactions\clsPaymentTransactionsValidator.cs" />
+    <Compile Include="Services\People\clsPersonService.cs" />
+    <Compile Include="Services\People\clsPersonValidator.cs" />
+    <Compile Include="Services\RatePlans\clsRatePlansService.cs" />
+    <Compile Include="Services\RatePlans\clsRatePlansValidator.cs" />
+    <Compile Include="Services\RentalBooking\clsRentalBookingService.cs" />
+    <Compile Include="Services\RentalBooking\clsRentalBookingValidator.cs" />
+    <Compile Include="Services\ReturnStatus\clsReturnStatusService.cs" />
+    <Compile Include="Services\ReturnStatus\clsReturnStatusValidator.cs" />
+    <Compile Include="Services\Users\Authentication\clsLoginService.cs" />
+    <Compile Include="Helpers\clsSecurity.cs" />
+    <Compile Include="Mappers\clsUserMapper.cs" />
+    <Compile Include="Models\Users\clsUserAddNewModel.cs" />
+    <Compile Include="Models\Users\clsUserDto.cs" />
+    <Compile Include="Models\Users\clsUserUpdateModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\clsServiceResult.cs" />
+    <Compile Include="Results\clsValidationError.cs" />
+    <Compile Include="Results\clsValidationResult.cs" />
+    <Compile Include="Services\Users\clsUserService.cs" />
+    <Compile Include="Services\Users\clsUserValidator.cs" />
+    <Compile Include="Services\VehicleCategory\clsVehicleCategoryService.cs" />
+    <Compile Include="Services\VehicleCategory\clsVehicleCategoryValidator.cs" />
+    <Compile Include="Services\VehicleDamage\clsVehicleDamageService.cs" />
+    <Compile Include="Services\VehicleDamage\clsVehicleDamageValidator.cs" />
+    <Compile Include="Services\VehicleInsurance\clsVehicleInsuranceService.cs" />
+    <Compile Include="Services\VehicleInsurance\clsVehicleInsuranceValidator.cs" />
+    <Compile Include="Services\VehicleReturn\clsVehicleReturnService.cs" />
+    <Compile Include="Services\VehicleReturn\clsVehicleReturnValidator.cs" />
+    <Compile Include="Services\VehicleStatus\clsVehicleStatusValidator.cs" />
+    <Compile Include="Services\VehicleStatus\clsVehicleStatusService.cs" />
+    <Compile Include="Services\Vehicles\clsVehicleService.cs" />
+    <Compile Include="Services\Vehicles\clsVehicleValidator.cs" />
+    <Compile Include="Services\WorkFlow\clsVehicleDamageWorkflowService.cs" />
+    <Compile Include="Services\WorkFlow\clsMaintenanceWorkflowService.cs" />
+    <Compile Include="Services\WorkFlow\clsRentalBookingWorkflowService.cs" />
+    <Compile Include="Services\WorkFlow\clsVehicleReturnWorkflowService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental_DataAccess\CarRental_DataAccess.csproj">
+      <Project>{e88da734-5612-4c96-902c-713299c49ac5}</Project>
+      <Name>CarRental_DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental_Entities\CarRental_Entities.csproj">
+      <Project>{87e9330e-afe9-4be4-8c5b-fe642cfb941f}</Project>
+      <Name>CarRental_Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharedClass\SharedClass.csproj">
+      <Project>{8701d303-be9f-4b0c-8f55-13bf40a88699}</Project>
+      <Name>SharedClass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
