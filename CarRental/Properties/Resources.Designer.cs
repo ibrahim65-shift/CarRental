@@ -369,7 +369,7 @@ namespace CarRental.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لاتوجد بيانات للفترة المختارة.
+        ///   Looks up a localized string similar to لاتوجد بيانات لعرضها.
         /// </summary>
         public static string EmptyReportDescription {
             get {

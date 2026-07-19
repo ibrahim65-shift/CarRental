@@ -95,7 +95,7 @@ namespace CarRental_Buisness.Services.WorkFlow
                 BaseAmount = maintenance.Cost,
                 AdditionalCharges = 0m,
                 LateFees = 0m,
-                TaxAmount = maintenance.Cost * settings.TaxRate,
+                TaxAmount = 0m,
                 DiscountAmount = 0m,
                 CurrencyCode = settings.CurrencyCode,
                 Notes = $"صيانة المركبة رقم {maintenance.VehicleID}"
@@ -110,7 +110,7 @@ namespace CarRental_Buisness.Services.WorkFlow
                 BaseAmount = maintenance.Cost,
                 AdditionalCharges = 0m,
                 LateFees = 0m,
-                TaxAmount = maintenance.Cost * settings.TaxRate,
+                TaxAmount =0m,
                 DiscountAmount = 0m,
                 CurrencyCode = settings.CurrencyCode,
                 Notes = "تم تحديث الفاتورة بعد تعديل بيانات الصيانة"

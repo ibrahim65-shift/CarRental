@@ -36,9 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbReportType = new System.Windows.Forms.ComboBox();
             this.btnGenerateReport = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelFromDate = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelToDate = new System.Windows.Forms.Label();
             this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnExportExcel = new System.Windows.Forms.Button();
@@ -47,10 +47,13 @@
             this.lblDescriptionState = new System.Windows.Forms.Label();
             this.lblTitleState = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.numericUpDownTop = new System.Windows.Forms.NumericUpDown();
+            this.labelTop = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportViewer)).BeginInit();
             this.pnlState.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTop)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -58,9 +61,11 @@
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.cbReportType);
             this.flowLayoutPanel1.Controls.Add(this.btnGenerateReport);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.labelFromDate);
+            this.flowLayoutPanel1.Controls.Add(this.labelTop);
+            this.flowLayoutPanel1.Controls.Add(this.numericUpDownTop);
             this.flowLayoutPanel1.Controls.Add(this.dtpFrom);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.labelToDate);
             this.flowLayoutPanel1.Controls.Add(this.dtpTo);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -88,7 +93,7 @@
             this.cbReportType.Items.AddRange(new object[] {
             "جميع العملاء",
             "أفضل العملاء",
-            "العملاء المتأخرون"});
+            "نشاط العملاء"});
             this.cbReportType.Location = new System.Drawing.Point(1261, 3);
             this.cbReportType.Name = "cbReportType";
             this.cbReportType.Size = new System.Drawing.Size(334, 46);
@@ -113,44 +118,44 @@
             this.btnGenerateReport.UseVisualStyleBackColor = true;
             this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
             // 
-            // label2
+            // labelFromDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Image = global::CarRental.Properties.Resources.startDate_32;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(808, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(55, 0, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 45);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "من تاريخ:    ";
+            this.labelFromDate.AutoSize = true;
+            this.labelFromDate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFromDate.Image = global::CarRental.Properties.Resources.startDate_32;
+            this.labelFromDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelFromDate.Location = new System.Drawing.Point(808, 0);
+            this.labelFromDate.Margin = new System.Windows.Forms.Padding(55, 0, 3, 0);
+            this.labelFromDate.Name = "labelFromDate";
+            this.labelFromDate.Size = new System.Drawing.Size(177, 45);
+            this.labelFromDate.TabIndex = 4;
+            this.labelFromDate.Text = "من تاريخ:    ";
             // 
             // dtpFrom
             // 
             this.dtpFrom.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFrom.Location = new System.Drawing.Point(527, 3);
+            this.dtpFrom.Location = new System.Drawing.Point(1530, 59);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(275, 45);
             this.dtpFrom.TabIndex = 1;
             // 
-            // label3
+            // labelToDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = global::CarRental.Properties.Resources.expiryDate_32;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(281, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(60, 0, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 45);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "إلى تاريخ:    ";
+            this.labelToDate.AutoSize = true;
+            this.labelToDate.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelToDate.Image = global::CarRental.Properties.Resources.expiryDate_32;
+            this.labelToDate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelToDate.Location = new System.Drawing.Point(1284, 56);
+            this.labelToDate.Margin = new System.Windows.Forms.Padding(60, 0, 3, 0);
+            this.labelToDate.Name = "labelToDate";
+            this.labelToDate.Size = new System.Drawing.Size(183, 45);
+            this.labelToDate.TabIndex = 6;
+            this.labelToDate.Text = "إلى تاريخ:    ";
             // 
             // dtpTo
             // 
             this.dtpTo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTo.Location = new System.Drawing.Point(1510, 59);
+            this.dtpTo.Location = new System.Drawing.Point(983, 59);
             this.dtpTo.Name = "dtpTo";
             this.dtpTo.Size = new System.Drawing.Size(295, 45);
             this.dtpTo.TabIndex = 5;
@@ -267,6 +272,38 @@
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
             // 
+            // numericUpDownTop
+            // 
+            this.numericUpDownTop.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownTop.Location = new System.Drawing.Point(201, 3);
+            this.numericUpDownTop.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTop.Name = "numericUpDownTop";
+            this.numericUpDownTop.Size = new System.Drawing.Size(411, 45);
+            this.numericUpDownTop.TabIndex = 8;
+            this.numericUpDownTop.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownTop.Visible = false;
+            // 
+            // labelTop
+            // 
+            this.labelTop.AutoSize = true;
+            this.labelTop.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTop.Image = global::CarRental.Properties.Resources.Name_32;
+            this.labelTop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelTop.Location = new System.Drawing.Point(618, 0);
+            this.labelTop.Name = "labelTop";
+            this.labelTop.Size = new System.Drawing.Size(184, 45);
+            this.labelTop.TabIndex = 4;
+            this.labelTop.Text = "أفضل كم:    ";
+            this.labelTop.Visible = false;
+            // 
             // ctrlCustomerReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -286,6 +323,7 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReportViewer)).EndInit();
             this.pnlState.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTop)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,9 +333,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbReportType;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelFromDate;
         private System.Windows.Forms.DateTimePicker dtpFrom;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelToDate;
         private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnExportExcel;
@@ -307,5 +345,7 @@
         private System.Windows.Forms.Label lblTitleState;
         private System.Windows.Forms.Button btnGenerateReport;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.NumericUpDown numericUpDownTop;
+        private System.Windows.Forms.Label labelTop;
     }
 }

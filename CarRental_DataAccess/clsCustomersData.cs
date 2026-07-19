@@ -360,5 +360,41 @@ namespace CarRental_DataAccess
                 return new DataTable();
             }
         }
+        public static async Task<DataTable> GetReportTopCustomersAsync(int top)
+        {
+            try
+            {
+               return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_TopCustomers",
+                   p=>p.Add("@Top", SqlDbType.Int).Value = top);
+            }
+            catch(SqlException ex)
+            {
+                clsEventLogger.LogException("clsCustomersData.GetReportTopCustomersAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch(Exception ex)
+            {
+                clsEventLogger.LogException("clsCustomersData.GetReportTopCustomersAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+        public static async Task<DataTable> GetReportCustomerActivityAsync()
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_CustomerActivity");
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsCustomersData.GetReportCustomerActivityAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsCustomersData.GetReportCustomerActivityAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+
     }
 }

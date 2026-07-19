@@ -1,15 +1,11 @@
 ﻿using CarRental.Helper;
 using CarRental_Buisness.Helpers;
-using CarRental_Buisness.Models.FuelTypes;
+using CarRental_Buisness.Results;
 using CarRental_Buisness.Services.Customers;
 using SharedClass;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,26 +13,80 @@ namespace CarRental.Reports.CustomersReports.Controls
 {
     public partial class ctrlCustomerReports : UserControl
     {
-        public static class Columns
+        enum enReportType { AllCustomers = 0, TopCustomers = 1, CustomersActivity = 2 }
+
+        private readonly Dictionary<enReportType, Dictionary<string, string>> _columnHeaders =
+            new Dictionary<enReportType, Dictionary<string, string>>
+            {
+                {
+                   enReportType.AllCustomers ,
+                   new Dictionary<string, string>
+                   {
+                       {"CustomerID","المعرف"},
+                       {"FullName","الاسم الكامل"}, 
+                       {"NationalNo","الهوية"},
+                       {"Phone","الهاتف"},
+                       {"Email","البريد"},
+                       {"CreatedDate","تاريخ الإنشاء"},
+                       {"TotalBookings","إجمالي الحجوزات"},
+                       {"TotalInvoices","إجمالي الفواتير"},
+                       {"TotalPayments","إجمالي المدفوعات"},
+                       {"TotalRefunds","إجمالي المبالغ المستردة"},
+                       {"NetPaid","صافي المدفوعات"}
+                   }
+                } ,
+                 
+            
+                {
+                   enReportType.TopCustomers ,
+                   new Dictionary<string, string>
+                   {
+                       {"CustomerID","المعرف"},
+                       {"FullName","الاسم الكامل"}, 
+                       {"NationalNo","الهوية"},
+                       {"Phone","الهاتف"},
+                       {"Email","البريد"},
+                       {"TotalBookings","إجمالي الحجوزات"},
+                       {"TotalInvoices","إجمالي الفواتير"},
+                       {"TotalPayments","إجمالي المدفوعات"},
+                       {"TotalRefunds","إجمالي المبالغ المستردة"},
+                       {"NetPaid","صافي المدفوعات"}
+                   }
+                } ,
+                 
+            
+                {
+                   enReportType.CustomersActivity ,
+                   new Dictionary<string, string>
+                   {
+                       {"CustomerID","المعرف"},
+                       {"FullName","الاسم الكامل"}, 
+                       {"NationalNo","الهوية"},
+                       {"Phone","الهاتف"},
+                       {"Email","البريد"},
+                       {"TotalBookings","إجمالي الحجوزات"},
+                       {"FirstBookingDate","أول حجز"},
+                       {"LastBookingDate","اخر حجز"},
+                       {"DaysSinceLastBooking","عدد الأيام منذ اخر حجز"},
+                       {"CustomerStatus","حالة العميل"}
+                   }
+                } 
+                 
+            
+            };
+
+        private readonly Dictionary<enReportType, string> _titles = new Dictionary<enReportType, string>
         {
-            public const string CustomerID = nameof(CustomerID);
-            public const string FullName     = nameof(FullName);
-            public const string NationalNo   = nameof(NationalNo);
-            public const string Phone        = nameof(Phone);
-            public const string Email        = nameof(Email);
-            public const string CreatedDate  = nameof(CreatedDate);
-            public const string TotalBookings= nameof(TotalBookings);
-            public const string TotalInvoices= nameof(TotalInvoices);
-            public const string TotalPayments= nameof(TotalPayments);
-            public const string TotalRefunds = nameof(TotalRefunds);
-            public const string NetPaid = nameof(NetPaid);
-        }
-        enum enReportType { allCustomers = 0, topCustomers = 1, outstandingCustomers = 2 }
+            {enReportType.AllCustomers , "تقرير جميع العملاء"}, 
+            {enReportType.TopCustomers , "تقرير أفضل العملاء"}, 
+            {enReportType.CustomersActivity , "تقرير نشاط العملاء"}
+        };
 
         private readonly clsCustomerService _customerService;
         private readonly frmMain _frmMain;
 
-        enReportType _reportType = enReportType.allCustomers;
+        private bool _isLoading = false;
+        enReportType _reportType = enReportType.AllCustomers;
         public ctrlCustomerReports(frmMain main)
         {
             InitializeComponent();
@@ -51,43 +101,83 @@ namespace CarRental.Reports.CustomersReports.Controls
         }
         private void cbReportType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dgvReportViewer.DataSource = null;
+            _ShowEmptyDataState();
+
+
             _reportType = (enReportType)cbReportType.SelectedIndex;
+
+            bool useDateFilter = _reportType == enReportType.AllCustomers;
+            bool useTop = _reportType == enReportType.TopCustomers;
+
+            labelTop.Visible = useTop;
+            numericUpDownTop.Visible = useTop;
+
+            labelFromDate.Visible = useDateFilter;
+            dtpFrom.Visible = useDateFilter;
+            labelToDate.Visible = useDateFilter;
+            dtpTo.Visible = useDateFilter;
         }
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             _ExportToExcel();
         }
 
-        // ================== METHODES ==================
+        // ================== METHODS ==================
 
         private async Task _GenerateReportAsync()
         {
-            switch(_reportType)
+            if (_isLoading)
+                return;
+
+            if(_reportType == enReportType.AllCustomers && dtpFrom.Value.Date > dtpTo.Value.Date)
             {
-                case enReportType.allCustomers:
-                    await _GetAllCustomersAsync();
-                    break;
+                clsMessages.ShowError("تاريخ البداية يجب أن يكون قبل تاريخ النهاية");
+                return;
+            }
 
-                case enReportType.topCustomers:
-                    break;
+            try
+            {
+                _isLoading = true;
+                btnGenerateReport.Enabled = false;
 
-                case enReportType.outstandingCustomers:
-    
-                    break;
+                switch (_reportType)
+                {
+                    case enReportType.AllCustomers:
+                        await _LoadReportAsync(() =>
+                            _customerService.GetReportAllCustomersAsync(dtpFrom.Value.Date, dtpTo.Value.Date));
+                        break;
 
+                    case enReportType.TopCustomers:
+                        await _LoadReportAsync(()=> _customerService.GetReportTopCustomersAsync((int)numericUpDownTop.Value));
+                        break;
 
+                    case enReportType.CustomersActivity:
+                        await _LoadReportAsync(() => _customerService.GetReportCustomerActivityAsync());
+                        break;
+
+                    default:
+                        throw new InvalidOperationException("نوع التقرير غير معروف");
+                }
+            }
+            finally
+            {
+                _isLoading = false;
+                btnGenerateReport.Enabled = true;
             }
         }
-        private async Task _GetAllCustomersAsync()
+        private async Task _LoadReportAsync(Func<Task<clsServiceResult<DataTable>>> loader)
         {
             try
             {
-                var result = await _customerService.GetReportAllCustomersAsync(dtpFrom.Value.Date, dtpTo.Value.Date);
+                var result = await loader();
                 if (!result.Success)
                 {
+                    dgvReportViewer.DataSource = null;
                     clsMessages.ShowError(result.ErrorMessage);
+                    _ShowEmptyDataState();
+                    return;
                 }
-
                 dgvReportViewer.DataSource = null;
                 dgvReportViewer.DataSource = result.Data;
                 _InitializeColumns();
@@ -95,7 +185,7 @@ namespace CarRental.Reports.CustomersReports.Controls
             }
             catch (Exception ex)
             {
-                clsEventLogger.LogException("ctrlCustomerReports._GetAllCustomersAsync", ex);
+                clsEventLogger.LogException("ctrlCustomerReports._LoadReportAsync", ex);
                 _ShowServerErrorState();
             }
         }
@@ -104,18 +194,13 @@ namespace CarRental.Reports.CustomersReports.Controls
             if (dgvReportViewer.DataSource == null || dgvReportViewer.Rows.Count == 0)
                 return;
 
-            _SetColumnHeader(Columns.CustomerID,"المعرف"                 );
-            _SetColumnHeader(Columns.FullName,"الاسم الكامل"            );
-            _SetColumnHeader(Columns.NationalNo,"الهوية"                 );
-            _SetColumnHeader(Columns.Phone,"الهاتف"                 );
-            _SetColumnHeader(Columns.Email,"البريد"                 );
-            _SetColumnHeader(Columns.CreatedDate,"تاريخ الإنشاء"           );
-            _SetColumnHeader(Columns.TotalBookings,"إجمالي الحجوزات"        );
-            _SetColumnHeader(Columns.TotalInvoices,"إجمالي الفواتير"        );
-            _SetColumnHeader(Columns.TotalPayments,"إجمالي المدفوعات"       );
-            _SetColumnHeader(Columns.TotalRefunds,"إجمالي المبالغ المستردة");
-            _SetColumnHeader(Columns.NetPaid,"صافي المدفوعات");
+            if (!_columnHeaders.TryGetValue(_reportType, out var headers))
+                return;
 
+            foreach(var item in headers)
+            {
+                _SetColumnHeader(item.Key, item.Value);
+            }
         }
         private void _SetColumnHeader(string columnName, string headerText)
         {
@@ -125,15 +210,20 @@ namespace CarRental.Reports.CustomersReports.Controls
         private void _ShowEmptyDataState()
         {
             bool isEmpty = dgvReportViewer.Rows.Count == 0;
-            lblTitleState.Text = isEmpty ? Properties.Resources.EmptyDataStateTitle : "";
-            lblDescriptionState.Text = isEmpty ? Properties.Resources.EmptyReportDescription : "";
             pnlState.Visible = isEmpty;
+
+            if (!isEmpty)
+                return;
+
+            lblTitleState.Text = Properties.Resources.EmptyDataStateTitle ;
+            lblDescriptionState.Text =  Properties.Resources.EmptyReportDescription;
+            
         }
         private void _ShowServerErrorState()
         {
+            pnlState.Visible = true;
             lblTitleState.Text = Properties.Resources.ServerErrorTitle;
             lblDescriptionState.Text = Properties.Resources.ServerErrorDescription;
-            pnlState.Visible = true;
         }
         private void _ExportToExcel()
         {
@@ -145,47 +235,41 @@ namespace CarRental.Reports.CustomersReports.Controls
                 return;
             }
 
-            var optimizedData = _CreateOptimizedExportData(data);
-            clsExcelHelper.Export(_frmMain, optimizedData, "تقرير العملاء");
+            var exportData = _CreateExportTable(data);
+            clsExcelHelper.Export(_frmMain, exportData, _titles[_reportType]);
         }
-        private DataTable _CreateOptimizedExportData(DataTable source)
+        private DataTable _CreateExportTable(DataTable source)
         {
             var exportTable = new DataTable();
 
-            exportTable.Columns.Add("المعرف"                 , typeof(int));
-            exportTable.Columns.Add("الاسم الكامل"            , typeof(string));
-            exportTable.Columns.Add("الهوية"                 , typeof(string));
-            exportTable.Columns.Add("الهاتف"                 , typeof(string));
-            exportTable.Columns.Add("البريد"                 , typeof(string));
-            exportTable.Columns.Add("تاريخ الإنشاء"           , typeof(string));
-            exportTable.Columns.Add("إجمالي الحجوزات"        , typeof(int));
-            exportTable.Columns.Add("إجمالي الفواتير"        , typeof(decimal));
-            exportTable.Columns.Add("إجمالي المدفوعات"       , typeof(decimal));
-            exportTable.Columns.Add("إجمالي المبالغ المستردة", typeof(decimal));
-            exportTable.Columns.Add("صافي المدفوعات"         , typeof(decimal));
+            var mapping = _columnHeaders[_reportType];
+
+            foreach (var column in mapping)
+            {
+                exportTable.Columns.Add(column.Value);
+            }
 
             exportTable.BeginLoadData();
 
-            foreach (DataRow row in source.Rows)
+            foreach(DataRow row in source.Rows)
             {
                 var newRow = exportTable.NewRow();
 
-                newRow["المعرف"]     = row[Columns.CustomerID];
-                newRow["الاسم الكامل"] = row[Columns.FullName];
-                newRow["الهوية"] = row[Columns.NationalNo];
-                newRow["الهاتف"] = row[Columns.Phone];
-                newRow["البريد"] = row[Columns.Email];
-                newRow["تاريخ الإنشاء"] = clsUtil.FormatDate(row[Columns.CreatedDate]);
-                newRow["إجمالي الحجوزات"] = row[Columns.TotalBookings];
-                newRow["إجمالي الفواتير"] = row[Columns.TotalInvoices];
-                newRow["إجمالي المدفوعات"] = row[Columns.TotalPayments];
-                newRow["إجمالي المبالغ المستردة"] = row[Columns.TotalRefunds];
-                newRow["صافي المدفوعات"] = row[Columns.NetPaid];
+                foreach(var item in mapping)
+                {
+                    var value = row[item.Key];
+
+                    if(value is DateTime dt)
+                        value = clsUtil.FormatDate(dt);
+
+                    newRow[item.Value] = value;
+                }
 
                 exportTable.Rows.Add(newRow);
             }
 
             exportTable.EndLoadData();
+
             return exportTable;
         }
     }

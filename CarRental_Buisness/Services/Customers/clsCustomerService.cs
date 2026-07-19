@@ -117,6 +117,22 @@ namespace CarRental_Buisness.Services.Customers
 
             return clsServiceResult<DataTable>.OK(result);
         }
+        public async Task<clsServiceResult<DataTable>> GetReportTopCustomersAsync(int top)
+        {
+            var result = await clsCustomersData.GetReportTopCustomersAsync(top);
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
+        public async Task<clsServiceResult<DataTable>> GetReportCustomerActivityAsync()
+        {
+            var result = await clsCustomersData.GetReportCustomerActivityAsync();
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات في المدة المحددة");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
     }
 
 }
