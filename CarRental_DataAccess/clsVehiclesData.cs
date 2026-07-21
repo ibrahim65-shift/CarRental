@@ -335,5 +335,69 @@ namespace CarRental_DataAccess
 
         }
 
+        // ======================= Reports =======================
+
+        public static async Task<DataTable> GetReportAllVehiclesAsync()
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_AllVehicles");
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportAllVehiclesAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportAllVehiclesAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+        public static async Task<DataTable> GetReportMostRentedVehiclesAsync(int top ,DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_MostRentedVehicles",
+                    p =>
+                    {
+                        p.Add("@Top", SqlDbType.Int).Value = top;
+                        p.Add("@FromDate", SqlDbType.Date).Value = fromDate;
+                        p.Add("@ToDate", SqlDbType.Date).Value = toDate;
+                    });
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportMostRentedVehiclesAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportMostRentedVehiclesAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+        public static async Task<DataTable> GetReportVehicleMaintenanceAsync(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_VehicleMaintenance",
+                    p =>
+                    {
+                        p.Add("@FromDate", SqlDbType.Date).Value = fromDate;
+                        p.Add("@ToDate", SqlDbType.Date).Value = toDate;
+                    });
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportVehicleMaintenanceAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsVehiclesData.GetReportVehicleMaintenanceAsync (General)", ex);
+                return new DataTable();
+            }
+        }
     }
 }

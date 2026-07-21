@@ -312,6 +312,12 @@
     <Compile Include="Reports\CustomersReports\Controls\ctrlCustomerReports.Designer.cs">
       <DependentUpon>ctrlCustomerReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.Designer.cs">
+      <DependentUpon>ctrlVehiclesReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemSettings\InsuranceTypes\Controls\ctrlInsuranceTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -532,6 +538,9 @@
     <EmbeddedResource Include="Reports\CustomersReports\Controls\ctrlCustomerReports.resx">
       <DependentUpon>ctrlCustomerReports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.resx">
+      <DependentUpon>ctrlVehiclesReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SystemSettings\InsuranceTypes\Controls\ctrlInsuranceTypes.resx">
       <DependentUpon>ctrlInsuranceTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -714,12 +723,7 @@
     <None Include="Resources\Locations-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reports\PaymentsReports\Controls\" />
-    <Folder Include="Reports\PaymentsReports\Forms\" />
     <Folder Include="Reports\RentalReports\Controls\" />
-    <Folder Include="Reports\RentalReports\Forms\" />
-    <Folder Include="Reports\VehiclesReports\Controls\" />
-    <Folder Include="Reports\VehiclesReports\Forms\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-32.png" />

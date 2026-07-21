@@ -137,5 +137,32 @@ namespace CarRental_Buisness.Services.Vehicles
             return clsServiceResult<List<clsModelsDto>>.OK(list);
         }
 
+
+        // ================ Reports ===================
+
+        public async Task<clsServiceResult<DataTable>> GetReportAllVehiclesAsync()
+        {
+            var result = await clsVehiclesData.GetReportAllVehiclesAsync();
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
+        public  async Task<clsServiceResult<DataTable>> GetReportMostRentedVehiclesAsync(int top, DateTime fromDate, DateTime toDate)
+        {
+            var result = await clsVehiclesData.GetReportMostRentedVehiclesAsync(top,fromDate,toDate);
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات في الفترة المحددة");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
+        public async Task<clsServiceResult<DataTable>> GetReportVehicleMaintenanceAsync(DateTime fromDate, DateTime toDate)
+        {
+            var result = await clsVehiclesData.GetReportVehicleMaintenanceAsync(fromDate, toDate);
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات في الفترة المحددة");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
     }
 }
