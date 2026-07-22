@@ -312,6 +312,12 @@
     <Compile Include="Reports\CustomersReports\Controls\ctrlCustomerReports.Designer.cs">
       <DependentUpon>ctrlCustomerReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RentalReports\Controls\ctrlRentalReports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reports\RentalReports\Controls\ctrlRentalReports.Designer.cs">
+      <DependentUpon>ctrlRentalReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -538,6 +544,9 @@
     <EmbeddedResource Include="Reports\CustomersReports\Controls\ctrlCustomerReports.resx">
       <DependentUpon>ctrlCustomerReports.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RentalReports\Controls\ctrlRentalReports.resx">
+      <DependentUpon>ctrlRentalReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.resx">
       <DependentUpon>ctrlVehiclesReports.cs</DependentUpon>
     </EmbeddedResource>
@@ -722,9 +731,7 @@
   <ItemGroup>
     <None Include="Resources\Locations-64.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\RentalReports\Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\add-32.png" />
   </ItemGroup>

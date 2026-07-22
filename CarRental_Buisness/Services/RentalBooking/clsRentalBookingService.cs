@@ -1,15 +1,16 @@
 ﻿using CarRental_Buisness.Mappers;
+using CarRental_Buisness.Models.Locations;
 using CarRental_Buisness.Models.RentalBooking;
 using CarRental_Buisness.Results;
 using CarRental_DataAccess;
 using CarRental_Entities;
+using SharedClass;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using SharedClass;
-using CarRental_Buisness.Models.Locations;
 
 
 namespace CarRental_Buisness.Services.RentalBooking
@@ -247,6 +248,34 @@ namespace CarRental_Buisness.Services.RentalBooking
             var list = locations.Select(clsLocationMapper.ToComboBoxDto).ToList();
 
             return clsServiceResult<List<clsLocationComboBoxDto>>.OK(list);
+        }
+
+
+        // ===================== Reports ====================
+
+        public  async Task<clsServiceResult<DataTable>> GetAllRentalsReportAsync(DateTime fromDate, DateTime toDate)
+        {
+            var result = await clsRentalBookingData.GetAllRentalsReportAsync(fromDate,toDate);
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات في الفترة المحددة");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
+        public  async Task<clsServiceResult<DataTable>> GetRentalRevenueReportAsync(DateTime fromDate, DateTime toDate)
+        {
+            var result = await clsRentalBookingData.GetRentalRevenueReportAsync(fromDate, toDate);
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات في الفترة المحددة");
+
+            return clsServiceResult<DataTable>.OK(result);
+        }
+        public  async Task<clsServiceResult<DataTable>> GetActiveRentalsReportAsync()
+        {
+            var result = await clsRentalBookingData.GetActiveRentalsReportAsync();
+            if (result == null || result.Rows.Count == 0)
+                return clsServiceResult<DataTable>.Fail("لاتوجد بيانات");
+
+            return clsServiceResult<DataTable>.OK(result);
         }
     }
 }
