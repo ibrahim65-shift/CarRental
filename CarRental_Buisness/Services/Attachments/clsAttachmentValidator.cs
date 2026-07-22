@@ -1,14 +1,6 @@
 ﻿using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Results;
-using CarRental_DataAccess;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+
 
 namespace CarRental_Buisness.Services.Attachments
 {
@@ -52,11 +44,11 @@ namespace CarRental_Buisness.Services.Attachments
 
         }
         public clsValidationResult ValidateAddNewAsync(clsAttachmentAddNewModel model
-            , ISet<string> allowedTables , bool recordExists)
+            ,string mimeType , int fileSizeKB , bool recordExists)
         {
             var list = new clsValidationResult();
 
-            CommonValidate(list, model.FileName, model.FilePath, model.MimeType , model.FileSizeKB);
+            CommonValidate(list, model.FileName, model.SourceFilePath, mimeType, fileSizeKB);
 
             if (string.IsNullOrWhiteSpace(model.RelatedTable))
             {
@@ -65,14 +57,6 @@ namespace CarRental_Buisness.Services.Attachments
             else if (model.RelatedTable.Length > 128)
             {
                 list.Add("RelatedTable", "اسم الجدول الخاص بالمرفق تجاوز الحد المسموح به");
-            }
-            else
-            {
-                
-                if(!allowedTables.Contains(model.RelatedTable))
-                {
-                    list.Add("RelatedTable", "اسم الجدول الخاص بالمرفق غير مسموح به");
-                }
             }
 
             if(!recordExists)
@@ -83,11 +67,11 @@ namespace CarRental_Buisness.Services.Attachments
 
              return list;
         }
-        public clsValidationResult ValidateUpdateAsync(clsAttachmentUpdateModel model)
+        public clsValidationResult ValidateUpdateAsync(clsAttachmentUpdateModel model, string mimeType, int? fileSizeKB)
         {
             var list = new clsValidationResult();
 
-            CommonValidate(list, model.FileName, model.FilePath, model.MimeType, model.FileSizeKB);
+            CommonValidate(list, model.FileName, model.SourceFilePath, mimeType,  fileSizeKB);
 
             return list;
         }
