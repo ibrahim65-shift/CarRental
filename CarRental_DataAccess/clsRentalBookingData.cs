@@ -343,5 +343,69 @@ namespace CarRental_DataAccess
             };
 
         }
+
+        // ======================= Reports ===============
+
+        public static async Task<DataTable> GetAllRentalsReportAsync(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_AllRentalsReport",
+                    p =>
+                    {
+                        p.Add("@FromDate", SqlDbType.Date).Value = fromDate;
+                        p.Add("@ToDate", SqlDbType.Date).Value = toDate;
+                    });
+            }
+            catch(SqlException ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetAllRentalsReportAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch(Exception ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetAllRentalsReportAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+        public static async Task<DataTable> GetRentalRevenueReportAsync(DateTime fromDate, DateTime toDate)
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_RentalRevenueReport",
+                    p =>
+                    {
+                        p.Add("@FromDate", SqlDbType.Date).Value = fromDate;
+                        p.Add("@ToDate", SqlDbType.Date).Value = toDate;
+                    });
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetRentalRevenueReportAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetRentalRevenueReportAsync (General)", ex);
+                return new DataTable();
+            }
+        }
+        public static async Task<DataTable> GetActiveRentalsReportAsync()
+        {
+            try
+            {
+                return await clsSQLHelper.ExecuteDataTableAsync("SP_Report_ActiveRentalsReport");
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetActiveRentalsReportAsync (SQL)", ex);
+                return new DataTable();
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsRentalBookingData.GetActiveRentalsReportAsync (General)", ex);
+                return new DataTable();
+            }
+        }
     }
 }

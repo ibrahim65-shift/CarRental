@@ -13,6 +13,7 @@ using CarRental.Rentals.RentalBooking.Controls;
 using CarRental.Rentals.ReturnStatus.Controls;
 using CarRental.Rentals.VehicleReturn.Controls;
 using CarRental.Reports.CustomersReports.Controls;
+using CarRental.Reports.RentalReports.Controls;
 using CarRental.Reports.VehiclesReports.Controls;
 using CarRental.SystemSettings.InsuranceTypes.Controls;
 using CarRental.SystemSettings.Locations.Controls;
@@ -153,7 +154,7 @@ namespace CarRental
 
         private void toolStripMenuItemRentalReports_Click(object sender, EventArgs e)
         {
-            clsMessages.ShowInfo("ستضاف الميزة قريبا");
+            _pageHelper.SetPage(clsPageManager.GetPage<ctrlRentalReports, frmMain>(this, r => new ctrlRentalReports(this)));
         }
 
         private void toolStripMenuItemVehiclesReports_Click(object sender, EventArgs e)
