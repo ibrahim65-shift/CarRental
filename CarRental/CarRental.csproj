@@ -90,17 +90,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customers\Attachments\Controls\ctrlAttachments.cs">
+    <Compile Include="Attachments\Controls\ctrlRelatedAttachments.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Customers\Attachments\Controls\ctrlAttachments.Designer.cs">
-      <DependentUpon>ctrlAttachments.cs</DependentUpon>
+    <Compile Include="Attachments\Controls\ctrlRelatedAttachments.Designer.cs">
+      <DependentUpon>ctrlRelatedAttachments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Customers\Attachments\Forms\frmAddEditAttachment.cs">
+    <Compile Include="Attachments\Forms\frmAddEditAttachment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customers\Attachments\Forms\frmAddEditAttachment.Designer.cs">
+    <Compile Include="Attachments\Forms\frmAddEditAttachment.Designer.cs">
       <DependentUpon>frmAddEditAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Attachments\Forms\frmRelatedAttachments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Attachments\Forms\frmRelatedAttachments.Designer.cs">
+      <DependentUpon>frmRelatedAttachments.cs</DependentUpon>
     </Compile>
     <Compile Include="Customers\CustomersList\Controls\ctrlCustomers.cs">
       <SubType>UserControl</SubType>
@@ -426,11 +432,14 @@
     <Compile Include="Vehicles\VehicleStatus\Controls\ctrlVehicleStatus.Designer.cs">
       <DependentUpon>ctrlVehicleStatus.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Customers\Attachments\Controls\ctrlAttachments.resx">
-      <DependentUpon>ctrlAttachments.cs</DependentUpon>
+    <EmbeddedResource Include="Attachments\Controls\ctrlRelatedAttachments.resx">
+      <DependentUpon>ctrlRelatedAttachments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customers\Attachments\Forms\frmAddEditAttachment.resx">
+    <EmbeddedResource Include="Attachments\Forms\frmAddEditAttachment.resx">
       <DependentUpon>frmAddEditAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Attachments\Forms\frmRelatedAttachments.resx">
+      <DependentUpon>frmRelatedAttachments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customers\CustomersList\Controls\ctrlCustomers.resx">
       <DependentUpon>ctrlCustomers.cs</DependentUpon>
@@ -731,7 +740,9 @@
   <ItemGroup>
     <None Include="Resources\Locations-64.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\attach-512.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-32.png" />
   </ItemGroup>
@@ -965,6 +976,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reportType-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attachCount-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attach-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

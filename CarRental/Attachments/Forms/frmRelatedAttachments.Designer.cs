@@ -1,6 +1,6 @@
-﻿namespace CarRental.Customers.Attachments.Forms
+﻿namespace CarRental.Attachments.Forms
 {
-    partial class frmAddEditAttachment
+    partial class frmRelatedAttachments
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,21 @@
         {
             this.SuspendLayout();
             // 
-            // frmAddEditAttachment
+            // frmRelatedAttachments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 588);
-            this.Name = "frmAddEditAttachment";
-            this.Text = "frmAddEditAttachment";
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1778, 767);
+            this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmRelatedAttachments";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "المرفقات";
             this.ResumeLayout(false);
 
         }

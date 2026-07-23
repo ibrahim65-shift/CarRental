@@ -139,7 +139,7 @@
     <Compile Include="Services\BookingStatus\clsBookingStatusValidator.cs" />
     <Compile Include="Services\Customers\clsCustomerService.cs" />
     <Compile Include="Services\Customers\clsCustomerValidator.cs" />
-    <Compile Include="Services\FileStorge\clsFileStorgeService.cs" />
+    <Compile Include="Services\FileStorge\clsFileStorageService.cs" />
     <Compile Include="Services\FuelTypes\clsFuelTypeService.cs" />
     <Compile Include="Services\FuelTypes\clsFuelTypeValidator.cs" />
     <Compile Include="Services\InsuranceType\clsInsuranceTypeService.cs" />

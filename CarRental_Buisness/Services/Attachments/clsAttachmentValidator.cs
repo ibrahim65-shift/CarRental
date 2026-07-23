@@ -1,5 +1,6 @@
 ﻿using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Results;
+using System.Collections.Generic;
 
 
 namespace CarRental_Buisness.Services.Attachments
@@ -43,7 +44,7 @@ namespace CarRental_Buisness.Services.Attachments
             }
 
         }
-        public clsValidationResult ValidateAddNewAsync(clsAttachmentAddNewModel model
+        public clsValidationResult ValidateAddNewAsync(clsAttachmentAddNewModel model , ISet<string> allowedTables
             ,string mimeType , int fileSizeKB , bool recordExists)
         {
             var list = new clsValidationResult();
@@ -57,6 +58,11 @@ namespace CarRental_Buisness.Services.Attachments
             else if (model.RelatedTable.Length > 128)
             {
                 list.Add("RelatedTable", "اسم الجدول الخاص بالمرفق تجاوز الحد المسموح به");
+            }
+            else
+            {
+                if (!allowedTables.Contains(model.RelatedTable))
+                    list.Add("RelatedTable", "اسم الجدول الخاص بالمرفق غير مسموح به");
             }
 
             if(!recordExists)

@@ -62,9 +62,10 @@ namespace CarRental_Buisness.Services.Attachments
             string mimeType = clsFileStorageService.GetMimeType(model.SourceFilePath);
             int fileSizeKB = clsFileStorageService.GetFileSizeKB(model.SourceFilePath);
 
+            HashSet<string> allowedTables = new HashSet<string>(await clsAttachmentsData.GetAttachmentAllowedTablesAsync());
             bool recordExists = await clsAttachmentsData.IsRelatedRecordExistsAsync(model.RelatedTable, model.RelatedID);
 
-            var validation = _validator.ValidateAddNewAsync(model, mimeType, fileSizeKB, recordExists);
+            var validation = _validator.ValidateAddNewAsync(model,allowedTables, mimeType, fileSizeKB, recordExists);
             if (!validation.IsValid)
                 return clsServiceResult<clsAttachmentDto>.Invalid(validation);
 
