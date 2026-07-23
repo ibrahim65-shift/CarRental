@@ -1,14 +1,13 @@
 ﻿using CarRental_Buisness.Mappers;
 using CarRental_Buisness.Models.Attachments;
-using CarRental_Buisness.Models.Maintenance;
 using CarRental_Buisness.Results;
+using CarRental_Buisness.Services.FileStorge;
 using CarRental_DataAccess;
 using CarRental_Entities;
-using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CarRental_Buisness.Services.Attachments
@@ -57,30 +56,42 @@ namespace CarRental_Buisness.Services.Attachments
         }
         public async Task<clsServiceResult<clsAttachmentDto>> AddNewAsync(clsAttachmentAddNewModel model)
         {
+            if (!File.Exists(model.SourceFilePath))
+                return clsServiceResult<clsAttachmentDto>.Fail("الملف غير موجود");
+
+            string mimeType = clsFileStorageService.GetMimeType(model.SourceFilePath);
+            int fileSizeKB = clsFileStorageService.GetFileSizeKB(model.SourceFilePath);
+
             HashSet<string> allowedTables = new HashSet<string>(await clsAttachmentsData.GetAttachmentAllowedTablesAsync());
             bool recordExists = await clsAttachmentsData.IsRelatedRecordExistsAsync(model.RelatedTable, model.RelatedID);
 
-            var validation =  _validator.ValidateAddNewAsync(model , allowedTables , recordExists);
+            var validation = _validator.ValidateAddNewAsync(model,allowedTables, mimeType, fileSizeKB, recordExists);
             if (!validation.IsValid)
                 return clsServiceResult<clsAttachmentDto>.Invalid(validation);
+
+            string savedFilePath = clsFileStorageService.SaveFile(model.SourceFilePath);
 
             var entity = new clsAttachmentsEntities
             {
                 RelatedTable = model.RelatedTable,
                 RelatedID = model.RelatedID,
                 FileName = model.FileName,
-                FilePath = model.FilePath,
-                MimeType = model.MimeType,
-                FileSizeKB = model.FileSizeKB,
+                FilePath = savedFilePath,
+                MimeType = mimeType,
+                FileSizeKB = fileSizeKB,
                 IsPrimary = model.IsPrimary,
                 CreatedByUserID = clsCurrentUser.UserID
             };
 
-            var newID = await clsAttachmentsData.AddNewAsync(entity);
-            if (newID == null)
-                return clsServiceResult<clsAttachmentDto>.Fail("فشل إضافة مرفق");
+            var newId = await clsAttachmentsData.AddNewAsync(entity);
 
-            entity.AttachmentID = newID.Value;
+            if(newId == null)
+            {
+                clsFileStorageService.DeleteFile(savedFilePath);
+                return clsServiceResult<clsAttachmentDto>.Fail("فشل إضافة المرفق");
+            }
+
+            entity.AttachmentID = newId.Value;
 
             return clsServiceResult<clsAttachmentDto>.OK(clsAttachmentMapper.ToDto(entity));
         }
@@ -90,25 +101,66 @@ namespace CarRental_Buisness.Services.Attachments
             if (entity == null)
                 return clsServiceResult<bool>.Fail("المرفق غير موجود");
 
-            var validation =  _validator.ValidateUpdateAsync(model);
+            bool fileChanged = !string.IsNullOrWhiteSpace(model.SourceFilePath);
+            string mimeType = entity.MimeType;
+            int? fileSizeKB = entity.FileSizeKB;
+
+            if (fileChanged)
+            {
+                if (!File.Exists(model.SourceFilePath))
+                    return clsServiceResult<bool>.Fail("الملف غير موجود");
+
+                mimeType = clsFileStorageService.GetMimeType(model.SourceFilePath);
+                fileSizeKB = clsFileStorageService.GetFileSizeKB(model.SourceFilePath);
+            }
+
+            var validation =  _validator.ValidateUpdateAsync(model,mimeType,fileSizeKB);
             if (!validation.IsValid)
                 return clsServiceResult<bool>.Invalid(validation);
 
+            string oldFilePath = entity.FilePath;
+            string newFilePath = null;
+            
 
-            entity.AttachmentID=attachmentID;
+            if(fileChanged)
+            {
+                newFilePath = clsFileStorageService.SaveFile(model.SourceFilePath);
+                entity.FilePath = newFilePath;
+                entity.FileSizeKB = fileSizeKB;
+                entity.MimeType = mimeType;
+            }
+
             entity.FileName=model.FileName;
-            entity.FilePath = model.FilePath;
-            entity.MimeType = model.MimeType;
-            entity.FileSizeKB = model.FileSizeKB;
             entity.IsPrimary = model.IsPrimary;
 
             bool update = await clsAttachmentsData.UpdateAsync(entity);
-            return update ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل تحديث المرفق");
+
+            if(update)
+            {
+                if (fileChanged)
+                    clsFileStorageService.DeleteFile(oldFilePath);
+
+                return clsServiceResult<bool>.OK(true);
+            }
+
+            if (fileChanged)
+                clsFileStorageService.DeleteFile(newFilePath);
+
+            return  clsServiceResult<bool>.Fail("فشل تحديث المرفق");
         }
         public async Task<clsServiceResult<bool>> DeleteAsync(int attachmentID)
         {
+            var entity = await clsAttachmentsData.GetAttachmentByIDAsync(attachmentID);
+            if (entity == null)
+                return clsServiceResult<bool>.Fail("المرفق غير موجود");
+
             bool deleted = await clsAttachmentsData.DeleteAsync(attachmentID);
-            return deleted ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل حذف المرفق");
+
+            if(!deleted)
+                return clsServiceResult<bool>.Fail("فشل حذف المرفق");
+
+            clsFileStorageService.DeleteFile(entity.FilePath);
+            return clsServiceResult<bool>.OK(true);
         }
     }
 }

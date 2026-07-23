@@ -113,9 +113,39 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap attach_32 {
+            get {
+                object obj = ResourceManager.GetObject("attach-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap attach_512 {
+            get {
+                object obj = ResourceManager.GetObject("attach-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap attach_64 {
             get {
                 object obj = ResourceManager.GetObject("attach_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap attachCount_32 {
+            get {
+                object obj = ResourceManager.GetObject("attachCount-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

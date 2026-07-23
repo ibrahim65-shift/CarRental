@@ -1,4 +1,4 @@
-﻿using CarRental.Customers.Attachments.Controls;
+﻿
 using CarRental.Customers.CustomersList.Controls;
 using CarRental.Customers.People.Controls;
 using CarRental.Helper;
@@ -73,11 +73,6 @@ namespace CarRental
         private void toolStripMenuItemCustomersList_Click(object sender, EventArgs e)
         {
             _pageHelper.SetPage(clsPageManager.GetPage<ctrlCustomers, frmMain>(this, u => new ctrlCustomers(this,ctrlCustomers.enMode.Management)));
-        }
-
-        private void toolStripMenuItemAttachments_Click(object sender, EventArgs e)
-        {
-            _pageHelper.SetPage(clsPageManager.GetPage<ctrlAttachments,frmMain>(this,a=> new ctrlAttachments(this)));
         }
 
         private void toolStripMenuItemVehicleList_Click(object sender, EventArgs e)

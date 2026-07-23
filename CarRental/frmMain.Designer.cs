@@ -34,7 +34,6 @@
             this.toolStripMenuItemCustomers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCustomersList = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPeople = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemAttachments = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleList = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleCategory = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,9 +89,9 @@
             this.toolStripMenuItemMaintenance,
             this.toolStripMenuItemReports,
             this.toolStripMenuItemSystem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(32, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1694, 71);
+            this.menuStrip1.Size = new System.Drawing.Size(1662, 71);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "Main Page";
             // 
@@ -111,8 +110,7 @@
             // 
             this.toolStripMenuItemCustomers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCustomersList,
-            this.toolStripMenuItemPeople,
-            this.toolStripMenuItemAttachments});
+            this.toolStripMenuItemPeople});
             this.toolStripMenuItemCustomers.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItemCustomers.Image = global::CarRental.Properties.Resources.Customers_64;
             this.toolStripMenuItemCustomers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -140,16 +138,6 @@
             this.toolStripMenuItemPeople.Size = new System.Drawing.Size(311, 74);
             this.toolStripMenuItemPeople.Text = "الأشخاص";
             this.toolStripMenuItemPeople.Click += new System.EventHandler(this.toolStripMenuItemPeople_Click);
-            // 
-            // toolStripMenuItemAttachments
-            // 
-            this.toolStripMenuItemAttachments.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItemAttachments.Image = global::CarRental.Properties.Resources.attach_64;
-            this.toolStripMenuItemAttachments.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemAttachments.Name = "toolStripMenuItemAttachments";
-            this.toolStripMenuItemAttachments.Size = new System.Drawing.Size(311, 74);
-            this.toolStripMenuItemAttachments.Text = "المرفقات";
-            this.toolStripMenuItemAttachments.Click += new System.EventHandler(this.toolStripMenuItemAttachments_Click);
             // 
             // toolStripMenuItemVehicles
             // 
@@ -493,7 +481,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSystem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCustomersList;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPeople;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAttachments;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVehicleList;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVehicleCategory;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemVehicleStatus;

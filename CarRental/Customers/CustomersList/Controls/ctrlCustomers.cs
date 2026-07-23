@@ -1,4 +1,5 @@
-﻿using CarRental.Customers.CustomersList.Controls;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Customers.CustomersList.Controls;
 using CarRental.Customers.CustomersList.Forms;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
@@ -13,7 +14,7 @@ using static CarRental.Vehicles.VehiclesList.Controls.ctrlVehicles;
 
 namespace CarRental.Customers.CustomersList.Controls
 {
-    public partial class ctrlCustomers : UserControl
+    public partial class ctrlCustomers : UserControl,IRefreshable
     {
         private static class Columns
         {
@@ -328,6 +329,20 @@ namespace CarRental.Customers.CustomersList.Controls
                 CustomerSelectedId?.Invoke(customerId);
                 DriverLicenseExpiry?.Invoke(driverLicenseExpiry);
             }
+        }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetSelectedCustomerId(out int customerId))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.FullName, out string customerName))
+                return;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("Customers", customerId, customerName))
+                frm.ShowDialog();
         }
 
         // ==================  METHODS ===================
@@ -690,6 +705,6 @@ namespace CarRental.Customers.CustomersList.Controls
             }
         }
 
-     
+       
     }
 }
