@@ -48,6 +48,8 @@
             this.toolStripMenuItemUpdateInspection = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFinalizeReturn = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMarkAsInvoiced = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemViewInvoice = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlSearch = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.pnlContainstxtAndcb = new System.Windows.Forms.Panel();
@@ -61,8 +63,7 @@
             this.cbPageNumber = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemViewInvoice = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlState.SuspendLayout();
@@ -220,6 +221,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemVehicleInfo,
             this.toolStripMenuItemCustomerInfo,
+            this.toolStripMenuItemAttach,
             this.toolStripSeparator1,
             this.toolStripMenuItemUpdateInspection,
             this.toolStripMenuItemFinalizeReturn,
@@ -228,7 +230,7 @@
             this.toolStripMenuItemViewInvoice});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(334, 481);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(334, 553);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripMenuItemVehicleInfo
@@ -280,6 +282,20 @@
             this.toolStripMenuItemMarkAsInvoiced.Size = new System.Drawing.Size(333, 72);
             this.toolStripMenuItemMarkAsInvoiced.Text = "إنهاء الفاتورة";
             this.toolStripMenuItemMarkAsInvoiced.Click += new System.EventHandler(this.toolStripMenuItemMarkAsInvoiced_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(330, 6);
+            // 
+            // toolStripMenuItemViewInvoice
+            // 
+            this.toolStripMenuItemViewInvoice.Image = global::CarRental.Properties.Resources.invoice_64;
+            this.toolStripMenuItemViewInvoice.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemViewInvoice.Name = "toolStripMenuItemViewInvoice";
+            this.toolStripMenuItemViewInvoice.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemViewInvoice.Text = "تفاصيل الفاتورة";
+            this.toolStripMenuItemViewInvoice.Click += new System.EventHandler(this.toolStripMenuItemViewInvoice_Click);
             // 
             // pnlSearch
             // 
@@ -460,19 +476,14 @@
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
             // 
-            // toolStripSeparator2
+            // toolStripMenuItemAttach
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(330, 6);
-            // 
-            // toolStripMenuItemViewInvoice
-            // 
-            this.toolStripMenuItemViewInvoice.Image = global::CarRental.Properties.Resources.invoice_64;
-            this.toolStripMenuItemViewInvoice.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemViewInvoice.Name = "toolStripMenuItemViewInvoice";
-            this.toolStripMenuItemViewInvoice.Size = new System.Drawing.Size(333, 72);
-            this.toolStripMenuItemViewInvoice.Text = "تفاصيل الفاتورة";
-            this.toolStripMenuItemViewInvoice.Click += new System.EventHandler(this.toolStripMenuItemViewInvoice_Click);
+            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
+            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemAttach.Text = "المرفقات";
+            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
             // ctrlVehicleReturn
             // 
@@ -532,5 +543,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMarkAsInvoiced;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemViewInvoice;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAttach;
     }
 }

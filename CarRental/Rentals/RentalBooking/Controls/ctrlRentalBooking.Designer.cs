@@ -68,6 +68,7 @@
             this.cbPageNumber = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlState.SuspendLayout();
@@ -273,6 +274,7 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemVehicleInfo,
             this.toolStripMenuItemCustomerInfo,
+            this.toolStripMenuItemAttach,
             this.toolStripSeparator3,
             this.toolStripMenuItemUpdateStatus,
             this.toolStripSeparator1,
@@ -283,7 +285,7 @@
             this.toolStripMenuItemViewInvoice});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(339, 460);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(339, 565);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // toolStripMenuItemVehicleInfo
@@ -545,6 +547,15 @@
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
             // 
+            // toolStripMenuItemAttach
+            // 
+            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
+            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(338, 72);
+            this.toolStripMenuItemAttach.Text = "المرفقات";
+            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
+            // 
             // ctrlRentalBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -608,5 +619,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUpdateStatus;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemViewInvoice;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAttach;
     }
 }

@@ -1,4 +1,5 @@
-﻿using CarRental.Helper;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Helper;
 using CarRental.Vehicles.VehicleInsurance.Controls;
 using CarRental.Vehicles.VehicleInsurance.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
@@ -292,6 +293,18 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
                 frm.ShowDialog();
         }
 
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetCellIntValue(row, Columns.InsuranceID, out int? insuranceId))
+                return;
+
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("VehicleInsurance", insuranceId.Value, "تأمين المركبة"))
+                frm.ShowDialog();
+        }
 
         // ==================  METHODS ===================
 
@@ -608,6 +621,5 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
             }
         }
 
-       
     }
 }

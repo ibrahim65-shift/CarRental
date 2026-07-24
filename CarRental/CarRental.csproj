@@ -610,6 +610,7 @@
     <EmbeddedResource Include="Vehicles\VehicleStatus\Controls\ctrlVehicleStatus.resx">
       <DependentUpon>ctrlVehicleStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -1,4 +1,5 @@
-﻿using CarRental.Customers.CustomersList.Forms;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Customers.CustomersList.Forms;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
 using CarRental.Payments.Invoices.Forms;
@@ -416,6 +417,17 @@ namespace CarRental.Rentals.RentalBooking.Controls
             using (frmCustomerCardInfo frm = new frmCustomerCardInfo(customerID))
                 frm.ShowDialog();
         }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetCellValue<int>(row, Columns.BookingID, out int bookingId))
+                return;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("RentalBooking", bookingId, "الحجز"))
+                frm.ShowDialog();
+        }
         private void toolStripMenuItemVehicleDamage_Click(object sender, EventArgs e)
         {
             if (!_TryGetSelectedRentalBookingId(out int bookingId))
@@ -780,6 +792,30 @@ namespace CarRental.Rentals.RentalBooking.Controls
                 return false;
             }
         }
+        private bool _TryGetCellValue<T>(DataGridViewRow row, string columnName, out T value)
+        {
+            value = default(T);
+
+            try
+            {
+                if (row == null)
+                    return false;
+
+                if (!row.DataGridView.Columns.Contains(columnName))
+                    return false;
+
+                var cell = row.Cells[columnName];
+                if (cell?.Value == null || cell.Value == DBNull.Value)
+                    return false;
+
+                value = (T)Convert.ChangeType(cell.Value, typeof(T));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private async Task<bool> _CheckDatabaseConnection()
         {
             return await clsUtil.CheckDatabaseConnection();
@@ -814,6 +850,6 @@ namespace CarRental.Rentals.RentalBooking.Controls
             }
         }
 
-        
+       
     }
 }
