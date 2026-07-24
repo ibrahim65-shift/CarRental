@@ -1,4 +1,5 @@
-﻿using CarRental.Customers.CustomersList.Forms;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Customers.CustomersList.Forms;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
 using CarRental.Payments.Invoices.Forms;
@@ -378,6 +379,17 @@ namespace CarRental.Rentals.VehicleReturn.Controls
                 return;
 
             using (frmInvoiceCardInfo frm = new frmInvoiceCardInfo(null, bookingID))
+                frm.ShowDialog();
+        }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetCellValue<int>(row, Columns.ReturnID, out int returnId))
+                return;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("VehicleReturn", returnId, "إرجاع المركبة"))
                 frm.ShowDialog();
         }
 
@@ -812,6 +824,5 @@ namespace CarRental.Rentals.VehicleReturn.Controls
             return inspectionInfo;
         }
 
-        
     }
 }

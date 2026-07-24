@@ -61,6 +61,8 @@
             this.cbPageNumber = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlState.SuspendLayout();
@@ -267,31 +269,33 @@
             this.toolStripMenuItemPersonInfo,
             this.toolStripSeparator1,
             this.toolStripMenuItemSMS,
-            this.toolStripMenuItemEmail});
+            this.toolStripMenuItemEmail,
+            this.toolStripSeparator2,
+            this.toolStripMenuItemAttach});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(316, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(348, 329);
             // 
             // toolStripMenuItemPersonInfo
             // 
             this.toolStripMenuItemPersonInfo.Image = global::CarRental.Properties.Resources.IDCard_32;
             this.toolStripMenuItemPersonInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPersonInfo.Name = "toolStripMenuItemPersonInfo";
-            this.toolStripMenuItemPersonInfo.Size = new System.Drawing.Size(315, 44);
+            this.toolStripMenuItemPersonInfo.Size = new System.Drawing.Size(347, 70);
             this.toolStripMenuItemPersonInfo.Text = "معلومات الشخص";
             this.toolStripMenuItemPersonInfo.Click += new System.EventHandler(this.toolStripMenuItemPersonInfo_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(312, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(344, 6);
             // 
             // toolStripMenuItemSMS
             // 
             this.toolStripMenuItemSMS.Image = global::CarRental.Properties.Resources.SMS_32;
             this.toolStripMenuItemSMS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSMS.Name = "toolStripMenuItemSMS";
-            this.toolStripMenuItemSMS.Size = new System.Drawing.Size(315, 44);
+            this.toolStripMenuItemSMS.Size = new System.Drawing.Size(347, 70);
             this.toolStripMenuItemSMS.Text = "إرسال رسالة نصية";
             this.toolStripMenuItemSMS.Click += new System.EventHandler(this.toolStripMenuItemSMS_Click);
             // 
@@ -300,7 +304,7 @@
             this.toolStripMenuItemEmail.Image = global::CarRental.Properties.Resources.Email_32;
             this.toolStripMenuItemEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemEmail.Name = "toolStripMenuItemEmail";
-            this.toolStripMenuItemEmail.Size = new System.Drawing.Size(315, 44);
+            this.toolStripMenuItemEmail.Size = new System.Drawing.Size(347, 70);
             this.toolStripMenuItemEmail.Text = "إرسال بريد";
             this.toolStripMenuItemEmail.Click += new System.EventHandler(this.toolStripMenuItemEmail_Click);
             // 
@@ -469,6 +473,20 @@
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(344, 6);
+            // 
+            // toolStripMenuItemAttach
+            // 
+            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
+            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(347, 70);
+            this.toolStripMenuItemAttach.Text = "المرفقات";
+            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
+            // 
             // ctrlPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -525,5 +543,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSMS;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEmail;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAttach;
     }
 }

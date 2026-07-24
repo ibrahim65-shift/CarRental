@@ -1,4 +1,5 @@
-﻿using CarRental.Customers.People.Controls;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Customers.People.Controls;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
 using CarRental_Buisness.Helpers;
@@ -300,6 +301,20 @@ namespace CarRental.Customers.People.Controls
         {
             clsMessages.ShowInfo("ستضاف الميزة قريبا");
         }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetSelectedPersonId(out int personId))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.FullName, out string personName))
+                return;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("People", personId, personName))
+                frm.ShowDialog();
+        }
 
         // ==================  METHODS ===================
 
@@ -600,6 +615,30 @@ namespace CarRental.Customers.People.Controls
                 return false;
             }
         }
+        private bool _TryGetCellValue<T>(DataGridViewRow row, string columnName, out T value)
+        {
+            value = default(T);
+
+            try
+            {
+                if (row == null)
+                    return false;
+
+                if (!row.DataGridView.Columns.Contains(columnName))
+                    return false;
+
+                var cell = row.Cells[columnName];
+                if (cell?.Value == null || cell.Value == DBNull.Value)
+                    return false;
+
+                value = (T)Convert.ChangeType(cell.Value, typeof(T));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private async Task<bool> _CheckDatabaseConnection()
         {
             return await clsUtil.CheckDatabaseConnection();
@@ -622,6 +661,6 @@ namespace CarRental.Customers.People.Controls
             }
         }
 
-       
+        
     }
 }

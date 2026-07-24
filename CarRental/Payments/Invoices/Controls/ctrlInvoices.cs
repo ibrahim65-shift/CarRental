@@ -1,4 +1,5 @@
-﻿using CarRental.Customers.CustomersList.Forms;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Customers.CustomersList.Forms;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
 using CarRental.Payments.Invoices.DTOs;
@@ -297,7 +298,20 @@ namespace CarRental.Payments.Invoices.Controls
                 }
             }
         }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
 
+            if (!_TryGetCellValue<int>(row, Columns.InvoiceID, out int invoiceId))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.InvoiceNumber, out string invoiceNumber))
+                return;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("Invoices", invoiceId, invoiceNumber))
+                frm.ShowDialog();
+        }
         // ==================  METHODS ===================
 
         private async Task _LoadDataAsync()
@@ -681,6 +695,6 @@ namespace CarRental.Payments.Invoices.Controls
 
             return paymentInfo;
         }
-        
+
     }
 }

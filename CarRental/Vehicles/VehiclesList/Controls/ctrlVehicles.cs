@@ -1,4 +1,5 @@
-﻿using CarRental.Helper;
+﻿using CarRental.Attachments.Forms;
+using CarRental.Helper;
 using CarRental.Vehicles.VehicleDamage.Forms;
 using CarRental.Vehicles.VehicleInsurance.Forms;
 using CarRental.Vehicles.VehiclesList.Controls;
@@ -342,7 +343,28 @@ namespace CarRental.Vehicles.VehiclesList.Controls
             using (frmAddEditVehicleInsurance frm = new frmAddEditVehicleInsurance(new clsVehicleInsuranceService(),vehicleId, null))
                 frm.ShowDialog();
         }
+        private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
 
+            if (!_TryGetCellValue<int>(row, Columns.VehicleID, out int vehicleId))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.MakeName, out string make))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.ModelName, out string model))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.PlateNumber, out string plateNumber))
+                return;
+
+            string vehicle = make + " " + model + " - " + plateNumber;
+
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("Vehicles", vehicleId, vehicle))
+                frm.ShowDialog();
+        }
 
         // ==================  METHODS ===================
 
@@ -675,6 +697,30 @@ namespace CarRental.Vehicles.VehiclesList.Controls
                 return false;
             }
         }
+        private bool _TryGetCellValue<T>(DataGridViewRow row, string columnName, out T value)
+        {
+            value = default(T);
+
+            try
+            {
+                if (row == null)
+                    return false;
+
+                if (!row.DataGridView.Columns.Contains(columnName))
+                    return false;
+
+                var cell = row.Cells[columnName];
+                if (cell?.Value == null || cell.Value == DBNull.Value)
+                    return false;
+
+                value = (T)Convert.ChangeType(cell.Value, typeof(T));
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         private async Task<bool> _CheckDatabaseConnection()
         {
             return await clsUtil.CheckDatabaseConnection();
@@ -700,6 +746,5 @@ namespace CarRental.Vehicles.VehiclesList.Controls
             }
         }
 
-      
     }
 }

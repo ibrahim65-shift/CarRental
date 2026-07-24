@@ -335,13 +335,13 @@ namespace CarRental.Customers.CustomersList.Controls
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
-            if (!_TryGetSelectedCustomerId(out int customerId))
+            if (!_TryGetCellValue<int>(row, Columns.PersonID, out int personId))
                 return;
 
             if (!_TryGetCellValue<string>(row, Columns.FullName, out string customerName))
                 return;
 
-            using (frmRelatedAttachments frm = new frmRelatedAttachments("Customers", customerId, customerName))
+            using (frmRelatedAttachments frm = new frmRelatedAttachments("People", personId, customerName))
                 frm.ShowDialog();
         }
 
