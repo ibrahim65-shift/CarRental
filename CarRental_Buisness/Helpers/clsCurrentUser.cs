@@ -1,4 +1,5 @@
-﻿using CarRental_Buisness.Models.Users;
+﻿using CarRental_Buisness.Helpers;
+using CarRental_Buisness.Models.Users;
 using CarRental_Buisness.Services.Users;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace CarRental_Buisness
         public static void Clear()
         {
             User = null;
+            clsAuthorizationCache.Clear();
         }
     }
 }
