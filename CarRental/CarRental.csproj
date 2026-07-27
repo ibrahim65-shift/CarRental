@@ -256,6 +256,18 @@
     <Compile Include="Payments\PaymentTransactions\Forms\frmAddRefund.Designer.cs">
       <DependentUpon>frmAddRefund.cs</DependentUpon>
     </Compile>
+    <Compile Include="Permissions\Roles\Controls\ctrlRoles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Permissions\Roles\Controls\ctrlRoles.Designer.cs">
+      <DependentUpon>ctrlRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permissions\Roles\Forms\frmAddEditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permissions\Roles\Forms\frmAddEditRole.Designer.cs">
+      <DependentUpon>frmAddEditRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rentals\BookingStatus\Controls\ctrlBookingStatus.cs">
@@ -512,6 +524,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payments\PaymentTransactions\Forms\frmAddRefund.resx">
       <DependentUpon>frmAddRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permissions\Roles\Controls\ctrlRoles.resx">
+      <DependentUpon>ctrlRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permissions\Roles\Forms\frmAddEditRole.resx">
+      <DependentUpon>frmAddEditRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -983,6 +1001,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\attach-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Permissions\RolePermissions\Controls\" />
+    <Folder Include="Permissions\RolePermissions\Forms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roles-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rolePermissions-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roles-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

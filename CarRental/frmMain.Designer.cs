@@ -62,6 +62,8 @@
             this.toolStripMenuItemInsuranceTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLocations = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.toolStripMenuItemRoles = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRolePermissions = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -89,9 +91,9 @@
             this.toolStripMenuItemMaintenance,
             this.toolStripMenuItemReports,
             this.toolStripMenuItemSystem});
-            this.menuStrip1.Location = new System.Drawing.Point(32, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1662, 71);
+            this.menuStrip1.Size = new System.Drawing.Size(1694, 71);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "Main Page";
             // 
@@ -407,6 +409,9 @@
             // 
             // toolStripMenuItemUsers
             // 
+            this.toolStripMenuItemUsers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemRoles,
+            this.toolStripMenuItemRolePermissions});
             this.toolStripMenuItemUsers.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItemUsers.Image = global::CarRental.Properties.Resources.Users_64;
             this.toolStripMenuItemUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -442,6 +447,26 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1694, 510);
             this.pnlMain.TabIndex = 1;
+            // 
+            // toolStripMenuItemRoles
+            // 
+            this.toolStripMenuItemRoles.Image = global::CarRental.Properties.Resources.Roles_64;
+            this.toolStripMenuItemRoles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemRoles.Name = "toolStripMenuItemRoles";
+            this.toolStripMenuItemRoles.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripMenuItemRoles.Size = new System.Drawing.Size(422, 74);
+            this.toolStripMenuItemRoles.Text = "إدارة الأدوار";
+            this.toolStripMenuItemRoles.Click += new System.EventHandler(this.toolStripMenuItemRoles_Click);
+            // 
+            // toolStripMenuItemRolePermissions
+            // 
+            this.toolStripMenuItemRolePermissions.Image = global::CarRental.Properties.Resources.rolePermissions_64;
+            this.toolStripMenuItemRolePermissions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemRolePermissions.Name = "toolStripMenuItemRolePermissions";
+            this.toolStripMenuItemRolePermissions.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripMenuItemRolePermissions.Size = new System.Drawing.Size(422, 74);
+            this.toolStripMenuItemRolePermissions.Text = "إدارة الصلاحيات للأدوار";
+            this.toolStripMenuItemRolePermissions.Click += new System.EventHandler(this.toolStripMenuItemRolePermissions_Click);
             // 
             // frmMain
             // 
@@ -503,5 +528,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLocations;
         internal System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemInvoices;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRoles;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRolePermissions;
     }
 }
