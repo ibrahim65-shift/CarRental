@@ -1,6 +1,8 @@
-﻿using CarRental_Buisness.Mappers;
+﻿using CarRental_Buisness.Helpers;
+using CarRental_Buisness.Mappers;
 using CarRental_Buisness.Models.Users;
 using CarRental_Buisness.Results;
+using CarRental_Buisness.Services.Permissions.RolePermission;
 using CarRental_DataAccess;
 using CarRental_Entities;
 using System;
@@ -13,6 +15,7 @@ namespace CarRental_Buisness
 {
     public class clsLoginService
     {
+        private static  readonly clsRolePermissionService _rolePermissionService = new clsRolePermissionService();
         private const int MaxFailedAttempts = 5;
 
         public static async Task<clsServiceResult<clsUserDto>> LoginAsync(string userName, string password)
@@ -43,11 +46,20 @@ namespace CarRental_Buisness
 
             clsCurrentUser.Set(dto);
 
+            var permissions = await _rolePermissionService.GetPermissionsForRoleAsync(dto.RoleID);
+            if(!permissions.Success)
+            {
+                clsCurrentUser.Clear();
+                return clsServiceResult<clsUserDto>.Fail("تعذر تحميل صلاحيات المستخدم");
+            }
+
+            clsAuthorizationCache.LoadPermissions(permissions.Data.Where(p => p.IsAllowed).Select(p => p.PermissionCode));
+
             //clsSQLHelper.CurrentContext = new clsDbSessionContext
             //{
-            //    UserID = clsCurrentUser.UserID ,
-            //    MachineName = Environment.MachineName ,
-            //    IPAddress = "123" ,
+            //    UserID = clsCurrentUser.UserID,
+            //    MachineName = Environment.MachineName,
+            //    IPAddress = "123",
             //    Source = "UI"
             //};
 

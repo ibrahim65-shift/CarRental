@@ -53,9 +53,12 @@
     <Compile Include="clsPaymentMethodsData.cs" />
     <Compile Include="clsPaymentStatusData.cs" />
     <Compile Include="clsPaymentTransactionsData.cs" />
+    <Compile Include="clsPermissionData.cs" />
     <Compile Include="clsRatePlansData.cs" />
     <Compile Include="clsRentalBookingData.cs" />
     <Compile Include="clsReturnStatusData.cs" />
+    <Compile Include="clsRoleData.cs" />
+    <Compile Include="clsRolePermissionData.cs" />
     <Compile Include="clsVehicleCategoryData.cs" />
     <Compile Include="clsVehicleDamageData.cs" />
     <Compile Include="clsVehicleInsuranceData.cs" />

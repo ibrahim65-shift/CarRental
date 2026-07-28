@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\clsApplicationSettings.cs" />
+    <Compile Include="Helpers\clsAuthorizationCache.cs" />
     <Compile Include="Helpers\clsCurrentUser.cs" />
     <Compile Include="Helpers\clsUtil.cs" />
     <Compile Include="Mappers\clsAttachmentMapper.cs" />
@@ -63,10 +64,13 @@
     <Compile Include="Mappers\clsPaymentMethodsMapper.cs" />
     <Compile Include="Mappers\clsPaymentStatusMapper.cs" />
     <Compile Include="Mappers\clsPaymentTransactionsMapper.cs" />
+    <Compile Include="Mappers\clsPermissionMapper.cs" />
     <Compile Include="Mappers\clsPersonMapper.cs" />
     <Compile Include="Mappers\clsRatePlansMapper.cs" />
     <Compile Include="Mappers\clsRentalBookingMapper.cs" />
     <Compile Include="Mappers\clsReturnStatusMapper.cs" />
+    <Compile Include="Mappers\clsRoleMapper.cs" />
+    <Compile Include="Mappers\clsRolePermissionMapper.cs" />
     <Compile Include="Mappers\clsVehicleCategoryMapper.cs" />
     <Compile Include="Mappers\clsVehicleDamageMapper.cs" />
     <Compile Include="Mappers\clsVehicleInsuranceMapper.cs" />
@@ -108,6 +112,11 @@
     <Compile Include="Models\People\clsPersonAddNewModel.cs" />
     <Compile Include="Models\People\clsPersonDto.cs" />
     <Compile Include="Models\People\clsPersonUpdateModel.cs" />
+    <Compile Include="Models\Permissions\Permission\clsPermissionDto.cs" />
+    <Compile Include="Models\Permissions\RolePermission\clsRolePermissionDto.cs" />
+    <Compile Include="Models\Permissions\RolePermission\clsRolePermissionViewDto.cs" />
+    <Compile Include="Models\Permissions\Role\clsRoleCreateUpdateModel.cs" />
+    <Compile Include="Models\Permissions\Role\clsRoleDto.cs" />
     <Compile Include="Models\RatePlans\clsRatePlansCreateUpdateModel.cs" />
     <Compile Include="Models\RatePlans\clsRatePlansDto.cs" />
     <Compile Include="Models\RentalBooking\clsRentalBookingAddNewModel.cs" />
@@ -158,6 +167,10 @@
     <Compile Include="Services\PaymentTransactions\clsPaymentTransactionsValidator.cs" />
     <Compile Include="Services\People\clsPersonService.cs" />
     <Compile Include="Services\People\clsPersonValidator.cs" />
+    <Compile Include="Services\Permissions\Permission\clsPermissionService.cs" />
+    <Compile Include="Services\Permissions\RolePermission\clsRolePermissionService.cs" />
+    <Compile Include="Services\Permissions\Role\clsRoleService.cs" />
+    <Compile Include="Services\Permissions\Role\clsRoleValidator.cs" />
     <Compile Include="Services\RatePlans\clsRatePlansService.cs" />
     <Compile Include="Services\RatePlans\clsRatePlansValidator.cs" />
     <Compile Include="Services\RentalBooking\clsRentalBookingService.cs" />
@@ -207,5 +220,6 @@
       <Name>SharedClass</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
