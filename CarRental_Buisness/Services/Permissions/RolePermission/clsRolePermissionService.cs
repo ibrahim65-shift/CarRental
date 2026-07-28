@@ -16,15 +16,38 @@ namespace CarRental_Buisness.Services.Permissions.RolePermission
 {
     public class clsRolePermissionService
     {
-        public async Task<clsServiceResult<List<clsRolePermissionDto>>> GetPermissionsForRoleAsync(int roleId)
+        public async Task<clsServiceResult<clsRolePermissionDto>> GetRolePermissionsByIDAsync(int rolePermissionId)
+        {
+            var entity = await clsRolePermissionData.GetRolePermissionsByIdAsync(rolePermissionId);
+            if (entity == null)
+                return clsServiceResult<clsRolePermissionDto>.Fail("لاتوجد صلاحيات");
+
+            return clsServiceResult<clsRolePermissionDto>.OK(clsRolePermissionMapper.ToDto(entity));
+        }
+        public async Task<clsServiceResult<List<clsRolePermissionViewDto>>> GetPermissionsForRoleAsync(int roleId)
         {
             var result = await clsRolePermissionData.GetPermissionsForRoleAsync(roleId);
             if (result == null || result.Count == 0)
-                return clsServiceResult<List<clsRolePermissionDto>>.Fail("لاتوجد صلاحيات");
+                return clsServiceResult<List<clsRolePermissionViewDto>>.Fail("لاتوجد صلاحيات");
 
-            var list = result.Select(clsRolePermissionMapper.ToDto).ToList();
+            var list = result.Select(clsRolePermissionMapper.ToViewDto).ToList();
 
-            return clsServiceResult<List<clsRolePermissionDto>>.OK(list);
+            return clsServiceResult<List<clsRolePermissionViewDto>>.OK(list);
+        }
+        public async Task<clsServiceResult<clsPagedResult<DataTable>>> GetRolePermissionsPageAsync
+            (int PageNumber, int PageSize, string FilterColumn = null, string FilterValue = null)
+        {
+            var (dt, totalPages) = await clsRolePermissionData.GetRolePermissionsPageAsync(PageNumber, PageSize, FilterColumn, FilterValue);
+            if (dt.Rows.Count == 0)
+                return clsServiceResult<clsPagedResult<DataTable>>.Fail("لاتوجد بيانات");
+
+            var result = new clsPagedResult<DataTable>
+            {
+                Data = dt,
+                TotalPages = totalPages
+            };
+
+            return clsServiceResult<clsPagedResult<DataTable>>.OK(result);
         }
         public async Task<clsServiceResult<bool>> SaveRolePermissionsAsync(int roleId, List<clsRolePermissionItem> permissions)
         {

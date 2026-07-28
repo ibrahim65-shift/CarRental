@@ -12,23 +12,76 @@ namespace CarRental_DataAccess
 {
     public static class clsRolePermissionData
     {
-        public static async Task<List<clsRolePermissionEntity>> GetPermissionsForRoleAsync(int roleId)
+        public static async Task<clsRolePermissionEntity> GetRolePermissionsByIdAsync(int rolePermissionId)
+        {
+            try
+            {
+                var result = await clsSQLHelper.ExecuteReaderAsync("SP_RolePermissions_GetByID",
+                    reader => _MapToRolePermission(reader),
+                    p => p.Add("@rolePermissionID", SqlDbType.Int).Value = rolePermissionId);
+
+                return result.SingleOrDefault();
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsRolePermissionData.GetRolePermissionsByIdAsync (SQL)", ex);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsRolePermissionData.GetRolePermissionsByIdAsync (General)", ex);
+                return null;
+            }
+        }
+        public static async Task<List<clsRolePermissionEntityView>> GetPermissionsForRoleAsync(int roleId)
         {
             try
             {
                 return await clsSQLHelper.ExecuteReaderAsync("SP_RolePermissions_GetPermissionsForRole", 
-                    reader => _MapToRolePermission(reader),
+                    reader => _MapToRolePermissionView(reader),
                     p => p.Add("@roleId", SqlDbType.Int).Value = roleId);
             }
             catch (SqlException ex)
             {
                 clsEventLogger.LogException("clsRolePermissionData.GetPermissionsForRoleAsync (SQL)", ex);
-                return new List<clsRolePermissionEntity>();
+                return new List<clsRolePermissionEntityView>();
             }
             catch(Exception ex)
             {
                 clsEventLogger.LogException("clsRolePermissionData.GetPermissionsForRoleAsync (General)", ex);
-                return new List<clsRolePermissionEntity>();
+                return new List<clsRolePermissionEntityView>();
+            }
+        }
+        public static async Task<(DataTable dt, int TotalPages)> GetRolePermissionsPageAsync
+             (int PageNumber, int PageSize, string FilterColumn = null, string FilterValue = null)
+        {
+            try
+            {
+                var dt = await clsSQLHelper.ExecuteDataTableAsync("SP_RolePermissions_GetPage",
+                      p =>
+                      {
+                          p.Add("@PageNumber", SqlDbType.Int).Value = PageNumber;
+                          p.Add("@PageSize", SqlDbType.Int).Value = PageSize;
+                          p.Add("@FilterColumn", SqlDbType.NVarChar, 128).Value = string.IsNullOrWhiteSpace(FilterColumn) ? (object)DBNull.Value : FilterColumn;
+                          p.Add("@FilterValue", SqlDbType.NVarChar, 200).Value = string.IsNullOrWhiteSpace(FilterValue) ? (object)DBNull.Value : FilterValue;
+                      });
+
+                int TotalCount = dt.Rows.Count > 0 ? Convert.ToInt32(dt.Rows[0]["TotalCount"]) : 0;
+                int TotalPage = (int)Math.Ceiling(TotalCount / (double)PageSize);
+
+                dt.Columns.Remove("TotalCount");
+
+                return (dt, TotalPage);
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsRolePermissionData.GetRolePermissionsPageAsync (SQL)", ex);
+                return (new DataTable(), 0);
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsRolePermissionData.GetRolePermissionsPageAsync (General)", ex);
+                return (new DataTable(), 0);
             }
         }
         public static async Task<bool> SaveRolePermissionsAsync(int roleId , List<clsRolePermissionItem> permissions)
@@ -129,17 +182,37 @@ namespace CarRental_DataAccess
         {
             var cols = clsSQLHelper.GetOrdinal(reader,
                 "RolePermissionID",
-                "PermissionCode",
-                "PermissionName",
+                "RoleID",
+                "PermissionID",
                 "IsAllowed"
                 );
 
             return new clsRolePermissionEntity
             { 
                RolePermissionID = reader.GetInt32(cols["RolePermissionID"]),
-               PermissionCode = reader.GetString(cols["PermissionCode"]),
-               PermissionName = reader.GetString(cols["PermissionName"]),
+               RoleID = reader.GetInt32(cols["RoleID"]),
+               PermissionID = reader.GetInt32(cols["PermissionID"]),
                IsAllowed = reader.GetBoolean(cols["IsAllowed"]),
+            };
+
+        }
+        private static clsRolePermissionEntityView _MapToRolePermissionView(SqlDataReader reader)
+        {
+            var cols = clsSQLHelper.GetOrdinal(reader,
+                "RolePermissionID",
+                "PermissionCode",
+                "PermissionName",
+                "IsAllowed",
+                "PermissionID"
+                );
+
+            return new clsRolePermissionEntityView
+            {
+                RolePermissionID = reader.GetInt32(cols["RolePermissionID"]),
+                PermissionCode = reader.GetString(cols["PermissionCode"]),
+                PermissionName = reader.GetString(cols["PermissionName"]),
+                IsAllowed = reader.GetBoolean(cols["IsAllowed"]),
+                PermissionID = reader.GetInt32(cols["PermissionID"]),
             };
 
         }

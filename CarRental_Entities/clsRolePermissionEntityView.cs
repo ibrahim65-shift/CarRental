@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental_Buisness.Models.Permissions.RolePermission
+namespace CarRental_Entities
 {
-    public class clsRolePermissionDto
+    public class clsRolePermissionEntityView
     {
         public int RolePermissionID { get; set; }
-        public int RoleID { get; set; }
-        public int PermissionID { get; set; }
+        public string PermissionCode { get; set; }
+        public string PermissionName { get; set; }
         public bool IsAllowed { get; set; }
+        public int PermissionID { get; set; }
     }
 }

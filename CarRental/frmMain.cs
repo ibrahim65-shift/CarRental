@@ -7,6 +7,7 @@ using CarRental.Payments.Invoices.Controls;
 using CarRental.Payments.PaymentMethods.Controls;
 using CarRental.Payments.PaymentStatus.Controls;
 using CarRental.Payments.PaymentTransactions.Controls;
+using CarRental.Permissions.RolePermissions.Controls;
 using CarRental.Permissions.Roles.Controls;
 using CarRental.Rentals.BookingStatus.Controls;
 using CarRental.Rentals.RatePlans.Controls;
@@ -184,7 +185,7 @@ namespace CarRental
 
         private void toolStripMenuItemRolePermissions_Click(object sender, EventArgs e)
         {
-
+            _pageHelper.SetPage(clsPageManager.GetPage<ctrlRolePermissions, frmMain>(this, i => new ctrlRolePermissions(this)));
         }
 
         // =================== METHODES ==========

@@ -810,6 +810,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap permission_32 {
+            get {
+                object obj = ResourceManager.GetObject("permission-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap plateNumber_32 {
             get {
                 object obj = ResourceManager.GetObject("plateNumber_32", resourceCulture);
@@ -993,6 +1003,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap ReturnStatus_64 {
             get {
                 object obj = ResourceManager.GetObject("ReturnStatus_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap rolePermissions_512 {
+            get {
+                object obj = ResourceManager.GetObject("rolePermissions-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -256,6 +256,18 @@
     <Compile Include="Payments\PaymentTransactions\Forms\frmAddRefund.Designer.cs">
       <DependentUpon>frmAddRefund.cs</DependentUpon>
     </Compile>
+    <Compile Include="Permissions\RolePermissions\Controls\ctrlRolePermissions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Permissions\RolePermissions\Controls\ctrlRolePermissions.Designer.cs">
+      <DependentUpon>ctrlRolePermissions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permissions\RolePermissions\Forms\frmAddEditRolePermissions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permissions\RolePermissions\Forms\frmAddEditRolePermissions.Designer.cs">
+      <DependentUpon>frmAddEditRolePermissions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Permissions\Roles\Controls\ctrlRoles.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -524,6 +536,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payments\PaymentTransactions\Forms\frmAddRefund.resx">
       <DependentUpon>frmAddRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permissions\RolePermissions\Controls\ctrlRolePermissions.resx">
+      <DependentUpon>ctrlRolePermissions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permissions\RolePermissions\Forms\frmAddEditRolePermissions.resx">
+      <DependentUpon>frmAddEditRolePermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Permissions\Roles\Controls\ctrlRoles.resx">
       <DependentUpon>ctrlRoles.cs</DependentUpon>
@@ -1003,8 +1021,7 @@
     <None Include="Resources\attach-32.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Permissions\RolePermissions\Controls\" />
-    <Folder Include="Permissions\RolePermissions\Forms\" />
+    <None Include="Resources\rolePermissions-512.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Roles-64.png" />
@@ -1014,6 +1031,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\roles-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permission-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

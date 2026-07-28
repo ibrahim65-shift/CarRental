@@ -114,6 +114,7 @@
     <Compile Include="Models\People\clsPersonUpdateModel.cs" />
     <Compile Include="Models\Permissions\Permission\clsPermissionDto.cs" />
     <Compile Include="Models\Permissions\RolePermission\clsRolePermissionDto.cs" />
+    <Compile Include="Models\Permissions\RolePermission\clsRolePermissionViewDto.cs" />
     <Compile Include="Models\Permissions\Role\clsRoleCreateUpdateModel.cs" />
     <Compile Include="Models\Permissions\Role\clsRoleDto.cs" />
     <Compile Include="Models\RatePlans\clsRatePlansCreateUpdateModel.cs" />
