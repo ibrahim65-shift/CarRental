@@ -15,10 +15,8 @@ namespace CarRental_Buisness.Models.Users
         public int RoleID { get; set; }
         public string UserName { get; set; }
         public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
         public bool IsLockedOut { get; set; }
         public int PersonID { get; set; }
-
-
-        public clsPersonDto PersonInfo { get; set; } // Composition
     }
 }

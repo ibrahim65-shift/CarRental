@@ -1035,5 +1035,8 @@
   <ItemGroup>
     <None Include="Resources\permission-32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

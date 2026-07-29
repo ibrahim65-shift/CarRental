@@ -18,9 +18,9 @@ namespace CarRental_Buisness.Mappers
                 RoleID = entity.RoleID,
                 UserName = entity.UserName,
                 IsActive = entity.IsActive,
+                IsDeleted = entity.IsDeleted,
                 IsLockedOut = entity.IsLockedOut,
-                PersonID = entity.PersonID,
-                PersonInfo = clsPersonMapper.ToDto(entity.Person),
+                PersonID = entity.PersonID
             };
 
         }

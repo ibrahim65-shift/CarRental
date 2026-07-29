@@ -337,6 +337,35 @@ namespace CarRental_DataAccess
                 return false;
             }
         }
+        public static async Task<bool> RestoreUserAsync(int userID)
+        {
+            try
+            {
+                SqlParameter isSuccessParam = new SqlParameter("@IsSuccess", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Output,
+                };
+                var result = await clsSQLHelper.ExecuteNonQueryAsync("SP_Users_Restore",
+                    p =>
+                    {
+                        p.Add("@UserID", SqlDbType.Int).Value = userID;
+                        p.Add(isSuccessParam);
+                    });
+
+                return isSuccessParam.Value != DBNull.Value && (bool)isSuccessParam.Value;
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsUsersData.RestoreUserAsync (SQL)", ex);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsUsersData.RestoreUserAsync (General)", ex);
+                return false;
+            }
+        }
+
         private static clsUsersEntities _MapToUser(SqlDataReader reader)
         {
             var cols1 = clsSQLHelper.GetOrdinal(reader,
@@ -355,18 +384,6 @@ namespace CarRental_DataAccess
                 "EditedDate",
                 "EditedByUserID");
 
-            var cols2 = clsSQLHelper.GetOrdinal(reader,
-              "FirstName",
-              "SecondName",
-              "ThirdName",
-              "LastName",
-              "BirthDate",
-              "Gender",
-              "Email",
-              "Phone",
-              "Address"
-            );
-
             return new clsUsersEntities
             {
                 UserID = reader.GetInt32(cols1["UserID"]),
@@ -382,20 +399,7 @@ namespace CarRental_DataAccess
                 CreatedDate = reader.GetDateTime(cols1["CreatedDate"]),
                 CreatedByUserID = reader.GetInt32(cols1["CreatedByUserID"]),
                 EditedDate = reader.GetDateTimeOrNull(cols1["EditedDate"]),
-                EditedByUserID = reader.GetIntOrNull(cols1["EditedByUserID"]),
-
-                Person = new clsPersonEntities
-                {
-                    FirstName = reader.GetString(cols2["FirstName"]),
-                    SecondName = reader.GetString(cols2["SecondName"]),
-                    ThirdName = reader.GetStringOrNull(cols2["ThirdName"]),
-                    LastName = reader.GetString(cols2["LastName"]),
-                    BirthDate = reader.GetDateTime(cols2["BirthDate"]),
-                    Gender = reader.GetBoolean(cols2["Gender"]) ? enGenderType.Male : enGenderType.Female,
-                    Email = reader.GetStringOrNull(cols2["Email"]),
-                    Phone = reader.GetStringOrNull(cols2["Phone"]),
-                    Address = reader.GetStringOrNull(cols2["Address"]),
-                }
+                EditedByUserID = reader.GetIntOrNull(cols1["EditedByUserID"])
             };
 
         }

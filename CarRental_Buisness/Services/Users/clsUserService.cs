@@ -100,15 +100,15 @@ namespace CarRental_Buisness.Services.Users
             entity.UserID = newID.Value;
             return clsServiceResult<clsUserDto>.OK(clsUserMapper.ToDto(entity));
         }
-        public async Task<clsServiceResult<clsUserDto>> UpdateAsync(int userID , clsUserUpdateModel model)
+        public async Task<clsServiceResult<bool>> UpdateAsync(int userID , clsUserUpdateModel model)
         {
             var validation =  _validator.ValidateUpdateAsync(model);
             if (!validation.IsValid)
-                return clsServiceResult<clsUserDto>.Invalid(validation);
+                return clsServiceResult<bool>.Invalid(validation);
 
             var entity = await clsUsersData.GetUserByUserIDAsync(userID);
             if (entity == null)
-                return clsServiceResult<clsUserDto>.Fail("المستخدم غير موجود");
+                return clsServiceResult<bool>.Fail("المستخدم غير موجود");
 
             entity.UserName = model.UserName;
             entity.RoleID = model.RoleID;
@@ -117,10 +117,7 @@ namespace CarRental_Buisness.Services.Users
             entity.EditedByUserID = clsCurrentUser.UserID;
 
             bool update = await clsUsersData.UpdateAsync(entity);
-            if (!update)
-                return clsServiceResult<clsUserDto>.Fail("فشل تحديث بيانات المستخدم");
-
-            return clsServiceResult<clsUserDto>.OK(clsUserMapper.ToDto(entity));
+            return update ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل تحديث بيانات المستخدم");
         }
         public async Task<clsServiceResult<bool>> DeleteAsync(int userID)
         {
@@ -128,11 +125,22 @@ namespace CarRental_Buisness.Services.Users
 
             return deleted ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل حذف المستخدم");
         }
+        public async Task<clsServiceResult<bool>> RestoreUserAsync(int userID)
+        {
+            bool restored = await clsUsersData.RestoreUserAsync(userID);
+            return restored ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل إعادة المستخدم المستخدم");
+        }
         public async Task<clsServiceResult<bool>> UpdateUsePasswordAsync(int userID,string password)
         {
            bool update = await clsUsersData.UpdateUserPasswordAsync(userID,clsSecurity.EncryptedPassword(password));
 
             return update ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل تحديث كلمة السر");
+        }
+        public async Task<clsServiceResult<bool>> ExistsByPersonIDAsync(int personId)
+        {
+            bool exists = await clsUsersData.IsPersonIDExistsAsync(personId);
+
+            return exists ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("الشخص غير موجود");
         }
     }
 }

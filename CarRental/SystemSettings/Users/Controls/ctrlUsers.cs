@@ -96,7 +96,7 @@ namespace CarRental.SystemSettings.Users.Controls
         {
             try
             {
-                using (frmAddEditUser frm = new frmAddEditUser())
+                using (frmAddEditUser frm = new frmAddEditUser(_UserService))
                 {
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
@@ -118,7 +118,7 @@ namespace CarRental.SystemSettings.Users.Controls
 
             try
             {
-                using (frmAddEditUser frm = new frmAddEditUser(UserId))
+                using (frmAddEditUser frm = new frmAddEditUser(_UserService,UserId))
                 {
                     if (frm.ShowDialog() == DialogResult.OK)
                     {

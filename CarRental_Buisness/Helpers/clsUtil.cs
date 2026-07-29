@@ -185,6 +185,11 @@ namespace CarRental_Buisness.Helpers
         {
             return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
         }
+        public static bool IsValidFormatPassword(string password)
+        {
+            return !(!string.IsNullOrEmpty(password) &&
+                       (password.Length < 8 || !password.Any(char.IsDigit) || !password.Any(char.IsLetter)));
+        }
 
     }
 }
