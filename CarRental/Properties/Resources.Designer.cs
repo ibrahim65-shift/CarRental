@@ -720,6 +720,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap password_32 {
+            get {
+                object obj = ResourceManager.GetObject("password-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap paymentMethod_32 {
             get {
                 object obj = ResourceManager.GetObject("paymentMethod-32", resourceCulture);

@@ -22,7 +22,5 @@ namespace CarRental_Entities
         public int CreatedByUserID { get; set; }
         public DateTime? EditedDate { get; set; }
         public int? EditedByUserID { get; set; }
-
-        public clsPersonEntities Person {  get; set; } // Composition
     }
 }
