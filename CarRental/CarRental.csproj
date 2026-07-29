@@ -384,6 +384,12 @@
     <Compile Include="SystemSettings\Users\Forms\frmAddEditUser.Designer.cs">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemSettings\Users\Forms\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemSettings\Users\Forms\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vehicles\FuelTypes\Controls\ctrlFuelTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -609,6 +615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SystemSettings\Users\Forms\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSettings\Users\Forms\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehicles\FuelTypes\Controls\ctrlFuelTypes.resx">
       <DependentUpon>ctrlFuelTypes.cs</DependentUpon>
@@ -1037,6 +1046,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\password-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangePassword-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ChangePassword-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

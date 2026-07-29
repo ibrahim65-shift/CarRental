@@ -170,6 +170,13 @@ namespace CarRental_DataAccess
 
             return Convert.ToDecimal(value);
         }
+        public static string ToStringSafe(object value)
+        {
+            if (value == null || value == DBNull.Value)
+                return null;
+
+            return Convert.ToString(value);
+        }
 
         public static SqlParameter CreateDecimalParameter(string parameterName, decimal value, int precision = 10, int scale = 2)
         {
