@@ -136,6 +136,17 @@ namespace CarRental_Buisness.Services.Users
 
             return update ? clsServiceResult<bool>.OK(true) : clsServiceResult<bool>.Fail("فشل تحديث كلمة السر");
         }
+        public async Task<clsServiceResult<bool>> VerifyCurrentPasswordAsync(int userID, string password)
+        {
+            string currentPassword = await clsUsersData.GetUserPasswordByUserIDAsync(userID);
+            if (string.IsNullOrEmpty(currentPassword))
+                return clsServiceResult<bool>.Fail("لاتوجد بيانات");
+
+            if(clsSecurity.Verfiy(password, currentPassword))
+                return clsServiceResult<bool>.OK(true);
+
+            return clsServiceResult<bool>.Fail("كلمة المرور الحالية غير صحيحة");
+        }
         public async Task<clsServiceResult<bool>> ExistsByPersonIDAsync(int personId)
         {
             bool exists = await clsUsersData.IsPersonIDExistsAsync(personId);

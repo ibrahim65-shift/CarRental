@@ -6,6 +6,7 @@ using CarRental.SystemSettings.Users.Forms;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Services.Users;
 using CarRental_Buisness.Services.Users;
+using DocumentFormat.OpenXml.Spreadsheet;
 using SharedClass;
 using System;
 using System.Data;
@@ -354,6 +355,23 @@ namespace CarRental.SystemSettings.Users.Controls
 
             using (frmRelatedAttachments frm = new frmRelatedAttachments("People", personId, userName))
                 frm.ShowDialog();
+        }
+        private async void toolStripMenuItemChangePassword_Click(object sender, EventArgs e)
+        {
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetCellIntValue(row, Columns.UserID, out int UserID))
+                return;
+
+            using(frmChangePassword frm = new frmChangePassword(_UserService , UserID))
+            {
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    await RefreshDataAsync();
+                    DataRefreshed?.Invoke();
+                }
+            }
         }
 
         // ==================  METHODS ===================
@@ -730,6 +748,6 @@ namespace CarRental.SystemSettings.Users.Controls
 
         }
 
-       
+        
     }
 }

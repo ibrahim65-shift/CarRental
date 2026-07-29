@@ -365,7 +365,26 @@ namespace CarRental_DataAccess
                 return false;
             }
         }
+        public static async Task<string> GetUserPasswordByUserIDAsync(int userId)
+        {
+            try
+            {
+                var result = await clsSQLHelper.ExecuteScalarAsync("SP_Users_GetUserPasswordByUserID",
+                    p => p.Add("@UserID", SqlDbType.Int).Value = userId);
 
+                return clsSQLHelper.ToStringSafe(result);
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsUsersData.GetUserPasswordByUserIDAsync (SQL)", ex);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsUsersData.GetUserPasswordByUserIDAsync (General)", ex);
+                return null;
+            }
+        }
         private static clsUsersEntities _MapToUser(SqlDataReader reader)
         {
             var cols1 = clsSQLHelper.GetOrdinal(reader,
