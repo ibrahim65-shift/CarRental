@@ -354,6 +354,12 @@
     <Compile Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.Designer.cs">
       <DependentUpon>ctrlVehiclesReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="SystemSettings\InsuranceTypes\Controls\ctrlInsuranceTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -600,6 +606,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\VehiclesReports\Controls\ctrlVehiclesReports.resx">
       <DependentUpon>ctrlVehiclesReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemSettings\InsuranceTypes\Controls\ctrlInsuranceTypes.resx">
       <DependentUpon>ctrlInsuranceTypes.cs</DependentUpon>
@@ -1052,6 +1061,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ChangePassword-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aboutMe-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\server-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\company-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

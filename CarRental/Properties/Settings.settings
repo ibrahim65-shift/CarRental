@@ -14,5 +14,32 @@
     <Setting Name="CurrencyCode" Type="System.String" Scope="User">
       <Value Profile="(Default)">SAR</Value>
     </Setting>
+    <Setting Name="CompanyName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">اسم المؤسسة</Value>
+    </Setting>
+    <Setting Name="ConnectionType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Local</Value>
+    </Setting>
+    <Setting Name="Server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./SQLEXPRESS</Value>
+    </Setting>
+    <Setting Name="DataBase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CarRentalDB</Value>
+    </Setting>
+    <Setting Name="ConnectionDuration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="AUTOREFRESH" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="NotifiDuration" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="UserName" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

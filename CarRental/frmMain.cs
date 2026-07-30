@@ -17,6 +17,7 @@ using CarRental.Rentals.VehicleReturn.Controls;
 using CarRental.Reports.CustomersReports.Controls;
 using CarRental.Reports.RentalReports.Controls;
 using CarRental.Reports.VehiclesReports.Controls;
+using CarRental.Settings;
 using CarRental.SystemSettings.InsuranceTypes.Controls;
 using CarRental.SystemSettings.Locations.Controls;
 using CarRental.SystemSettings.Users.Controls;
@@ -188,6 +189,16 @@ namespace CarRental
             _pageHelper.SetPage(clsPageManager.GetPage<ctrlRolePermissions, frmMain>(this, i => new ctrlRolePermissions(this)));
         }
 
+        private void toolStripMenuItemSettings_Click(object sender, EventArgs e)
+        {
+            using (frmSettings frm = new frmSettings())
+                frm.ShowDialog();
+        }
+
+        private void toolStripMenuItemAboutMe_Click(object sender, EventArgs e)
+        {
+
+        }
         // =================== METHODES ==========
 
         public void OpenVehicleReturnPage()
@@ -195,6 +206,6 @@ namespace CarRental
             _pageHelper.SetPage(clsPageManager.GetPage<ctrlVehicleReturn, frmMain>(this, r => new ctrlVehicleReturn(this)));
         }
 
-      
+       
     }
 }
