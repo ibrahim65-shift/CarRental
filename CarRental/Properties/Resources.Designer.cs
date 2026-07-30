@@ -63,6 +63,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap aboutMe_64 {
+            get {
+                object obj = ResourceManager.GetObject("aboutMe-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap add_32 {
             get {
                 object obj = ResourceManager.GetObject("add_32", resourceCulture);
@@ -263,6 +273,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap company_32 {
+            get {
+                object obj = ResourceManager.GetObject("company-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap counter_32 {
             get {
                 object obj = ResourceManager.GetObject("counter-32", resourceCulture);
@@ -326,6 +346,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap dashboard_64 {
             get {
                 object obj = ResourceManager.GetObject("dashboard_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap database_32 {
+            get {
+                object obj = ResourceManager.GetObject("database-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1098,6 +1128,16 @@ namespace CarRental.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap server_32 {
+            get {
+                object obj = ResourceManager.GetObject("server-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to يبدو أن لديك مشكلة في الاتصال , اضغط عل زر التحديث أدناه.
         /// </summary>
         public static string ServerErrorDescription {
@@ -1112,6 +1152,16 @@ namespace CarRental.Properties {
         public static string ServerErrorTitle {
             get {
                 return ResourceManager.GetString("ServerErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap settings_64 {
+            get {
+                object obj = ResourceManager.GetObject("settings-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1161,6 +1211,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap tax_32 {
             get {
                 object obj = ResourceManager.GetObject("tax-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap time_32 {
+            get {
+                object obj = ResourceManager.GetObject("time-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

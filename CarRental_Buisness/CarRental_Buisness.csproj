@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Helpers\clsApplicationSettings.cs" />
     <Compile Include="Helpers\clsAuthorizationCache.cs" />
+    <Compile Include="Helpers\clsConnectionSecurity.cs" />
     <Compile Include="Helpers\clsCurrentUser.cs" />
     <Compile Include="Helpers\clsUtil.cs" />
     <Compile Include="Mappers\clsAttachmentMapper.cs" />
