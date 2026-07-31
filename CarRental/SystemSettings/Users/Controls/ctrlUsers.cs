@@ -327,10 +327,10 @@ namespace CarRental.SystemSettings.Users.Controls
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
-            if (!_TryGetCellIntValue(row, Columns.UserID, out int UserID))
+            if (!_TryGetCellIntValue(row, Columns.PersonID, out int personId))
                 return;
 
-            using (frmPersonCardInfo frm = new frmPersonCardInfo(UserID))
+            using (frmPersonCardInfo frm = new frmPersonCardInfo(personId))
                 frm.ShowDialog();
         }
         private void toolStripMenuItemSMS_Click(object sender, EventArgs e)
