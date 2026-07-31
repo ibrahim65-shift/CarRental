@@ -233,6 +233,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap CarRentalIcon_512 {
+            get {
+                object obj = ResourceManager.GetObject("CarRentalIcon-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Category_32 {
             get {
                 object obj = ResourceManager.GetObject("Category-32", resourceCulture);

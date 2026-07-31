@@ -90,6 +90,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutMe\ctrlAboutMe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AboutMe\ctrlAboutMe.Designer.cs">
+      <DependentUpon>ctrlAboutMe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Attachments\Controls\ctrlRelatedAttachments.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -468,6 +474,9 @@
     <Compile Include="Vehicles\VehicleStatus\Controls\ctrlVehicleStatus.Designer.cs">
       <DependentUpon>ctrlVehicleStatus.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutMe\ctrlAboutMe.resx">
+      <DependentUpon>ctrlAboutMe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Attachments\Controls\ctrlRelatedAttachments.resx">
       <DependentUpon>ctrlRelatedAttachments.cs</DependentUpon>
     </EmbeddedResource>
@@ -1079,6 +1088,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\company-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarRentalIcon-512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

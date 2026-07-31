@@ -63,11 +63,14 @@
             this.toolStripMenuItemRolePermissions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInsuranceTypes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLocations = new System.Windows.Forms.ToolStripMenuItem();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAboutMe = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -464,14 +467,6 @@
             this.toolStripMenuItemLocations.Text = "المواقع";
             this.toolStripMenuItemLocations.Click += new System.EventHandler(this.toolStripMenuItemLocations_Click);
             // 
-            // pnlMain
-            // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 71);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1569, 510);
-            this.pnlMain.TabIndex = 1;
-            // 
             // toolStripMenuItemSettings
             // 
             this.toolStripMenuItemSettings.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -491,6 +486,26 @@
             this.toolStripMenuItemAboutMe.Size = new System.Drawing.Size(225, 67);
             this.toolStripMenuItemAboutMe.Text = "حول النظام";
             this.toolStripMenuItemAboutMe.Click += new System.EventHandler(this.toolStripMenuItemAboutMe_Click);
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.pictureBox1);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 71);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1569, 510);
+            this.pnlMain.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::CarRental.Properties.Resources.CarRentalIcon_512;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1569, 510);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMain
             // 
@@ -512,6 +527,8 @@
             this.flowLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.pnlMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -556,5 +573,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRolePermissions;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAboutMe;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

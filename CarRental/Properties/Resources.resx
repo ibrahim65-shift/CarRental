@@ -121,11 +121,14 @@
   <data name="startDate-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\startDate-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="paymentMethod-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paymentMethod-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="vehicleCategory_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vehicleCategory-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="roles-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roles-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EmptyDataStateDescription" xml:space="preserve">
-    <value>استخدم زر الإضافة لإضافة بيانات جديدة</value>
   </data>
   <data name="CardInfo_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CardInfo-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,6 +163,9 @@
   <data name="fuelType_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fuelType-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RentalReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RentalReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Finalized_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Finalized-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,20 +175,11 @@
   <data name="AddPerson-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AddPerson-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Customers_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Customers-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Invoice_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Invoice-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VehicleInspection_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VehicleInspection-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="insuranceTypes_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\insuranceTypes-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="database-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,14 +193,11 @@
   <data name="TransactionTypes_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TransactionTypes-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Make_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Make-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="VehicleDamage_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VehicleDamage-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maintenance_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maintenance-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="expiryDate-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expiryDate-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plateNumber_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plateNumber-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,17 +205,14 @@
   <data name="reports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="attach_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attach-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BookingStatus-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BookingStatus-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="aboutMe-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\aboutMe-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EmptyReportDescription" xml:space="preserve">
-    <value>لاتوجد بيانات لعرضها</value>
-  </data>
-  <data name="paymentMethod-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paymentMethod-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BookingStatus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BookingStatus-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VehiclesCategory_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VehiclesCategory-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,14 +223,17 @@
   <data name="Payments_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Payments-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ratePlanScope-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ratePlanScope-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VehicleInsurance_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VehicleInsurance-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CustomersReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CustomersReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="vehicleDamage-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vehicleDamage-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Discount_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Discount-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="customersList_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\customersList-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,11 +253,8 @@
   <data name="reportType-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reportType-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="attach-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\attach-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BookingStatus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BookingStatus-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Save-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -271,11 +262,20 @@
   <data name="policyNumber-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\policyNumber-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Calendar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Calendar 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="female32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\female32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vendor-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vendor-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="delete_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="attach-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PaymentMethods_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PaymentMethods-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,23 +301,20 @@
   <data name="BirthDate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BirthDate-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Mileage_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mileage-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="insuranceTypes_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\insuranceTypes-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PaymentReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PaymentReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="expiryDate-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expiryDate-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Loading gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loading gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="status_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\status-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="attach_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\attach-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Calendar_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Calendar 32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Name_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Name-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Mileage_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mileage-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ChangePassword-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChangePassword-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,11 +328,17 @@
   <data name="PaymentTransactions_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PaymentTransactions-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Loading gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Loading gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Name_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Name-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BookingStatus-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BookingStatus-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="company-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\company-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VehicleInspection_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VehicleInspection-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RentalBooking_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RentalBooking-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PaymentTypes_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PaymentTypes-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,17 +349,17 @@
   <data name="Locations-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Locations-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LateFees_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LateFees-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="previous_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\previous-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ratePlanScope-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ratePlanScope-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maintenance_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maintenance-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Unique_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Unique-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReturnStatus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReturnStatus-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RefundAmount-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RefundAmount-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -367,17 +370,14 @@
   <data name="counter-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\counter-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vehicleDamage-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vehicleDamage-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="invoiceType_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\invoiceType-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="report-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\report-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EmptyDataStateDescription" xml:space="preserve">
+    <value>استخدم زر الإضافة لإضافة بيانات جديدة</value>
   </data>
   <data name="color_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\color-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="invoice_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\invoice-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VehicleStatus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VehicleStatus-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -391,8 +391,8 @@
   <data name="AdditionalCharges-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AdditionalCharges-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RentalReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RentalReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="invoice_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\invoice-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ServerErrorDescription" xml:space="preserve">
     <value>يبدو أن لديك مشكلة في الاتصال , اضغط عل زر التحديث أدناه</value>
@@ -427,17 +427,23 @@
   <data name="maintenance-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maintenance-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="VehiclesReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VehiclesReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hash_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hash-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Discount_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Discount-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="permission-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\permission-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TotalAmount_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TotalAmount-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CustomersReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CustomersReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vehicleCategory_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vehicleCategory-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EmptyReportDescription" xml:space="preserve">
+    <value>لاتوجد بيانات لعرضها</value>
   </data>
   <data name="RatePlans_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RatePlans-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -445,8 +451,8 @@
   <data name="excelAll_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\excelAll-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vendor-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vendor-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paymentType-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paymentType-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vehicleInsurance-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vehicleInsurance-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -475,9 +481,6 @@
   <data name="rentalBooking-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rentalBooking-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="newStatus-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\newStatus-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -499,20 +502,20 @@
   <data name="editPerson-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editPerson-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="invoiceType_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\invoiceType-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Make_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Make-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tax-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tax-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ReturnStatus_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ReturnStatus-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="status_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\status-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="VehiclesReports_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VehiclesReports-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LateFees_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LateFees-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paymentType-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paymentType-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Customers_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Customers-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RentalTransactions_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RentalTransactions-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -520,13 +523,13 @@
   <data name="Vehicles_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vehicles-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RentalBooking_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RentalBooking-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TotalAmount_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TotalAmount-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dropOffLocation-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dropOffLocation-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="company-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\company-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CarRentalIcon-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CarRentalIcon-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
