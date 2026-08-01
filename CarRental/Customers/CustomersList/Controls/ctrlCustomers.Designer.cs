@@ -47,7 +47,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItemSMS = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemEmail = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
@@ -269,57 +268,47 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPersonInfo,
             this.toolStripSeparator1,
-            this.toolStripMenuItemSMS,
             this.toolStripMenuItemEmail,
             this.toolStripSeparator2,
             this.toolStripMenuItemAttach});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(348, 296);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(331, 232);
             // 
             // toolStripMenuItemPersonInfo
             // 
-            this.toolStripMenuItemPersonInfo.Image = global::CarRental.Properties.Resources.IDCard_32;
+            this.toolStripMenuItemPersonInfo.Image = global::CarRental.Properties.Resources.id_card_64;
             this.toolStripMenuItemPersonInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPersonInfo.Name = "toolStripMenuItemPersonInfo";
-            this.toolStripMenuItemPersonInfo.Size = new System.Drawing.Size(347, 70);
+            this.toolStripMenuItemPersonInfo.Size = new System.Drawing.Size(330, 72);
             this.toolStripMenuItemPersonInfo.Text = "معلومات العميل";
             this.toolStripMenuItemPersonInfo.Click += new System.EventHandler(this.toolStripMenuItemPersonInfo_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(344, 6);
-            // 
-            // toolStripMenuItemSMS
-            // 
-            this.toolStripMenuItemSMS.Image = global::CarRental.Properties.Resources.SMS_32;
-            this.toolStripMenuItemSMS.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemSMS.Name = "toolStripMenuItemSMS";
-            this.toolStripMenuItemSMS.Size = new System.Drawing.Size(347, 70);
-            this.toolStripMenuItemSMS.Text = "إرسال رسالة نصية";
-            this.toolStripMenuItemSMS.Click += new System.EventHandler(this.toolStripMenuItemSMS_Click);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(327, 6);
             // 
             // toolStripMenuItemEmail
             // 
-            this.toolStripMenuItemEmail.Image = global::CarRental.Properties.Resources.Email_32;
+            this.toolStripMenuItemEmail.Image = global::CarRental.Properties.Resources.email_64;
             this.toolStripMenuItemEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemEmail.Name = "toolStripMenuItemEmail";
-            this.toolStripMenuItemEmail.Size = new System.Drawing.Size(347, 70);
+            this.toolStripMenuItemEmail.Size = new System.Drawing.Size(330, 72);
             this.toolStripMenuItemEmail.Text = "إرسال بريد";
             this.toolStripMenuItemEmail.Click += new System.EventHandler(this.toolStripMenuItemEmail_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(344, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(327, 6);
             // 
             // toolStripMenuItemAttach
             // 
             this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
             this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
-            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(347, 70);
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(330, 72);
             this.toolStripMenuItemAttach.Text = "المرفقات";
             this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
@@ -541,7 +530,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPersonInfo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSMS;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEmail;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

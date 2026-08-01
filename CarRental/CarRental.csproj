@@ -114,6 +114,12 @@
     <Compile Include="Attachments\Forms\frmRelatedAttachments.Designer.cs">
       <DependentUpon>frmRelatedAttachments.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContactUs\frmContactUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContactUs\frmContactUs.Designer.cs">
+      <DependentUpon>frmContactUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customers\CustomersList\Controls\ctrlCustomers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -485,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Attachments\Forms\frmRelatedAttachments.resx">
       <DependentUpon>frmRelatedAttachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactUs\frmContactUs.resx">
+      <DependentUpon>frmContactUs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customers\CustomersList\Controls\ctrlCustomers.resx">
       <DependentUpon>ctrlCustomers.cs</DependentUpon>
@@ -1091,6 +1100,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CarRentalIcon-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\send-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id-card-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
