@@ -1,4 +1,5 @@
 ﻿using CarRental.Attachments.Forms;
+using CarRental.ContactUs;
 using CarRental.Customers.People.Controls;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
@@ -293,13 +294,16 @@ namespace CarRental.Customers.People.Controls
             using (frmPersonCardInfo frm = new frmPersonCardInfo(personID))
                 frm.ShowDialog();
         }
-        private void toolStripMenuItemSMS_Click(object sender, EventArgs e)
-        {
-            clsMessages.ShowInfo("ستضاف الميزة قريبا");
-        }
         private void toolStripMenuItemEmail_Click(object sender, EventArgs e)
         {
-            clsMessages.ShowInfo("ستضاف الميزة قريبا");
+            if (!_TryGetSelectedRow(out DataGridViewRow row))
+                return;
+
+            if (!_TryGetCellValue<string>(row, Columns.Email, out string email))
+                return;
+
+            using (frmContactUs frm = new frmContactUs(email))
+                frm.ShowDialog();
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {

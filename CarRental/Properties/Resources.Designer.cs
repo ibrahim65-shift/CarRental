@@ -441,6 +441,26 @@ namespace CarRental.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap email_512 {
+            get {
+                object obj = ResourceManager.GetObject("email-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap email_64 {
+            get {
+                object obj = ResourceManager.GetObject("email-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to استخدم زر الإضافة لإضافة بيانات جديدة.
         /// </summary>
         public static string EmptyDataStateDescription {
@@ -543,6 +563,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap Hash_32 {
             get {
                 object obj = ResourceManager.GetObject("Hash_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap id_card_64 {
+            get {
+                object obj = ResourceManager.GetObject("id-card-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1133,6 +1163,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap search_32 {
             get {
                 object obj = ResourceManager.GetObject("search_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap send_32 {
+            get {
+                object obj = ResourceManager.GetObject("send-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
