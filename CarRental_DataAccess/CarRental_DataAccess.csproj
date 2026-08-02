@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="clsAttachmentsData.cs" />
     <Compile Include="clsBookingStatusData.cs" />
+    <Compile Include="clsDashboardData.cs" />
     <Compile Include="clsDbSessionContext.cs" />
     <Compile Include="clsInsuranceProvidersData.cs" />
     <Compile Include="clsInvoicesData.cs" />

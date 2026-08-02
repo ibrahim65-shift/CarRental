@@ -1113,5 +1113,8 @@
   <ItemGroup>
     <None Include="Resources\id-card-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dashborad\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

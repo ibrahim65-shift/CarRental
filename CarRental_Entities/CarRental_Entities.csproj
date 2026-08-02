@@ -53,6 +53,9 @@
     <Compile Include="clsRoleEntity.cs" />
     <Compile Include="clsRolePermissionEntity.cs" />
     <Compile Include="clsRolePermissionEntityView.cs" />
+    <Compile Include="Dashboard\clsAlertsEntity.cs" />
+    <Compile Include="Dashboard\clsLatestBookingsEntity.cs" />
+    <Compile Include="Dashboard\clsStatisticsEntity.cs" />
     <Compile Include="Invoices\clsInviocesViewEntities.cs" />
     <Compile Include="Invoices\clsInvoiceEntities.cs" />
     <Compile Include="clsLocationsEntities.cs" />

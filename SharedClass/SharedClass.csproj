@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsRolePermissionItem.cs" />
+    <Compile Include="enAlertType.cs" />
     <Compile Include="enInsuranceProviders.cs" />
     <Compile Include="enInvoiceTypes.cs" />
     <Compile Include="enRatePlaneScope.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="enBookingStatus.cs" />
     <Compile Include="enReturnStatus.cs" />
     <Compile Include="enInsuranceType.cs" />
+    <Compile Include="enSeverityType.cs" />
     <Compile Include="enVehicleCategory.cs" />
     <Compile Include="enFuelType.cs" />
     <Compile Include="clsEventLogger.cs" />
