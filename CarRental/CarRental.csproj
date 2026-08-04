@@ -180,6 +180,24 @@
     <Compile Include="Customers\People\Forms\frmPersonCardInfo.Designer.cs">
       <DependentUpon>frmPersonCardInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashborad\Controls\ctrlAlertCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashborad\Controls\ctrlAlertCard.Designer.cs">
+      <DependentUpon>ctrlAlertCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashborad\Controls\ctrlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashborad\Controls\ctrlDashboard.Designer.cs">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashborad\Controls\ctrlStatisticCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashborad\Controls\ctrlStatisticCard.Designer.cs">
+      <DependentUpon>ctrlStatisticCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -527,6 +545,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Customers\People\Forms\frmPersonCardInfo.resx">
       <DependentUpon>frmPersonCardInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashborad\Controls\ctrlAlertCard.resx">
+      <DependentUpon>ctrlAlertCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashborad\Controls\ctrlDashboard.resx">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashborad\Controls\ctrlStatisticCard.resx">
+      <DependentUpon>ctrlStatisticCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoading.resx">
       <DependentUpon>frmLoading.cs</DependentUpon>
@@ -1114,7 +1141,37 @@
     <None Include="Resources\id-card-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dashborad\" />
+    <None Include="Resources\Redcircle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoldCircle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenCircle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orangeCircle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customers-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BlueCircle-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greenAdd-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
