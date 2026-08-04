@@ -54,6 +54,7 @@
     <Compile Include="Mappers\clsAttachmentMapper.cs" />
     <Compile Include="Mappers\clsBookingStatusMapper.cs" />
     <Compile Include="Mappers\clsCustomerMapper.cs" />
+    <Compile Include="Mappers\clsDashboardMapper.cs" />
     <Compile Include="Mappers\clsFuelTypeMapper.cs" />
     <Compile Include="Mappers\clsInsuranceProvidersMapper.cs" />
     <Compile Include="Mappers\clsInsuranceTypeMapper.cs" />
@@ -87,6 +88,10 @@
     <Compile Include="Models\Customers\clsCustomerAddNewModel.cs" />
     <Compile Include="Models\Customers\clsCustomerDto.cs" />
     <Compile Include="Models\Customers\clsCustomerUpdateModel.cs" />
+    <Compile Include="Models\Dashboard\clsAlertsDto.cs" />
+    <Compile Include="Models\Dashboard\clsDashboardDto.cs" />
+    <Compile Include="Models\Dashboard\clsLatestBookingsDto.cs" />
+    <Compile Include="Models\Dashboard\clsStatisticsDto.cs" />
     <Compile Include="Models\FuelTypes\clsFuelTypeDto.cs" />
     <Compile Include="Models\FuelTypes\clsFuelTypeCreateUpdateModel.cs" />
     <Compile Include="Models\InsuranceProviders\clsInsuranceProvidersDto.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Services\BookingStatus\clsBookingStatusValidator.cs" />
     <Compile Include="Services\Customers\clsCustomerService.cs" />
     <Compile Include="Services\Customers\clsCustomerValidator.cs" />
+    <Compile Include="Services\Dashboard\clsDashboardService.cs" />
     <Compile Include="Services\FileStorge\clsFileStorageService.cs" />
     <Compile Include="Services\FuelTypes\clsFuelTypeService.cs" />
     <Compile Include="Services\FuelTypes\clsFuelTypeValidator.cs" />

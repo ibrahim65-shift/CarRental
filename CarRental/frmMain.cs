@@ -2,6 +2,7 @@
 using CarRental.AboutMe;
 using CarRental.Customers.CustomersList.Controls;
 using CarRental.Customers.People.Controls;
+using CarRental.Dashborad.Controls;
 using CarRental.Helper;
 using CarRental.Maintenance.Controls;
 using CarRental.Payments.Invoices.Controls;
@@ -73,7 +74,8 @@ namespace CarRental
 
         private void toolStripMenuItemDashboard_Click(object sender, EventArgs e)
         {
-            clsMessages.ShowInfo("ستضاف الميزة قريبا");
+            pictureBox1.Visible = false;
+            _pageHelper.SetPage(clsPageManager.GetPage<ctrlDashboard, frmMain>(this, u => new ctrlDashboard(this)));
         }
 
         private void toolStripMenuItemCustomersList_Click(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace CarRental
         private void toolStripMenuItemRentalBooking_Click(object sender, EventArgs e)
         {
             pictureBox1.Visible = false;
-            _pageHelper.SetPage(clsPageManager.GetPage<ctrlRentalBooking,frmMain>(this,r=> new ctrlRentalBooking(this)));
+            OpenRentalBookingPage();
         }
 
         private void toolStripMenuItemVehicleReturn_Click(object sender, EventArgs e)
@@ -228,13 +230,17 @@ namespace CarRental
             pictureBox1.Visible = false;
             _pageHelper.SetPage(clsPageManager.GetPage<ctrlAboutMe, frmMain>(this, i => new ctrlAboutMe()));
         }
-        // =================== METHODES ==========
+
+        // =================== METHODS ==========
 
         public void OpenVehicleReturnPage()
         {
             _pageHelper.SetPage(clsPageManager.GetPage<ctrlVehicleReturn, frmMain>(this, r => new ctrlVehicleReturn(this)));
         }
-
-       
+        public void OpenRentalBookingPage()
+        {
+            _pageHelper.SetPage(clsPageManager.GetPage<ctrlRentalBooking, frmMain>(this, r => new ctrlRentalBooking(this)));
+        }
+        
     }
 }
