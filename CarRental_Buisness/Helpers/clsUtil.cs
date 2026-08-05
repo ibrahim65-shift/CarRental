@@ -99,13 +99,7 @@ namespace CarRental_Buisness.Helpers
             {
                 using (var root = Registry.CurrentUser)
                 {
-                    using (var sub = root.OpenSubKey(RegistryKeyPath))
-                    {
-                        if (sub != null)
-                        {
-                            sub.DeleteSubKey(RegistryKeyPath, false);
-                        }
-                    }
+                    root.DeleteSubKey(RegistryKeyPath, false);
                 }
             }
             catch (Exception ex)
@@ -190,6 +184,22 @@ namespace CarRental_Buisness.Helpers
             return !(!string.IsNullOrEmpty(password) &&
                        (password.Length < 8 || !password.Any(char.IsDigit) || !password.Any(char.IsLetter)));
         }
-
+        
+        public static string GetLocalIPAddress()
+        {
+             try
+             {
+                 using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+                 {
+                     socket.Connect("8.8.8.8", 65530); 
+                     IPEndPoint endPoint = socket.LocalEndPoint as IPEndPoint;
+                     return endPoint.Address.ToString();
+                 }
+             }
+             catch
+             {
+                 return "127.0.0.1"; 
+             }
+        }
     }
 }

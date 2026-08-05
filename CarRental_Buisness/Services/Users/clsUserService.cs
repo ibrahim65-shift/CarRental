@@ -142,7 +142,7 @@ namespace CarRental_Buisness.Services.Users
             if (string.IsNullOrEmpty(currentPassword))
                 return clsServiceResult<bool>.Fail("لاتوجد بيانات");
 
-            if(clsSecurity.Verfiy(password, currentPassword))
+            if(clsSecurity.Verify(password, currentPassword))
                 return clsServiceResult<bool>.OK(true);
 
             return clsServiceResult<bool>.Fail("كلمة المرور الحالية غير صحيحة");

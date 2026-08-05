@@ -283,6 +283,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap close_32 {
+            get {
+                object obj = ResourceManager.GetObject("close-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap color_32 {
             get {
                 object obj = ResourceManager.GetObject("color_32", resourceCulture);
@@ -763,6 +773,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap Locations_64 {
             get {
                 object obj = ResourceManager.GetObject("Locations-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap login_32 {
+            get {
+                object obj = ResourceManager.GetObject("login-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
