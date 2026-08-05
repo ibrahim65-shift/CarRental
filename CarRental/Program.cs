@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace CarRental
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmStart());
         }
     }
 }

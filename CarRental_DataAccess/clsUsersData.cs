@@ -385,6 +385,42 @@ namespace CarRental_DataAccess
                 return null;
             }
         }
+        public static async Task RegisterFailedLoginAsync(int userId , int maxAttempts)
+        {
+            try
+            {
+                await clsSQLHelper.ExecuteNonQueryAsync("SP_Users_RegisterFailedLogin",
+                    p =>
+                    {
+                        p.Add("@MaxAttempts", SqlDbType.Int).Value = maxAttempts;
+                        p.Add("@UserID", SqlDbType.Int).Value = userId;
+                    });
+            }
+            catch(SqlException ex)
+            {
+                clsEventLogger.LogException("clsUsersData.RegisterFailedLoginAsync (SQL)", ex);
+            }
+            catch(Exception ex)
+            {
+                clsEventLogger.LogException("clsUsersData.RegisterFailedLoginAsync (General)", ex);
+            }
+        }
+        public static async Task ResetFailedLoginAsync(int userId)
+        {
+            try
+            {
+                await clsSQLHelper.ExecuteNonQueryAsync("SP_Users_ResetFailedLogin",
+                    p => p.Add("@UserID", SqlDbType.Int).Value = userId);
+            }
+            catch (SqlException ex)
+            {
+                clsEventLogger.LogException("clsUsersData.ResetFailedLoginAsync (SQL)", ex);
+            }
+            catch (Exception ex)
+            {
+                clsEventLogger.LogException("clsUsersData.ResetFailedLoginAsync (General)", ex);
+            }
+        }
         private static clsUsersEntities _MapToUser(SqlDataReader reader)
         {
             var cols1 = clsSQLHelper.GetOrdinal(reader,

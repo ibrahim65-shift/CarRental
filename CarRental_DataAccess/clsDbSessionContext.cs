@@ -8,8 +8,8 @@ namespace CarRental_DataAccess
 {
     public class clsDbSessionContext
     {
-        public int UserID {  get; set; }
-        public string Source { get; set; } = "UI";
+        public int? UserID {  get; set; }
+        public string Source { get; set; } 
         public string MachineName { get; set; }
         public string IPAddress { get; set; }
 

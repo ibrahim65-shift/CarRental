@@ -4,6 +4,7 @@ using CarRental.Customers.CustomersList.Controls;
 using CarRental.Customers.People.Controls;
 using CarRental.Dashborad.Controls;
 using CarRental.Helper;
+using CarRental.Login;
 using CarRental.Maintenance.Controls;
 using CarRental.Payments.Invoices.Controls;
 using CarRental.Payments.PaymentMethods.Controls;
@@ -29,6 +30,7 @@ using CarRental.Vehicles.VehicleDamage.Controls;
 using CarRental.Vehicles.VehicleInsurance.Controls;
 using CarRental.Vehicles.VehiclesList.Controls;
 using CarRental.Vehicles.VehicleStatus.Controls;
+using CarRental_Buisness;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,12 +40,14 @@ namespace CarRental
     public partial class frmMain : Form
     {
         private clsPageHelper _pageHelper;
-        public frmMain()
+        private frmLogin _frmLogin;
+        public frmMain(frmLogin login)
         {
             _SetWindowState();
             InitializeComponent();
-
+            
             _pageHelper = new clsPageHelper(this);
+            _frmLogin = login;
         }
 
         private void _SetWindowState()
@@ -58,6 +62,8 @@ namespace CarRental
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             _SaveWindowState();
+            clsCurrentUser.Clear();
+            _frmLogin.Show();
         }
 
         private void toolStripMenuItemUsers_Click(object sender, EventArgs e)

@@ -14,14 +14,7 @@ namespace CarRental_DataAccess
 
         // ================= SESSION CONTEXT =================
 
-        public static clsDbSessionContext CurrentContext { get; set; } =
-            new clsDbSessionContext
-            {
-                UserID = 1,
-                MachineName = Environment.MachineName,
-                IPAddress = "127.0.0.1",
-                Source = "UI"
-            };
+        public static clsDbSessionContext CurrentContext { get; set; }
 
         // ================= CONNECTION =================
 
@@ -53,7 +46,7 @@ namespace CarRental_DataAccess
                 // توليد GUID واحد للعملية إذا لم يكن موجوداً
                 var correlationId = Guid.NewGuid().ToString();
 
-                cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = CurrentContext.UserID;
+                cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = (object)CurrentContext?.UserID ?? DBNull.Value;
                 cmd.Parameters.Add("@CorrelationID", SqlDbType.NVarChar, 50).Value = correlationId;
                 cmd.Parameters.Add("@Source", SqlDbType.NVarChar, 100).Value = (object)CurrentContext.Source ?? "UI";
                 cmd.Parameters.Add("@Machine", SqlDbType.NVarChar, 100).Value = (object)CurrentContext.MachineName ?? Environment.MachineName;

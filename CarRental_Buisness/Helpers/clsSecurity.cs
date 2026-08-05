@@ -66,7 +66,7 @@ namespace CarRental_Buisness
            
             return IsValidBase64(salt) && IsValidBase64(hash) ;
         }
-        public static bool Verfiy(string password, string packed)
+        public static bool Verify(string password, string packed)
         {
             if(!TryUnPack(packed,out string salt , out string storedHash))
                 return false;

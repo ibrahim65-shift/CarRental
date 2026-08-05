@@ -210,6 +210,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStart.Designer.cs">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\clsDebouncer.cs" />
     <Compile Include="Helper\clsExcelHelper.cs" />
     <Compile Include="Helper\clsUiHelper.cs" />
@@ -219,6 +225,12 @@
     </Compile>
     <Compile Include="Helper\clsPageHelper.cs" />
     <Compile Include="Helper\clsPageManger.cs" />
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance\Controls\ctrlMaintenance.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -560,6 +572,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStart.resx">
+      <DependentUpon>frmStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maintenance\Controls\ctrlMaintenance.resx">
       <DependentUpon>ctrlMaintenance.cs</DependentUpon>
@@ -1172,6 +1190,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
