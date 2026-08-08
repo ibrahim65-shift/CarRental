@@ -2,6 +2,7 @@
 using CarRental.Maintenance.Controls;
 using CarRental.Maintenance.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Services.Maintenance;
@@ -77,6 +78,9 @@ namespace CarRental.Maintenance.Controls
         public ctrlMaintenance(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _Maintenanceervice = new clsMaintenanceService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -101,6 +105,12 @@ namespace CarRental.Maintenance.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة صيانة");
+                return;
+            }
+
             try
             {
                 using (frmAddEditMaintenance frm = new frmAddEditMaintenance(_Maintenanceervice))
@@ -120,6 +130,12 @@ namespace CarRental.Maintenance.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل صيانة");
+                return;
+            }
+
             if (!_TryGetSelectedMaintenanceId(out int MaintenanceId))
                 return;
 
@@ -142,6 +158,12 @@ namespace CarRental.Maintenance.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف صيانة");
+                return;
+            }
+
             if (!_TryGetSelectedMaintenanceId(out int MaintenanceId))
                 return;
 
@@ -177,6 +199,12 @@ namespace CarRental.Maintenance.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الصيانات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -486,10 +514,13 @@ namespace CarRental.Maintenance.Controls
             _SetColumnHeader(Columns.EditedByUserID , "المعدل"       );
 
 
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

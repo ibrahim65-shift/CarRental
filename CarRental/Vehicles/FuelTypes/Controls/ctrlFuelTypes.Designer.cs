@@ -81,6 +81,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(113, 50);
             this.btnExport.TabIndex = 3;
+            this.btnExport.Tag = "FuelTypes.Export";
             this.btnExport.Text = "تصدير";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnExport, "تصدير البيانات الحالية إلى ملف Excel");

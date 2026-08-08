@@ -73,9 +73,6 @@ namespace CarRental.Login
 
                 using (frmMain frm = new frmMain(this))
                     frm.ShowDialog();
-
-                Close();
-
             }
             catch (Exception ex)
             {

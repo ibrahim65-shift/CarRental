@@ -4,6 +4,7 @@ using CarRental.Customers.CustomersList.Controls;
 using CarRental.Customers.CustomersList.Forms;
 using CarRental.Customers.People.Forms;
 using CarRental.Helper;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Services.Customers;
 using SharedClass;
@@ -70,6 +71,9 @@ namespace CarRental.Customers.CustomersList.Controls
         public ctrlCustomers(frmMain frmMain , enMode mode)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _CustomerService = new clsCustomerService();
             _mode = mode;
             _frmMain = frmMain;
@@ -96,6 +100,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة عميل");
+                return;
+            }
+
             try
             {
                 using (frmAddEditCustomer frm = new frmAddEditCustomer(_CustomerService))
@@ -115,6 +125,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل عميل");
+                return;
+            }
+
             if (!_TryGetSelectedCustomerId(out int CustomerId))
                 return;
 
@@ -137,6 +153,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف عميل");
+                return;
+            }
+
             if (!_TryGetSelectedCustomerId(out int CustomerId))
                 return;
 
@@ -172,6 +194,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات العملاء");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -308,6 +336,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private void toolStripMenuItemEmail_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemEmail.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إرسال إيميل");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -336,6 +370,12 @@ namespace CarRental.Customers.CustomersList.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -527,12 +567,15 @@ namespace CarRental.Customers.CustomersList.Controls
             _SetColumnHeader(Columns.EditedDate				, "تاريخ التعديل"      );
             _SetColumnHeader(Columns.EditedByUserID         , "المعدل"             );
 
-            _HideColumn(Columns.PersonID);
-            _HideColumn(Columns.IsDeleted);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.PersonID);
+                _HideColumn(Columns.IsDeleted);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

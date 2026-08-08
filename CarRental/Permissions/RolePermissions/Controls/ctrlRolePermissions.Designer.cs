@@ -85,6 +85,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(113, 50);
             this.btnAdd.TabIndex = 0;
+            this.btnAdd.Tag = "RolePermissions.Add";
             this.btnAdd.Text = "إضافة";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnAdd, "إضافة مركبة جديدة إلى النظام");
@@ -100,6 +101,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(113, 50);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.Tag = "RolePermissions.Edit";
             this.btnEdit.Text = "تعديل";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnEdit, "تعديل بيانات المركبة المحددة");
@@ -115,6 +117,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(113, 50);
             this.btnExport.TabIndex = 3;
+            this.btnExport.Tag = "RolePermissions.Export";
             this.btnExport.Text = "تصدير";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnExport, "تصدير البيانات الحالية إلى ملف Excel");

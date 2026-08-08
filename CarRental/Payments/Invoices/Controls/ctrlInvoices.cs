@@ -5,6 +5,7 @@ using CarRental.Helper;
 using CarRental.Payments.Invoices.DTOs;
 using CarRental.Payments.Invoices.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Models.Invoices;
@@ -79,6 +80,9 @@ namespace CarRental.Payments.Invoices.Controls
         public ctrlInvoices(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _InvoicesService = new clsInvoicesService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -103,6 +107,12 @@ namespace CarRental.Payments.Invoices.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل فاتورة");
+                return;
+            }
+
             if (!_TryGetSelectedInvoiceID(out int InvoicesId))
                 return;
 
@@ -125,6 +135,12 @@ namespace CarRental.Payments.Invoices.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الفواتير");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -300,6 +316,12 @@ namespace CarRental.Payments.Invoices.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -489,12 +511,15 @@ namespace CarRental.Payments.Invoices.Controls
             _SetColumnHeader(Columns.VehicleID         , "معرف المركبة"  );
 
 
-            _HideColumn(Columns.VehicleID);
-            _HideColumn(Columns.CustomerID);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.VehicleID);
+                _HideColumn(Columns.CustomerID);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
         }
         private void _SetColumnHeader(string columnName, string headerText)
         {

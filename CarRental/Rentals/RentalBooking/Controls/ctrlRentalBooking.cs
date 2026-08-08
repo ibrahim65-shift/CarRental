@@ -7,6 +7,7 @@ using CarRental.Rentals.RentalBooking.Controls;
 using CarRental.Rentals.RentalBooking.Forms;
 using CarRental.Vehicles.VehicleDamage.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Services.RentalBooking;
@@ -88,6 +89,9 @@ namespace CarRental.Rentals.RentalBooking.Controls
         public ctrlRentalBooking(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _RentalBookingService = new clsRentalBookingService();
             _vehicleReturnSerivce = new clsVehicleReturnService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
@@ -113,6 +117,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة حجز");
+                return;
+            }
+
             try
             {
                 using (frmAddEditRentalBooking frm = new frmAddEditRentalBooking(_RentalBookingService))
@@ -132,6 +142,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل حجز");
+                return;
+            }
+
             if (!_TryGetSelectedRentalBookingId(out int RentalBookingId))
                 return;
 
@@ -154,6 +170,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف حجز");
+                return;
+            }
+
             if (!_TryGetSelectedRentalBookingId(out int RentalBookingId))
                 return;
 
@@ -189,6 +211,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الحجوزات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -374,6 +402,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private async void toolStripMenuItemStartInpection_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemStartInpection.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية بدء الفحص");
+                return;
+            }
+
             if (!_TryGetSelectedRentalBookingId(out int BookingId))
                 return;
 
@@ -419,6 +453,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -430,6 +470,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private void toolStripMenuItemVehicleDamage_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemVehicleDamage.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة ضرر للمركبة");
+                return;
+            }
+
             if (!_TryGetSelectedRentalBookingId(out int bookingId))
                 return;
 
@@ -444,6 +490,12 @@ namespace CarRental.Rentals.RentalBooking.Controls
         }
         private async void toolStripMenuItemUpdateStatus_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemUpdateStatus.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تحديث حالة الحجز");
+                return;
+            }
+
             if (!_TryGetSelectedRentalBookingId(out int bookingId))
                 return;
 
@@ -646,11 +698,14 @@ namespace CarRental.Rentals.RentalBooking.Controls
             _SetColumnHeader(Columns.EditedDate            , "تاريخ التعديل");
             _SetColumnHeader(Columns.EditedByUserID        , "المعدل"       );
 
-            _HideColumn(Columns.BookingStatusID);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.BookingStatusID);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

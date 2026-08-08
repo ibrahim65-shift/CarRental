@@ -48,6 +48,9 @@ namespace CarRental.Rentals.BookingStatus.Controls
         public ctrlBookingStatus(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _BookingStatusService = new clsBookingStatusService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -72,6 +75,12 @@ namespace CarRental.Rentals.BookingStatus.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات حالات الحجز");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

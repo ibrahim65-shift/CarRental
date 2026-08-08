@@ -47,6 +47,9 @@ namespace CarRental.SystemSettings.InsuranceTypes.Controls
         public ctrlInsuranceTypes(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _InsuranceTypeservice = new clsInsuranceTypeService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -71,6 +74,12 @@ namespace CarRental.SystemSettings.InsuranceTypes.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if(!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات أنواع التأمين");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

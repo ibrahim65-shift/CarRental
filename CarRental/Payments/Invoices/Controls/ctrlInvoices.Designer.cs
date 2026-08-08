@@ -45,6 +45,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemVehicleInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemCustomerInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemInvoiceInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -61,7 +62,6 @@
             this.cbPageNumber = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlState.SuspendLayout();
@@ -92,6 +92,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(113, 50);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.Tag = "Invoices.Edit";
             this.btnEdit.Text = "تعديل";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnEdit, "تعديل بيانات الفاتورة المحددة");
@@ -107,6 +108,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(113, 50);
             this.btnExport.TabIndex = 3;
+            this.btnExport.Tag = "Invoices.Export";
             this.btnExport.Text = "تصدير";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnExport, "تصدير البيانات الحالية إلى ملف Excel");
@@ -246,7 +248,7 @@
             // 
             // toolStripMenuItemVehicleInfo
             // 
-            this.toolStripMenuItemVehicleInfo.Image = global::CarRental.Properties.Resources.vehicleCategory_32;
+            this.toolStripMenuItemVehicleInfo.Image = global::CarRental.Properties.Resources.vehicleInfo_64;
             this.toolStripMenuItemVehicleInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleInfo.Name = "toolStripMenuItemVehicleInfo";
             this.toolStripMenuItemVehicleInfo.Size = new System.Drawing.Size(333, 72);
@@ -255,11 +257,22 @@
             // 
             // toolStripMenuItemCustomerInfo
             // 
-            this.toolStripMenuItemCustomerInfo.Image = global::CarRental.Properties.Resources.Name_32;
+            this.toolStripMenuItemCustomerInfo.Image = global::CarRental.Properties.Resources.customer_64;
+            this.toolStripMenuItemCustomerInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemCustomerInfo.Name = "toolStripMenuItemCustomerInfo";
             this.toolStripMenuItemCustomerInfo.Size = new System.Drawing.Size(333, 72);
             this.toolStripMenuItemCustomerInfo.Text = "معلومات العميل";
             this.toolStripMenuItemCustomerInfo.Click += new System.EventHandler(this.toolStripMenuItemCustomerInfo_Click);
+            // 
+            // toolStripMenuItemAttach
+            // 
+            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
+            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemAttach.Tag = "Attachments.Add";
+            this.toolStripMenuItemAttach.Text = "المرفقات";
+            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
             // toolStripSeparator1
             // 
@@ -449,15 +462,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
-            // 
-            // toolStripMenuItemAttach
-            // 
-            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
-            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
-            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(333, 72);
-            this.toolStripMenuItemAttach.Text = "المرفقات";
-            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
             // ctrlInvoices
             // 

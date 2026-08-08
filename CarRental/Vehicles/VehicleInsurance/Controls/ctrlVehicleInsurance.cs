@@ -3,6 +3,7 @@ using CarRental.Helper;
 using CarRental.Vehicles.VehicleInsurance.Controls;
 using CarRental.Vehicles.VehicleInsurance.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Services.VehicleInsurance;
@@ -68,6 +69,9 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
         public ctrlVehicleInsurance(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this); 
+
             _VehicleInsuranceService = new clsVehicleInsuranceService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -92,6 +96,12 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل تأمين المركبات");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -120,6 +130,12 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف تأمين المركبات");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -158,6 +174,12 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات تأمين المركبات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -292,9 +314,14 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
             using (frmVehicleCardInfo frm = new frmVehicleCardInfo(VehicleID.Value))
                 frm.ShowDialog();
         }
-
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -473,9 +500,12 @@ namespace CarRental.Vehicles.VehicleInsurance.Controls
             _SetColumnHeader(Columns.CreatedDate 	, "تاريخ الإنشاء"  );
             _SetColumnHeader(Columns.CreatedByUserID, "المنشئ"        );
 
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.VehicleID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.VehicleID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

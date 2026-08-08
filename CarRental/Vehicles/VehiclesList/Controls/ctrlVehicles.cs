@@ -4,6 +4,7 @@ using CarRental.Vehicles.VehicleDamage.Forms;
 using CarRental.Vehicles.VehicleInsurance.Forms;
 using CarRental.Vehicles.VehiclesList.Controls;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Services.VehicleInsurance;
 using CarRental_Buisness.Services.Vehicles;
@@ -84,6 +85,9 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         public ctrlVehicles(frmMain frmMain, enMode mode)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _mode = mode;
             _VehicleService = new clsVehicleService();
             _frmMain = frmMain;
@@ -110,6 +114,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مركبة");
+                return;
+            }
+
             try
             {
                 using (frmAddEditVehicle frm = new frmAddEditVehicle(_VehicleService))
@@ -129,6 +139,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل مركبة");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleId(out int VehicleId))
                 return;
 
@@ -151,6 +167,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف مركبة");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleId(out int VehicleId))
                 return;
 
@@ -186,6 +208,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات المركبات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -329,6 +357,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private void toolStripMenuItemVehicleDamage_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemVehicleDamage.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة ضرر للمركبات");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleId(out int vehicleId))
                 return;
 
@@ -337,6 +371,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private void toolStripMenuItemVehicleInsurance_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemVehicleInsurance.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة تأمين للمركبات");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleId(out int vehicleId))
                 return;
 
@@ -345,6 +385,12 @@ namespace CarRental.Vehicles.VehiclesList.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -557,11 +603,14 @@ namespace CarRental.Vehicles.VehiclesList.Controls
             _SetColumnHeader(Columns.EditedDate       , "تاريخ التعديل"           );
             _SetColumnHeader(Columns.EditedByUserID   , "المعدل"                  );
 
-            _HideColumn(Columns.IsDeleted);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.IsDeleted);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

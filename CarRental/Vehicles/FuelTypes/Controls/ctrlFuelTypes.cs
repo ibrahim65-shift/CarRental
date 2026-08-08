@@ -47,6 +47,9 @@ namespace CarRental.Vehicles.FuelTypes.Controls
         public ctrlFuelTypes(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _FuelTypeservice = new clsFuelTypeService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -71,6 +74,10 @@ namespace CarRental.Vehicles.FuelTypes.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if(!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات أنواع الوقود");
+            }
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

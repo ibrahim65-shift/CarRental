@@ -97,6 +97,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(113, 50);
             this.btnAdd.TabIndex = 0;
+            this.btnAdd.Tag = "Users.Add";
             this.btnAdd.Text = "إضافة";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnAdd, "إضافة مستخدم جديد إلى النظام");
@@ -112,6 +113,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(113, 50);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.Tag = "Users.Edit";
             this.btnEdit.Text = "تعديل";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnEdit, "تعديل بيانات المستخدم المحدد");
@@ -127,6 +129,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(113, 50);
             this.btnDelete.TabIndex = 2;
+            this.btnDelete.Tag = "Users.Delete";
             this.btnDelete.Text = "حذف";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnDelete, "حذف المستخدم من النظام");
@@ -142,6 +145,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(113, 50);
             this.btnExport.TabIndex = 3;
+            this.btnExport.Tag = "Users.Export";
             this.btnExport.Text = "تصدير";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnExport, "تصدير البيانات الحالية إلى ملف Excel");
@@ -299,6 +303,7 @@
             this.toolStripMenuItemEmail.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemEmail.Name = "toolStripMenuItemEmail";
             this.toolStripMenuItemEmail.Size = new System.Drawing.Size(364, 72);
+            this.toolStripMenuItemEmail.Tag = "Emails.Send";
             this.toolStripMenuItemEmail.Text = "إرسال بريد";
             this.toolStripMenuItemEmail.Click += new System.EventHandler(this.toolStripMenuItemEmail_Click);
             // 
@@ -313,6 +318,7 @@
             this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
             this.toolStripMenuItemAttach.Size = new System.Drawing.Size(364, 72);
+            this.toolStripMenuItemAttach.Tag = "Attachments.Add";
             this.toolStripMenuItemAttach.Text = "المرفقات";
             this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 

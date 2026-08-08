@@ -4,6 +4,7 @@ using CarRental.Helper;
 using CarRental.Rentals.RatePlans.Controls;
 using CarRental.Rentals.RatePlans.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Services.RatePlans;
@@ -72,6 +73,9 @@ namespace CarRental.Rentals.RatePlans.Controls
         public ctrlRatePlans(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _RatePlanservice = new clsRatePlansService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -96,6 +100,12 @@ namespace CarRental.Rentals.RatePlans.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة خطة للأسعار");
+                return;
+            }
+
             try
             {
                 using (frmAddEditRatePlans frm = new frmAddEditRatePlans(_RatePlanservice))
@@ -115,6 +125,12 @@ namespace CarRental.Rentals.RatePlans.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل خطة للأسعار");
+                return;
+            }
+
             if (!_TryGetSelectedRatePlanId(out int RatePlansId))
                 return;
 
@@ -137,6 +153,12 @@ namespace CarRental.Rentals.RatePlans.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف خطة للأسعار");
+                return;
+            }
+
             if (!_TryGetSelectedRatePlanId(out int RatePlanId))
                 return;
 
@@ -172,6 +194,12 @@ namespace CarRental.Rentals.RatePlans.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات خطط الأسعار");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -507,11 +535,14 @@ namespace CarRental.Rentals.RatePlans.Controls
             _SetColumnHeader(Columns.EditedByUserID   , "المعدل"       );
 
 
-            _HideColumn(Columns.VehicleID);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.VehicleID);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
         }
         private void _SetColumnHeader(string columnName, string headerText)
         {

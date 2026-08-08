@@ -52,6 +52,9 @@ namespace CarRental.Permissions.RolePermissions.Controls
         public ctrlRolePermissions(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _rolePermissionsService = new clsRolePermissionService();
             _frmMain = frmMain;
         }
@@ -76,6 +79,12 @@ namespace CarRental.Permissions.RolePermissions.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة صلاحيات للأدوار");
+                return;
+            }
+
             try
             {
                 using (frmAddEditRolePermissions frm = new frmAddEditRolePermissions(_rolePermissionsService))
@@ -95,6 +104,12 @@ namespace CarRental.Permissions.RolePermissions.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل صلاحيات للأدوار");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -120,6 +135,12 @@ namespace CarRental.Permissions.RolePermissions.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الصلاحيات للأدوار");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

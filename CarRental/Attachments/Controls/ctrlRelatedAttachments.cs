@@ -50,6 +50,9 @@ namespace CarRental.Attachments.Controls
         public ctrlRelatedAttachments(string relatedTable , int relatedId , string attachOwner)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _attachmentService = new clsAttachmentService();
             _relatedTable = relatedTable;
             _relatedId = relatedId;
@@ -75,6 +78,12 @@ namespace CarRental.Attachments.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             try
             {
                 using (frmAddEditAttachment frm = new frmAddEditAttachment(_attachmentService, null, _relatedTable, _relatedId))
@@ -94,6 +103,12 @@ namespace CarRental.Attachments.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -120,6 +135,12 @@ namespace CarRental.Attachments.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 

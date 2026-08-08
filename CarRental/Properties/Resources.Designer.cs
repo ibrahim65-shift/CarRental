@@ -333,6 +333,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap customer_64 {
+            get {
+                object obj = ResourceManager.GetObject("customer-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap CustomerCar_512 {
             get {
                 object obj = ResourceManager.GetObject("CustomerCar_512", resourceCulture);
@@ -560,6 +570,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap finalize_64 {
+            get {
+                object obj = ResourceManager.GetObject("finalize-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Finalized_32 {
             get {
                 object obj = ResourceManager.GetObject("Finalized_32", resourceCulture);
@@ -643,6 +663,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap IDCard_32 {
             get {
                 object obj = ResourceManager.GetObject("IDCard_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Inspection_64 {
+            get {
+                object obj = ResourceManager.GetObject("Inspection-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -790,6 +820,16 @@ namespace CarRental.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap logout_64 {
+            get {
+                object obj = ResourceManager.GetObject("logout-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap maintenance_32 {
             get {
                 object obj = ResourceManager.GetObject("maintenance-32", resourceCulture);
@@ -833,6 +873,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap male_32 {
             get {
                 object obj = ResourceManager.GetObject("male_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap markAsInvoiced_64 {
+            get {
+                object obj = ResourceManager.GetObject("markAsInvoiced-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1471,6 +1521,16 @@ namespace CarRental.Properties {
         public static System.Drawing.Bitmap VehicleInfo_512 {
             get {
                 object obj = ResourceManager.GetObject("VehicleInfo_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap vehicleInfo_64 {
+            get {
+                object obj = ResourceManager.GetObject("vehicleInfo-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

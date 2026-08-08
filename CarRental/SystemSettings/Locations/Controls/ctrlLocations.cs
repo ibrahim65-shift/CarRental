@@ -57,6 +57,9 @@ namespace CarRental.SystemSettings.Locations.Controls
         public ctrlLocations(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _Locationservice = new clsLocationService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -81,6 +84,12 @@ namespace CarRental.SystemSettings.Locations.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة موقع");
+                return;
+            }
+
             try
             {
                 using (frmAddEditLocation frm = new frmAddEditLocation(_Locationservice))
@@ -100,6 +109,12 @@ namespace CarRental.SystemSettings.Locations.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل موقع");
+                return;
+            }
+
             if (!_TryGetSelectedLocationId(out int LocationId))
                 return;
 
@@ -122,6 +137,12 @@ namespace CarRental.SystemSettings.Locations.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف موقع");
+                return;
+            }
+
             if (!_TryGetSelectedLocationId(out int LocationId))
                 return;
 
@@ -157,6 +178,12 @@ namespace CarRental.SystemSettings.Locations.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات المواقع");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
