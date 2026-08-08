@@ -46,6 +46,7 @@
             this.dgvListVehicles = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemVehicleInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemVehicleDamage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -62,7 +63,6 @@
             this.cbPageNumber = new System.Windows.Forms.ComboBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolStripMenuItemAttach = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanelButtons.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.pnlState.SuspendLayout();
@@ -95,6 +95,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(113, 50);
             this.btnAdd.TabIndex = 0;
+            this.btnAdd.Tag = "Vehicles.Add";
             this.btnAdd.Text = "إضافة";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnAdd, "إضافة مركبة جديدة إلى النظام");
@@ -110,6 +111,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(113, 50);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.Tag = "Vehicles.Edit";
             this.btnEdit.Text = "تعديل";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnEdit, "تعديل بيانات المركبة المحددة");
@@ -125,6 +127,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(113, 50);
             this.btnDelete.TabIndex = 2;
+            this.btnDelete.Tag = "Vehicles.Delete";
             this.btnDelete.Text = "حذف";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnDelete, "حذف المركبة المحددة من النظام");
@@ -140,6 +143,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(113, 50);
             this.btnExport.TabIndex = 3;
+            this.btnExport.Tag = "Vehicles.Export";
             this.btnExport.Text = "تصدير";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolTip1.SetToolTip(this.btnExport, "تصدير البيانات الحالية إلى ملف Excel");
@@ -279,12 +283,22 @@
             // 
             // toolStripMenuItemVehicleInfo
             // 
-            this.toolStripMenuItemVehicleInfo.Image = global::CarRental.Properties.Resources.vehicleCategory_32;
+            this.toolStripMenuItemVehicleInfo.Image = global::CarRental.Properties.Resources.vehicleInfo_64;
             this.toolStripMenuItemVehicleInfo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleInfo.Name = "toolStripMenuItemVehicleInfo";
             this.toolStripMenuItemVehicleInfo.Size = new System.Drawing.Size(333, 72);
             this.toolStripMenuItemVehicleInfo.Text = "معلومات المركبة";
             this.toolStripMenuItemVehicleInfo.Click += new System.EventHandler(this.toolStripMenuItemVehicleInfo_Click);
+            // 
+            // toolStripMenuItemAttach
+            // 
+            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
+            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
+            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemAttach.Tag = "Attachments.Add";
+            this.toolStripMenuItemAttach.Text = "المرفقات";
+            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
             // toolStripSeparator1
             // 
@@ -297,6 +311,7 @@
             this.toolStripMenuItemVehicleDamage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleDamage.Name = "toolStripMenuItemVehicleDamage";
             this.toolStripMenuItemVehicleDamage.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemVehicleDamage.Tag = "VehicleDamage.Add";
             this.toolStripMenuItemVehicleDamage.Text = "ضرر للمركبة";
             this.toolStripMenuItemVehicleDamage.Click += new System.EventHandler(this.toolStripMenuItemVehicleDamage_Click);
             // 
@@ -311,6 +326,7 @@
             this.toolStripMenuItemVehicleInsurance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleInsurance.Name = "toolStripMenuItemVehicleInsurance";
             this.toolStripMenuItemVehicleInsurance.Size = new System.Drawing.Size(333, 72);
+            this.toolStripMenuItemVehicleInsurance.Tag = "VehicleInsurance.Add";
             this.toolStripMenuItemVehicleInsurance.Text = "تأمين للمركبة";
             this.toolStripMenuItemVehicleInsurance.Click += new System.EventHandler(this.toolStripMenuItemVehicleInsurance_Click);
             // 
@@ -481,15 +497,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ReshowDelay = 200;
             this.toolTip1.ShowAlways = true;
-            // 
-            // toolStripMenuItemAttach
-            // 
-            this.toolStripMenuItemAttach.Image = global::CarRental.Properties.Resources.attach_64;
-            this.toolStripMenuItemAttach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemAttach.Name = "toolStripMenuItemAttach";
-            this.toolStripMenuItemAttach.Size = new System.Drawing.Size(333, 72);
-            this.toolStripMenuItemAttach.Text = "المرفقات";
-            this.toolStripMenuItemAttach.Click += new System.EventHandler(this.toolStripMenuItemAttach_Click);
             // 
             // ctrlVehicles
             // 

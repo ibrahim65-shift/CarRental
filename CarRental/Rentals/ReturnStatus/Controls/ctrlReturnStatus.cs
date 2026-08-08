@@ -47,6 +47,9 @@ namespace CarRental.Rentals.ReturnStatus.Controls
         public ctrlReturnStatus(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _ReturnStatuservice = new clsReturnStatusService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -71,6 +74,12 @@ namespace CarRental.Rentals.ReturnStatus.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if(!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات حالات الإرجاع");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

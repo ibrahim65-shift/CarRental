@@ -6,6 +6,7 @@ using CarRental.Payments.Invoices.Forms;
 using CarRental.Rentals.VehicleReturn.Controls;
 using CarRental.Rentals.VehicleReturn.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Models.VehicleReturn;
@@ -83,6 +84,9 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         public ctrlVehicleReturn(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _VehicleReturnService = new clsVehicleReturnService();
             _returnWorkflowService = new clsVehicleReturnWorkflowService(_VehicleReturnService);
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
@@ -108,6 +112,11 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الإرجاع للمركبات");
+                return;
+            }
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -273,6 +282,12 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         }
         private async void toolStripMenuItemUpdateInspection_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemUpdateInspection.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تحديث الفحص");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleReturnId(out int returnID))
                 return;
 
@@ -295,6 +310,12 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         }
         private async void toolStripMenuItemFinalizeReturn_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemFinalizeReturn.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إنهاء الإرجاع");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleReturnId(out int returnID))
                 return;
 
@@ -316,6 +337,12 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         }
         private async void toolStripMenuItemMarkAsInvoiced_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemMarkAsInvoiced.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إصدار الفاتورة و إنهاء عملية الإرجاع");
+                return;
+            }
+
             if (!_TryGetSelectedVehicleReturnId(out int returnID))
                 return;
 
@@ -383,6 +410,12 @@ namespace CarRental.Rentals.VehicleReturn.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -569,14 +602,17 @@ namespace CarRental.Rentals.VehicleReturn.Controls
             _SetColumnHeader(Columns.EditedByUserID        , "المعدل"               );
 
 
-            _HideColumn(Columns.BookingID);
-            _HideColumn(Columns.ReturnStatusID);
-            _HideColumn(Columns.CustomerID);
-            _HideColumn(Columns.VehicleID);
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.BookingID);
+                _HideColumn(Columns.ReturnStatusID);
+                _HideColumn(Columns.CustomerID);
+                _HideColumn(Columns.VehicleID);
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

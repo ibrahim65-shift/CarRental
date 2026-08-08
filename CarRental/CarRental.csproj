@@ -218,6 +218,7 @@
     </Compile>
     <Compile Include="Helper\clsDebouncer.cs" />
     <Compile Include="Helper\clsExcelHelper.cs" />
+    <Compile Include="Helper\clsPermissionHelper.cs" />
     <Compile Include="Helper\clsUiHelper.cs" />
     <Compile Include="Helper\clsMessages.cs" />
     <Compile Include="Helper\clsNumericTextBox.cs">
@@ -1196,6 +1197,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vehicleInfo-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inspection-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\finalize-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\markAsInvoiced-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

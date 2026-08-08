@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using CarRental_Buisness.Helpers;
 using CarRental.Payments.PaymentTransactions.Forms;
 using CarRental.Payments.Invoices.Forms;
+using CarRental_Buisness;
 
 namespace CarRental.Payments.PaymentTransactions.Controls
 {
@@ -65,6 +66,9 @@ namespace CarRental.Payments.PaymentTransactions.Controls
         public ctrlPaymentTransactions(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _PaymentTransactionservice = new clsPaymentTransactionsService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -89,6 +93,12 @@ namespace CarRental.Payments.PaymentTransactions.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات عمليات الدفع");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -408,10 +418,13 @@ namespace CarRental.Payments.PaymentTransactions.Controls
             _SetColumnHeader(Columns.EditedByUserID , "المعدل"        );
 
 
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

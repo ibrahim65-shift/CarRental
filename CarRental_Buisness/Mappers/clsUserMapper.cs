@@ -20,7 +20,8 @@ namespace CarRental_Buisness.Mappers
                 IsActive = entity.IsActive,
                 IsDeleted = entity.IsDeleted,
                 IsLockedOut = entity.IsLockedOut,
-                PersonID = entity.PersonID
+                PersonID = entity.PersonID,
+                IsAdmin = entity.RoleID==1
             };
 
         }

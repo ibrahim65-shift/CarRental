@@ -37,8 +37,8 @@
             this.toolStripMenuItemVehicles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleList = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleCategory = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemVehicleStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemFuelTypes = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemVehicleStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleInsurance = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemVehicleDamage = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRentals = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,8 +49,8 @@
             this.toolStripMenuItemRatePlans = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPayments = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPaymentTransactions = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemPaymentMethods = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPaymentStatus = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemPaymentMethods = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemInvoices = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemMaintenance = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemReports = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +65,7 @@
             this.toolStripMenuItemLocations = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAboutMe = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemlogout = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
@@ -79,7 +80,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1569, 71);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1440, 71);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // menuStrip1
@@ -97,21 +98,23 @@
             this.toolStripMenuItemReports,
             this.toolStripMenuItemSystem,
             this.toolStripMenuItemSettings,
-            this.toolStripMenuItemAboutMe});
+            this.toolStripMenuItemAboutMe,
+            this.toolStripMenuItemlogout});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1569, 71);
+            this.menuStrip1.Size = new System.Drawing.Size(1440, 71);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "Main Page";
             // 
             // toolStripMenuItemDashboard
             // 
-            this.toolStripMenuItemDashboard.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemDashboard.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemDashboard.Image = global::CarRental.Properties.Resources.dashboard_64;
             this.toolStripMenuItemDashboard.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemDashboard.Name = "toolStripMenuItemDashboard";
             this.toolStripMenuItemDashboard.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemDashboard.Size = new System.Drawing.Size(229, 67);
+            this.toolStripMenuItemDashboard.Size = new System.Drawing.Size(198, 67);
+            this.toolStripMenuItemDashboard.Tag = "Dashboard.View";
             this.toolStripMenuItemDashboard.Text = "لوحة التحكم";
             this.toolStripMenuItemDashboard.Click += new System.EventHandler(this.toolStripMenuItemDashboard_Click);
             // 
@@ -120,12 +123,12 @@
             this.toolStripMenuItemCustomers.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemCustomersList,
             this.toolStripMenuItemPeople});
-            this.toolStripMenuItemCustomers.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemCustomers.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemCustomers.Image = global::CarRental.Properties.Resources.Customers_64;
             this.toolStripMenuItemCustomers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemCustomers.Name = "toolStripMenuItemCustomers";
             this.toolStripMenuItemCustomers.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemCustomers.Size = new System.Drawing.Size(173, 67);
+            this.toolStripMenuItemCustomers.Size = new System.Drawing.Size(154, 67);
             this.toolStripMenuItemCustomers.Text = "العملاء";
             // 
             // toolStripMenuItemCustomersList
@@ -134,7 +137,8 @@
             this.toolStripMenuItemCustomersList.Image = global::CarRental.Properties.Resources.customersList_64;
             this.toolStripMenuItemCustomersList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemCustomersList.Name = "toolStripMenuItemCustomersList";
-            this.toolStripMenuItemCustomersList.Size = new System.Drawing.Size(308, 74);
+            this.toolStripMenuItemCustomersList.Size = new System.Drawing.Size(304, 74);
+            this.toolStripMenuItemCustomersList.Tag = "Customers.View";
             this.toolStripMenuItemCustomersList.Text = "قائمة العملاء";
             this.toolStripMenuItemCustomersList.Click += new System.EventHandler(this.toolStripMenuItemCustomersList_Click);
             // 
@@ -144,7 +148,8 @@
             this.toolStripMenuItemPeople.Image = global::CarRental.Properties.Resources.People_64;
             this.toolStripMenuItemPeople.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPeople.Name = "toolStripMenuItemPeople";
-            this.toolStripMenuItemPeople.Size = new System.Drawing.Size(308, 74);
+            this.toolStripMenuItemPeople.Size = new System.Drawing.Size(304, 74);
+            this.toolStripMenuItemPeople.Tag = "People.View";
             this.toolStripMenuItemPeople.Text = "الأشخاص";
             this.toolStripMenuItemPeople.Click += new System.EventHandler(this.toolStripMenuItemPeople_Click);
             // 
@@ -153,16 +158,16 @@
             this.toolStripMenuItemVehicles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemVehicleList,
             this.toolStripMenuItemVehicleCategory,
-            this.toolStripMenuItemVehicleStatus,
             this.toolStripMenuItemFuelTypes,
+            this.toolStripMenuItemVehicleStatus,
             this.toolStripMenuItemVehicleInsurance,
             this.toolStripMenuItemVehicleDamage});
-            this.toolStripMenuItemVehicles.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemVehicles.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemVehicles.Image = global::CarRental.Properties.Resources.Vehicles_64;
             this.toolStripMenuItemVehicles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicles.Name = "toolStripMenuItemVehicles";
             this.toolStripMenuItemVehicles.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemVehicles.Size = new System.Drawing.Size(195, 67);
+            this.toolStripMenuItemVehicles.Size = new System.Drawing.Size(170, 67);
             this.toolStripMenuItemVehicles.Text = "المركبات";
             // 
             // toolStripMenuItemVehicleList
@@ -171,7 +176,8 @@
             this.toolStripMenuItemVehicleList.Image = global::CarRental.Properties.Resources.VehiclesList_64;
             this.toolStripMenuItemVehicleList.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleList.Name = "toolStripMenuItemVehicleList";
-            this.toolStripMenuItemVehicleList.Size = new System.Drawing.Size(332, 74);
+            this.toolStripMenuItemVehicleList.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemVehicleList.Tag = "Vehicles.View";
             this.toolStripMenuItemVehicleList.Text = "قائمة المركبات";
             this.toolStripMenuItemVehicleList.Click += new System.EventHandler(this.toolStripMenuItemVehicleList_Click);
             // 
@@ -181,19 +187,10 @@
             this.toolStripMenuItemVehicleCategory.Image = global::CarRental.Properties.Resources.VehiclesCategory_64;
             this.toolStripMenuItemVehicleCategory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleCategory.Name = "toolStripMenuItemVehicleCategory";
-            this.toolStripMenuItemVehicleCategory.Size = new System.Drawing.Size(332, 74);
+            this.toolStripMenuItemVehicleCategory.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemVehicleCategory.Tag = "VehicleCategory.View";
             this.toolStripMenuItemVehicleCategory.Text = "فئات المركبات";
             this.toolStripMenuItemVehicleCategory.Click += new System.EventHandler(this.toolStripMenuItemVehicleCategory_Click);
-            // 
-            // toolStripMenuItemVehicleStatus
-            // 
-            this.toolStripMenuItemVehicleStatus.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItemVehicleStatus.Image = global::CarRental.Properties.Resources.VehicleStatus_64;
-            this.toolStripMenuItemVehicleStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemVehicleStatus.Name = "toolStripMenuItemVehicleStatus";
-            this.toolStripMenuItemVehicleStatus.Size = new System.Drawing.Size(332, 74);
-            this.toolStripMenuItemVehicleStatus.Text = "حالة المركبة";
-            this.toolStripMenuItemVehicleStatus.Click += new System.EventHandler(this.toolStripMenuItemVehicleStatus_Click);
             // 
             // toolStripMenuItemFuelTypes
             // 
@@ -201,9 +198,21 @@
             this.toolStripMenuItemFuelTypes.Image = global::CarRental.Properties.Resources.fuelType_64;
             this.toolStripMenuItemFuelTypes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemFuelTypes.Name = "toolStripMenuItemFuelTypes";
-            this.toolStripMenuItemFuelTypes.Size = new System.Drawing.Size(332, 74);
+            this.toolStripMenuItemFuelTypes.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemFuelTypes.Tag = "FuelTypes.View";
             this.toolStripMenuItemFuelTypes.Text = "أنواع الوقود";
             this.toolStripMenuItemFuelTypes.Click += new System.EventHandler(this.toolStripMenuItemFuelTypes_Click);
+            // 
+            // toolStripMenuItemVehicleStatus
+            // 
+            this.toolStripMenuItemVehicleStatus.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemVehicleStatus.Image = global::CarRental.Properties.Resources.VehicleStatus_64;
+            this.toolStripMenuItemVehicleStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemVehicleStatus.Name = "toolStripMenuItemVehicleStatus";
+            this.toolStripMenuItemVehicleStatus.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemVehicleStatus.Tag = "VehicleStatus.View";
+            this.toolStripMenuItemVehicleStatus.Text = "حالة المركبة";
+            this.toolStripMenuItemVehicleStatus.Click += new System.EventHandler(this.toolStripMenuItemVehicleStatus_Click);
             // 
             // toolStripMenuItemVehicleInsurance
             // 
@@ -211,7 +220,8 @@
             this.toolStripMenuItemVehicleInsurance.Image = global::CarRental.Properties.Resources.VehicleInsurance_64;
             this.toolStripMenuItemVehicleInsurance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleInsurance.Name = "toolStripMenuItemVehicleInsurance";
-            this.toolStripMenuItemVehicleInsurance.Size = new System.Drawing.Size(332, 74);
+            this.toolStripMenuItemVehicleInsurance.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemVehicleInsurance.Tag = "VehicleInsurance.View";
             this.toolStripMenuItemVehicleInsurance.Text = "تأمين المركبات";
             this.toolStripMenuItemVehicleInsurance.Click += new System.EventHandler(this.toolStripMenuItemVehicleInsurance_Click);
             // 
@@ -221,7 +231,8 @@
             this.toolStripMenuItemVehicleDamage.Image = global::CarRental.Properties.Resources.VehicleDamage_64;
             this.toolStripMenuItemVehicleDamage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleDamage.Name = "toolStripMenuItemVehicleDamage";
-            this.toolStripMenuItemVehicleDamage.Size = new System.Drawing.Size(332, 74);
+            this.toolStripMenuItemVehicleDamage.Size = new System.Drawing.Size(328, 74);
+            this.toolStripMenuItemVehicleDamage.Tag = "VehicleDamage.View";
             this.toolStripMenuItemVehicleDamage.Text = "أضرار المركبات";
             this.toolStripMenuItemVehicleDamage.Click += new System.EventHandler(this.toolStripMenuItemVehicleDamage_Click);
             // 
@@ -233,12 +244,12 @@
             this.toolStripMenuItemBookingStatus,
             this.toolStripMenuItemReturnStatus,
             this.toolStripMenuItemRatePlans});
-            this.toolStripMenuItemRentals.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemRentals.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemRentals.Image = global::CarRental.Properties.Resources.RentalCars_64;
             this.toolStripMenuItemRentals.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemRentals.Name = "toolStripMenuItemRentals";
             this.toolStripMenuItemRentals.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemRentals.Size = new System.Drawing.Size(166, 67);
+            this.toolStripMenuItemRentals.Size = new System.Drawing.Size(148, 67);
             this.toolStripMenuItemRentals.Text = "التأجير";
             // 
             // toolStripMenuItemRentalBooking
@@ -247,7 +258,8 @@
             this.toolStripMenuItemRentalBooking.Image = global::CarRental.Properties.Resources.RentalBooking_64;
             this.toolStripMenuItemRentalBooking.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemRentalBooking.Name = "toolStripMenuItemRentalBooking";
-            this.toolStripMenuItemRentalBooking.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemRentalBooking.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemRentalBooking.Tag = "RentalBooking.View";
             this.toolStripMenuItemRentalBooking.Text = "حجز المركبة";
             this.toolStripMenuItemRentalBooking.Click += new System.EventHandler(this.toolStripMenuItemRentalBooking_Click);
             // 
@@ -257,7 +269,8 @@
             this.toolStripMenuItemVehicleReturn.Image = global::CarRental.Properties.Resources.VehicleReturn_64;
             this.toolStripMenuItemVehicleReturn.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehicleReturn.Name = "toolStripMenuItemVehicleReturn";
-            this.toolStripMenuItemVehicleReturn.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemVehicleReturn.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemVehicleReturn.Tag = "VehicleReturn.View";
             this.toolStripMenuItemVehicleReturn.Text = "إرجاع المركبة";
             this.toolStripMenuItemVehicleReturn.Click += new System.EventHandler(this.toolStripMenuItemVehicleReturn_Click);
             // 
@@ -267,7 +280,8 @@
             this.toolStripMenuItemBookingStatus.Image = global::CarRental.Properties.Resources.BookingStatus_64;
             this.toolStripMenuItemBookingStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemBookingStatus.Name = "toolStripMenuItemBookingStatus";
-            this.toolStripMenuItemBookingStatus.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemBookingStatus.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemBookingStatus.Tag = "BookingStatus.View";
             this.toolStripMenuItemBookingStatus.Text = "حالة الحجز";
             this.toolStripMenuItemBookingStatus.Click += new System.EventHandler(this.toolStripMenuItemBookingStatus_Click);
             // 
@@ -277,7 +291,8 @@
             this.toolStripMenuItemReturnStatus.Image = global::CarRental.Properties.Resources.ReturnStatus_64;
             this.toolStripMenuItemReturnStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemReturnStatus.Name = "toolStripMenuItemReturnStatus";
-            this.toolStripMenuItemReturnStatus.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemReturnStatus.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemReturnStatus.Tag = "ReturnStatus.View";
             this.toolStripMenuItemReturnStatus.Text = "حالة الإرجاع";
             this.toolStripMenuItemReturnStatus.Click += new System.EventHandler(this.toolStripMenuItemReturnStatus_Click);
             // 
@@ -287,7 +302,8 @@
             this.toolStripMenuItemRatePlans.Image = global::CarRental.Properties.Resources.RatePlans_64;
             this.toolStripMenuItemRatePlans.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemRatePlans.Name = "toolStripMenuItemRatePlans";
-            this.toolStripMenuItemRatePlans.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemRatePlans.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemRatePlans.Tag = "RatePlans.View";
             this.toolStripMenuItemRatePlans.Text = "خطط الأسعار";
             this.toolStripMenuItemRatePlans.Click += new System.EventHandler(this.toolStripMenuItemRatePlans_Click);
             // 
@@ -295,15 +311,15 @@
             // 
             this.toolStripMenuItemPayments.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPaymentTransactions,
-            this.toolStripMenuItemPaymentMethods,
             this.toolStripMenuItemPaymentStatus,
+            this.toolStripMenuItemPaymentMethods,
             this.toolStripMenuItemInvoices});
-            this.toolStripMenuItemPayments.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemPayments.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemPayments.Image = global::CarRental.Properties.Resources.Payments_64;
             this.toolStripMenuItemPayments.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPayments.Name = "toolStripMenuItemPayments";
             this.toolStripMenuItemPayments.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemPayments.Size = new System.Drawing.Size(220, 67);
+            this.toolStripMenuItemPayments.Size = new System.Drawing.Size(191, 67);
             this.toolStripMenuItemPayments.Text = "المدفوعات";
             // 
             // toolStripMenuItemPaymentTransactions
@@ -312,19 +328,10 @@
             this.toolStripMenuItemPaymentTransactions.Image = global::CarRental.Properties.Resources.PaymentTransactions_64;
             this.toolStripMenuItemPaymentTransactions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPaymentTransactions.Name = "toolStripMenuItemPaymentTransactions";
-            this.toolStripMenuItemPaymentTransactions.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemPaymentTransactions.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemPaymentTransactions.Tag = "PaymentTransactions.View";
             this.toolStripMenuItemPaymentTransactions.Text = "عمليات الدفع";
             this.toolStripMenuItemPaymentTransactions.Click += new System.EventHandler(this.toolStripMenuItemPaymentTransactions_Click);
-            // 
-            // toolStripMenuItemPaymentMethods
-            // 
-            this.toolStripMenuItemPaymentMethods.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItemPaymentMethods.Image = global::CarRental.Properties.Resources.PaymentMethods_64;
-            this.toolStripMenuItemPaymentMethods.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItemPaymentMethods.Name = "toolStripMenuItemPaymentMethods";
-            this.toolStripMenuItemPaymentMethods.Size = new System.Drawing.Size(315, 74);
-            this.toolStripMenuItemPaymentMethods.Text = "طرق الدفع";
-            this.toolStripMenuItemPaymentMethods.Click += new System.EventHandler(this.toolStripMenuItemPaymentMethods_Click);
             // 
             // toolStripMenuItemPaymentStatus
             // 
@@ -332,9 +339,21 @@
             this.toolStripMenuItemPaymentStatus.Image = global::CarRental.Properties.Resources.PaymentStatus_64;
             this.toolStripMenuItemPaymentStatus.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemPaymentStatus.Name = "toolStripMenuItemPaymentStatus";
-            this.toolStripMenuItemPaymentStatus.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemPaymentStatus.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemPaymentStatus.Tag = "PaymentStatus.View";
             this.toolStripMenuItemPaymentStatus.Text = "حالة الدفع";
             this.toolStripMenuItemPaymentStatus.Click += new System.EventHandler(this.toolStripMenuItemPaymentStatus_Click);
+            // 
+            // toolStripMenuItemPaymentMethods
+            // 
+            this.toolStripMenuItemPaymentMethods.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemPaymentMethods.Image = global::CarRental.Properties.Resources.PaymentMethods_64;
+            this.toolStripMenuItemPaymentMethods.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemPaymentMethods.Name = "toolStripMenuItemPaymentMethods";
+            this.toolStripMenuItemPaymentMethods.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemPaymentMethods.Tag = "PaymentMethods.View";
+            this.toolStripMenuItemPaymentMethods.Text = "طرق الدفع";
+            this.toolStripMenuItemPaymentMethods.Click += new System.EventHandler(this.toolStripMenuItemPaymentMethods_Click);
             // 
             // toolStripMenuItemInvoices
             // 
@@ -342,18 +361,20 @@
             this.toolStripMenuItemInvoices.Image = global::CarRental.Properties.Resources.PaymentReports_64;
             this.toolStripMenuItemInvoices.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemInvoices.Name = "toolStripMenuItemInvoices";
-            this.toolStripMenuItemInvoices.Size = new System.Drawing.Size(315, 74);
+            this.toolStripMenuItemInvoices.Size = new System.Drawing.Size(311, 74);
+            this.toolStripMenuItemInvoices.Tag = "Invoices.View";
             this.toolStripMenuItemInvoices.Text = "الفواتير";
             this.toolStripMenuItemInvoices.Click += new System.EventHandler(this.toolStripMenuItemInvoices_Click);
             // 
             // toolStripMenuItemMaintenance
             // 
-            this.toolStripMenuItemMaintenance.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemMaintenance.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemMaintenance.Image = global::CarRental.Properties.Resources.maintenance_64;
             this.toolStripMenuItemMaintenance.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemMaintenance.Name = "toolStripMenuItemMaintenance";
             this.toolStripMenuItemMaintenance.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemMaintenance.Size = new System.Drawing.Size(180, 67);
+            this.toolStripMenuItemMaintenance.Size = new System.Drawing.Size(159, 67);
+            this.toolStripMenuItemMaintenance.Tag = "Maintenance.View";
             this.toolStripMenuItemMaintenance.Text = "الصيانة";
             this.toolStripMenuItemMaintenance.Click += new System.EventHandler(this.toolStripMenuItemMaintenance_Click);
             // 
@@ -363,12 +384,12 @@
             this.toolStripMenuItemRentalReports,
             this.toolStripMenuItemVehiclesReports,
             this.toolStripMenuItemCustomersReports});
-            this.toolStripMenuItemReports.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemReports.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemReports.Image = global::CarRental.Properties.Resources.reports_64;
             this.toolStripMenuItemReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemReports.Name = "toolStripMenuItemReports";
             this.toolStripMenuItemReports.RightToLeftAutoMirrorImage = true;
-            this.toolStripMenuItemReports.Size = new System.Drawing.Size(178, 67);
+            this.toolStripMenuItemReports.Size = new System.Drawing.Size(157, 67);
             this.toolStripMenuItemReports.Text = "التقارير";
             // 
             // toolStripMenuItemRentalReports
@@ -377,7 +398,8 @@
             this.toolStripMenuItemRentalReports.Image = global::CarRental.Properties.Resources.RentalReports_64;
             this.toolStripMenuItemRentalReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemRentalReports.Name = "toolStripMenuItemRentalReports";
-            this.toolStripMenuItemRentalReports.Size = new System.Drawing.Size(335, 74);
+            this.toolStripMenuItemRentalReports.Size = new System.Drawing.Size(331, 74);
+            this.toolStripMenuItemRentalReports.Tag = "Report.Rentals";
             this.toolStripMenuItemRentalReports.Text = "تقارير التأجير";
             this.toolStripMenuItemRentalReports.Click += new System.EventHandler(this.toolStripMenuItemRentalReports_Click);
             // 
@@ -387,7 +409,8 @@
             this.toolStripMenuItemVehiclesReports.Image = global::CarRental.Properties.Resources.VehiclesReports_64;
             this.toolStripMenuItemVehiclesReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemVehiclesReports.Name = "toolStripMenuItemVehiclesReports";
-            this.toolStripMenuItemVehiclesReports.Size = new System.Drawing.Size(335, 74);
+            this.toolStripMenuItemVehiclesReports.Size = new System.Drawing.Size(331, 74);
+            this.toolStripMenuItemVehiclesReports.Tag = "Report.Vehicles";
             this.toolStripMenuItemVehiclesReports.Text = "تقارير المركبات";
             this.toolStripMenuItemVehiclesReports.Click += new System.EventHandler(this.toolStripMenuItemVehiclesReports_Click);
             // 
@@ -397,7 +420,8 @@
             this.toolStripMenuItemCustomersReports.Image = global::CarRental.Properties.Resources.CustomersReports_64;
             this.toolStripMenuItemCustomersReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemCustomersReports.Name = "toolStripMenuItemCustomersReports";
-            this.toolStripMenuItemCustomersReports.Size = new System.Drawing.Size(335, 74);
+            this.toolStripMenuItemCustomersReports.Size = new System.Drawing.Size(331, 74);
+            this.toolStripMenuItemCustomersReports.Tag = "Report.Customers";
             this.toolStripMenuItemCustomersReports.Text = "تقارير العملاء";
             this.toolStripMenuItemCustomersReports.Click += new System.EventHandler(this.toolStripMenuItemCustomersReports_Click);
             // 
@@ -407,11 +431,11 @@
             this.toolStripMenuItemUsers,
             this.toolStripMenuItemInsuranceTypes,
             this.toolStripMenuItemLocations});
-            this.toolStripMenuItemSystem.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemSystem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemSystem.Image = global::CarRental.Properties.Resources.System_64;
             this.toolStripMenuItemSystem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSystem.Name = "toolStripMenuItemSystem";
-            this.toolStripMenuItemSystem.Size = new System.Drawing.Size(168, 67);
+            this.toolStripMenuItemSystem.Size = new System.Drawing.Size(150, 67);
             this.toolStripMenuItemSystem.Text = "النظام";
             // 
             // toolStripMenuItemUsers
@@ -423,7 +447,8 @@
             this.toolStripMenuItemUsers.Image = global::CarRental.Properties.Resources.Users_64;
             this.toolStripMenuItemUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemUsers.Name = "toolStripMenuItemUsers";
-            this.toolStripMenuItemUsers.Size = new System.Drawing.Size(307, 74);
+            this.toolStripMenuItemUsers.Size = new System.Drawing.Size(303, 74);
+            this.toolStripMenuItemUsers.Tag = "Users.View";
             this.toolStripMenuItemUsers.Text = "المستخدمون";
             this.toolStripMenuItemUsers.Click += new System.EventHandler(this.toolStripMenuItemUsers_Click);
             // 
@@ -434,6 +459,7 @@
             this.toolStripMenuItemRoles.Name = "toolStripMenuItemRoles";
             this.toolStripMenuItemRoles.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripMenuItemRoles.Size = new System.Drawing.Size(422, 74);
+            this.toolStripMenuItemRoles.Tag = "Roles.View";
             this.toolStripMenuItemRoles.Text = "إدارة الأدوار";
             this.toolStripMenuItemRoles.Click += new System.EventHandler(this.toolStripMenuItemRoles_Click);
             // 
@@ -444,6 +470,7 @@
             this.toolStripMenuItemRolePermissions.Name = "toolStripMenuItemRolePermissions";
             this.toolStripMenuItemRolePermissions.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripMenuItemRolePermissions.Size = new System.Drawing.Size(422, 74);
+            this.toolStripMenuItemRolePermissions.Tag = "RolePermissions.View";
             this.toolStripMenuItemRolePermissions.Text = "إدارة الصلاحيات للأدوار";
             this.toolStripMenuItemRolePermissions.Click += new System.EventHandler(this.toolStripMenuItemRolePermissions_Click);
             // 
@@ -453,7 +480,8 @@
             this.toolStripMenuItemInsuranceTypes.Image = global::CarRental.Properties.Resources.insuranceTypes_64;
             this.toolStripMenuItemInsuranceTypes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemInsuranceTypes.Name = "toolStripMenuItemInsuranceTypes";
-            this.toolStripMenuItemInsuranceTypes.Size = new System.Drawing.Size(307, 74);
+            this.toolStripMenuItemInsuranceTypes.Size = new System.Drawing.Size(303, 74);
+            this.toolStripMenuItemInsuranceTypes.Tag = "InsuranceType.View";
             this.toolStripMenuItemInsuranceTypes.Text = "أنواع التأمين";
             this.toolStripMenuItemInsuranceTypes.Click += new System.EventHandler(this.toolStripMenuItemInsuranceTypes_Click);
             // 
@@ -463,29 +491,41 @@
             this.toolStripMenuItemLocations.Image = global::CarRental.Properties.Resources.Locations_64;
             this.toolStripMenuItemLocations.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemLocations.Name = "toolStripMenuItemLocations";
-            this.toolStripMenuItemLocations.Size = new System.Drawing.Size(307, 74);
+            this.toolStripMenuItemLocations.Size = new System.Drawing.Size(303, 74);
+            this.toolStripMenuItemLocations.Tag = "Locations.View";
             this.toolStripMenuItemLocations.Text = "المواقع";
             this.toolStripMenuItemLocations.Click += new System.EventHandler(this.toolStripMenuItemLocations_Click);
             // 
             // toolStripMenuItemSettings
             // 
-            this.toolStripMenuItemSettings.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemSettings.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemSettings.Image = global::CarRental.Properties.Resources.settings_64;
             this.toolStripMenuItemSettings.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemSettings.Name = "toolStripMenuItemSettings";
-            this.toolStripMenuItemSettings.Size = new System.Drawing.Size(204, 67);
+            this.toolStripMenuItemSettings.Size = new System.Drawing.Size(179, 67);
+            this.toolStripMenuItemSettings.Tag = "Settings.Edit";
             this.toolStripMenuItemSettings.Text = "الإعدادات";
             this.toolStripMenuItemSettings.Click += new System.EventHandler(this.toolStripMenuItemSettings_Click);
             // 
             // toolStripMenuItemAboutMe
             // 
-            this.toolStripMenuItemAboutMe.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItemAboutMe.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItemAboutMe.Image = global::CarRental.Properties.Resources.aboutMe_64;
             this.toolStripMenuItemAboutMe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemAboutMe.Name = "toolStripMenuItemAboutMe";
-            this.toolStripMenuItemAboutMe.Size = new System.Drawing.Size(225, 67);
+            this.toolStripMenuItemAboutMe.Size = new System.Drawing.Size(195, 67);
             this.toolStripMenuItemAboutMe.Text = "حول النظام";
             this.toolStripMenuItemAboutMe.Click += new System.EventHandler(this.toolStripMenuItemAboutMe_Click);
+            // 
+            // toolStripMenuItemlogout
+            // 
+            this.toolStripMenuItemlogout.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.toolStripMenuItemlogout.Image = global::CarRental.Properties.Resources.logout_64;
+            this.toolStripMenuItemlogout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItemlogout.Name = "toolStripMenuItemlogout";
+            this.toolStripMenuItemlogout.Size = new System.Drawing.Size(205, 67);
+            this.toolStripMenuItemlogout.Text = "تسجيل خروج";
+            this.toolStripMenuItemlogout.Click += new System.EventHandler(this.toolStripMenuItemlogout_Click);
             // 
             // pnlMain
             // 
@@ -493,7 +533,7 @@
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 71);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1569, 510);
+            this.pnlMain.Size = new System.Drawing.Size(1440, 510);
             this.pnlMain.TabIndex = 1;
             // 
             // pictureBox1
@@ -502,7 +542,7 @@
             this.pictureBox1.Image = global::CarRental.Properties.Resources.CarRentalIcon_512;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1569, 510);
+            this.pictureBox1.Size = new System.Drawing.Size(1440, 510);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -512,7 +552,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1569, 581);
+            this.ClientSize = new System.Drawing.Size(1440, 581);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -574,5 +614,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSettings;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAboutMe;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemlogout;
     }
 }

@@ -14,7 +14,7 @@ namespace CarRental_Buisness
         public static clsUserDto User { get;private set; } 
         public static bool IsLoggedIn => User != null;
 
-        public static int UserID => User?.UserID ?? 1;
+        public static int UserID => User?.UserID ?? -1;
 
         public static void Set(clsUserDto user)
         {

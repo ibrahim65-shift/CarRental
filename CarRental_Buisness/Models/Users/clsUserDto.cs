@@ -18,5 +18,6 @@ namespace CarRental_Buisness.Models.Users
         public bool IsDeleted { get; set; }
         public bool IsLockedOut { get; set; }
         public int PersonID { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

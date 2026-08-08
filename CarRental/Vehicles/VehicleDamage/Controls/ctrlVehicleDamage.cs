@@ -2,6 +2,7 @@
 using CarRental.Helper;
 using CarRental.Vehicles.VehicleDamage.Forms;
 using CarRental.Vehicles.VehiclesList.Forms;
+using CarRental_Buisness;
 using CarRental_Buisness.Helpers;
 using CarRental_Buisness.Models.Attachments;
 using CarRental_Buisness.Services.VehicleDamage;
@@ -70,6 +71,9 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
         public ctrlVehicleDamage(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _VehicleDamageervice = new clsVehicleDamageService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -95,6 +99,12 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
      
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل أضرار المركبات");
+                return;
+            }
+
             if (!_TryGetSelectedDamageId(out int?damageId))
                 return;
 
@@ -128,6 +138,12 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف أضرار المركبات");
+                return;
+            }
+
             if (!_TryGetSelectedDamageId(out int?VehicleId))
                 return;
 
@@ -163,6 +179,12 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات أضرار المركبات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)
@@ -299,6 +321,12 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
         }
         private void toolStripMenuItemAttach_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(toolStripMenuItemAttach.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة مرفق");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -490,10 +518,13 @@ namespace CarRental.Vehicles.VehicleDamage.Controls
             _SetColumnHeader(Columns.EditedDate       , "تاريخ التعديل"  );
             _SetColumnHeader(Columns.EditedByUserID   , "المعدل"         );
 
-            _HideColumn(Columns.CreatedDate);
-            _HideColumn(Columns.CreatedByUserID);
-            _HideColumn(Columns.EditedDate);
-            _HideColumn(Columns.EditedByUserID);
+            if(!clsCurrentUser.User.IsAdmin)
+            {
+                _HideColumn(Columns.CreatedDate);
+                _HideColumn(Columns.CreatedByUserID);
+                _HideColumn(Columns.EditedDate);
+                _HideColumn(Columns.EditedByUserID);
+            }
 
         }
         private void _SetColumnHeader(string columnName, string headerText)

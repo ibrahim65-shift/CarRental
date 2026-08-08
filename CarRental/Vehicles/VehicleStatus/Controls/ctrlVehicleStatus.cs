@@ -47,6 +47,9 @@ namespace CarRental.Vehicles.VehicleStatus.Controls
         public ctrlVehicleStatus(frmMain frmMain)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _VehicleStatuservice = new clsVehicleStatusService();
             _frmMain = frmMain ?? throw new ArgumentNullException(nameof(frmMain));
         }
@@ -71,6 +74,12 @@ namespace CarRental.Vehicles.VehicleStatus.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات حالة المركبات");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void txtSearch_TextChanged(object sender, EventArgs e)

@@ -37,6 +37,9 @@ namespace CarRental.Permissions.Roles.Controls
         public ctrlRoles(frmMain main)
         {
             InitializeComponent();
+
+            clsPermissionHelper.ApplyPermissions(this);
+
             _frmMain = main;
             _roleService = new clsRoleService();
             cbFilter.SelectedIndex = 0; 
@@ -52,6 +55,12 @@ namespace CarRental.Permissions.Roles.Controls
         }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnAdd.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية إضافة دور");
+                return;
+            }
+
             try
             {
                 using(frmAddEditRole frm = new frmAddEditRole(_roleService , null))
@@ -71,6 +80,12 @@ namespace CarRental.Permissions.Roles.Controls
         }
         private async void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnEdit.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تعديل دور");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -96,6 +111,12 @@ namespace CarRental.Permissions.Roles.Controls
         }
         private async void btnDelete_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnDelete.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية حذف دور");
+                return;
+            }
+
             if (!_TryGetSelectedRow(out DataGridViewRow row))
                 return;
 
@@ -134,6 +155,12 @@ namespace CarRental.Permissions.Roles.Controls
         }
         private void btnExport_Click(object sender, EventArgs e)
         {
+            if (!clsAuthorizationCache.HasPermission(btnExport.Tag.ToString()))
+            {
+                clsMessages.ShowError("ليس لديك صلاحية تصدير بيانات الأدوار");
+                return;
+            }
+
             _ExportToExcel();
         }
         private async void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
